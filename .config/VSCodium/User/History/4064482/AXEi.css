@@ -1,0 +1,221 @@
+@import "colors/ghost-spider.css";
+
+* {
+    border-radius: 15px;
+    font-family: "SauceCodePro Nerd Font", FontAwesome;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @sfondo;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 0;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inherit;
+    border-radius: 10px;
+}
+
+button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    /*transform: translateY(4px);*/
+}
+
+#workspaces {
+    background-color: #c52a46;
+    margin: 6px 3px;
+    padding: 0px 10px;
+}
+
+#workspaces button {
+    color: #2f354a;
+    background-color: #2f354a;
+    padding: 0px 5px;
+    margin: 6px 8px;
+    border-radius: 15px;
+    min-width: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+	border-radius: 15px;
+    min-width: 50px;
+}
+
+#workspaces button.active {
+    color: #cdd6f4;
+    background-color: #cdd6f4;
+    border-radius: 15px;
+    min-width: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#idle_inhibitor,
+#custom-pacman,
+#window,
+#mpd {
+    padding: 0px 15px;
+    margin: 6px 3px;
+    color: #ffffff;
+}
+
+
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #38518C;
+}
+
+#battery {
+    background-color: #2A2350;
+}
+
+#battery.charging, #battery.plugged {
+    color: #000000;
+    background-color: rgb(15, 241, 181);
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #fffb11;
+    color: #000000;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: @sfondo;
+}
+
+#backlight {
+    background-color: #38518C;
+}
+
+#network {
+    background-color: #C33161;
+}
+
+#network.disconnected {
+    background-color: #f0932b;
+}
+
+#pulseaudio {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#pulseaudio.muted {
+    background-color: #B886AB;
+    color: #2a5c45;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#custom-media {
+    background-color: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+    background-color: #ffa000;
+}
+
+
+#tray {
+    background-color: #2980b9;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+/*pacman updates*/
+@keyframes blink-update {
+	to {
+		background-color: #9FB935;
+	}
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+    color:#000000
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+}
+

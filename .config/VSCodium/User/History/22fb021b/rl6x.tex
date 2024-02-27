@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Verdana}
+
+\title{Limiti dell'Algoritmo EIG (Compito 7.2)}
+\author{Edoardo Vassallo S4965918}
+\date{4 Giugno 2023}
+
+\begin{document}
+
+\maketitle
+
+In questo foglio, mostreremo come l'algoritmo Exponential Information Gathering (EIG) è incapace di neutralizzare gli effetti del generale traditore nel problema dell'Accordo Bizantino, nel caso in cui sono presenti due generali leali ed un traditore. \\
+Questo avviene sia nel caso in cui i generali siano inizialmente d'accordo, sia nel caso in cui non lo siano.
+
+\section{Generali Concordi}
+In questa sezione analizzeremo il caso in cui i generali sono concordi.\\
+
+Nei nostri esempi, useremo le seguenti regole:
+\begin{itemize}
+    \item I generali saranno chiamati $A, B, C$.
+    \item Il generale traditore sarà sempre $C$.
+    \item Ogni generale può inviare il segnale $1$ o $0$.
+    \item $C$ invierà nella prima comunicazione lo stesso segnale $x$ ad $A$ e $B$, allo scopo di non farsi scoprire. Nella seconda comunicazione dovrà inviare il bit corretto sul generale con cui sta comunicando, mentre potrà mentire, inviando i bit $y$ e $z$, sul generale rimanente.
+    \item La decisione finale del generale $A$ sarà chiamata $\lambda$, quella di $B$ sarà $\mu$.
+    \item In caso di pareggio nella valutazione dell'albero, viene scelto un valore di default concordato fra i generali leali, che chiamiamo $?$.
+\end{itemize}   
+
+Come esempio, prendiamo la comunicazione in cui i generali leali sono concordi sul bit $1$. Gli alberi creati, secondo l'algoritmo $EIG$, dai due nodi avranno forma:
+
+\begin{center}
+    \includegraphics[width=120mm]{EIG-A1B1.png}
+\end{center}
+
+In questo caso, basta che $C$ invii i seguenti messaggi:
+
+\begin{align*}
+    x = y &= 0\\
+    z &= 1
+\end{align*}
+
+Gli alberi ottenuti ricalcolando i valori ad ogni nodo hanno forma:
+
+\begin{center}
+    \includegraphics[width=120mm]{EIG-A1B1-C001.png}
+\end{center}
+
+Osserviamo che tramite questi messaggi, l'esito della comunicazione dipende dal valore di $?$. Nel caso in cui $? = 0$, i generali ottengono valori discordi, nel caso in cui $? = 1$ essi concordano sul valore di default.\\
+
+Nel caso concorde, è addirittura possibile fare in modo che i generali ottengano un valore opposto rispetto a quello su cui erano inizialmente d'accordo. 
+Questo si può ad esempio ottenere nel caso in cui i rispettivi bit valgano:
+
+\begin{align*}
+    A&\to 1 \\
+    B&\to 1 \\
+    C&: \; x = y = z = 0\\
+    ?& = 0
+\end{align*}
+
+In questo caso, gli alberi ricalcolati dai generali leali avrebbero forma:
+
+\begin{center}
+    \includegraphics[width=120mm]{EIG-A1B1-C000.png}
+\end{center}
+
+Questo vìola ovviamente il vincolo di validità del protocollo.
+
+\section{Generali Discordi}
+
+Nel nostro esempio, $A$ invierà il bit $1$, $B$ il bit $0$. Gli alberi costruiti avranno forma:
+
+\begin{center}
+    \includegraphics[width=120mm]{EIG-A1B0.png}
+\end{center}
+
+Il sabotatore può nuovamente riuscire nel suo intento inviando i seguenti messaggi:
+
+\begin{align*}
+    y = z &= 0\\
+    x &= 1
+\end{align*}
+
+In questo caso, gli alberi ricalcolati avranno forma:
+
+\begin{center}
+    \includegraphics[width=120mm]{EIG-A1B0-C100.png}
+\end{center}
+
+Si può notare che il valore di $y$ è in realtà irrilevante.\\
+\\
+Similmente a prima, il risultato è dipendente dal valore di default $?$. Nel caso in cui $?=0$, i generali ottengono valori discordi, nel caso in cui $? = 1$ essi concordano sul valore di default \\
+
+\section{Commenti}
+
+Abbiamo dimostrato che il sabotatore è in grado di inviare messaggi capaci di sabotare la comunicazione sulla base del valore di default adottato dai generali leali.
+La dipendenza della correttezza della comunicazione dal valore di default va direttamente contro uno dei due vincoli sulla base dei quali il protocollo è pensato, ovvero il vincolo di validità\\
+
+Questo testimonia quindi l'incapacità dell'algoritmo nel ritrovare un accordo nel caso in cui i generali leali $l$ ed i generali traditori $f$ siano in rapporto:
+
+\begin{align*}
+    l < 2f + 1
+\end{align*}
+
+\end{document}

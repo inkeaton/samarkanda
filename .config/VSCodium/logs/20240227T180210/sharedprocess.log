@@ -1,0 +1,14 @@
+2024-02-27 18:14:14.690 [info] Getting Manifest... james-yu.latex-workshop
+2024-02-27 18:14:14.837 [info] Installing extension: james-yu.latex-workshop
+2024-02-27 18:14:16.307 [info] Extension signature verification is not done: james-yu.latex-workshop
+2024-02-27 18:14:17.228 [info] Extracted extension to file:///home/inkeaton/.vscode-oss/extensions/james-yu.latex-workshop-9.18.2-universal: james-yu.latex-workshop
+2024-02-27 18:14:17.243 [info] Renamed to /home/inkeaton/.vscode-oss/extensions/james-yu.latex-workshop-9.18.2-universal
+2024-02-27 18:14:17.245 [info] Extracting extension completed. james-yu.latex-workshop
+2024-02-27 18:14:17.260 [info] Extension installed successfully: james-yu.latex-workshop
+2024-02-27 18:14:17.339 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/inkeaton/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/inkeaton/.vscode-oss/extensions/extensions.json.vsctmp'
+    at r.create (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:35852)
+    at a (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:35986)
+    at s.toFileSystemProviderError (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:47852)
+    at s.stat (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:38447)
+    at async C.stat (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:20932)
+    at async Y.onDidFilesChange (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:100:138138)

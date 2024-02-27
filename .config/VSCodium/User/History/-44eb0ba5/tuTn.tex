@@ -1,0 +1,1533 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{glossaries}
+\newcommand{\so}{\quad \rightarrow \quad}
+\newcommand{\So}{\quad \Rightarrow \quad}
+\newcommand{\ce}[1]{\begin{center}\textit{#1}\end{center}}
+\newcommand{\dpar}[3]{\left(\frac{\partial #1}{\partial #2}\right)_{#3}d#2}
+\newcommand{\img}[2]
+{
+\begin{center}
+    \includegraphics[width=#1 cm]{#2}
+\end{center}
+}
+\newcommand{\dparx}[3]{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}
+
+\makeglossaries
+
+
+\newglossaryentry{x_i}
+{name=$x_i$,    description={frazione molare $\so x_i=\frac{n_i}{n_{tot}}$}}
+\newglossaryentry{V_m}
+{name=$V_m$,    description={volume molare $\so V_m=\frac{V}{n}$}}
+\newglossaryentry{z}{name=z, description=fattore di compressibilità/comprimibilità}
+\newglossaryentry{C}{name=C, description=capacità termica}
+\newglossaryentry{nu}
+{name=$\nu$,    description={coefficiente stechiometrico, ha segno positivo per i prodotti e negativo per i reagenti}}
+\newglossaryentry{a}{name=$a$, description=attività della specie gassosa}
+\newglossaryentry{xi}{name=$\xi$, description=grado di avanzamento della reazione}
+\newglossaryentry{gamma}{name=$\gamma$, description=coefficiente di fugacità o di attività}
+\newglossaryentry{teta}{name=$\theta$, description=temperatura di Debye}
+
+
+
+\title{Chimica Fisica 1}
+\author{Help}
+\date{June 2023}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Richiami di termodinamica classica}
+
+Il \textbf{Sistema} è l'oggetto di una qualsiasi indagine sperimentale, è costituito da una porzione di materia. Può essere:
+\begin{itemize}
+\item Aperto: Scambia energia e materia con l'ambiente
+\item Chiuso: Scambia solo energia con l'ambiente
+\item Isolato: Non scambia né energia né materia con l'ambiente. Questa è solo un'ipotesi, non esiste un sistema realmente isolato.
+\end{itemize}
+L'\textbf{Ambiente} è tutto ciò che non fa parte del sistema. Erroneamente veniva chiamato il serbatoio illimitato di calore. \\
+L'\textbf{Universo} è la totalità osservabile costituita di sistema e ambiente.
+\paragraph{Lo stato del sistema} è definito tramite una \textit{funzione di stato}, che dipenderà quindi da tante \textit{variabili}:
+\begin{itemize}
+    \item \textbf{Estensive} (o fattori di capacità): dipendono dalle dimensioni del sistema e sono additive (volume, massa, calore, numero di moli, etc) 
+    \item \textbf{Intensive} (o fattori di intensità): sono indipendenti dalle dimensioni del sistema e non sono additive (pressione, temperatura, concentrazione, etc)
+\end{itemize}
+Lo stato del sistema evolve tramite trasformazioni che possono essere condotte a $p=costante$ quindi isobare, a $V=costante$ quindi isocore, a $T=costante$ quindi isoterme e tramite trasformazioni adiabatiche, se il sistema non cede calore all'ambiente. Quest'ultima è solo un'ipotesi, si possono fare approssimazioni ad una trasformazione adiabatica se il calore scambiato è piccolo. \\
+
+Un sistema è in \textit{equilibrio} se le sue \textit{variabili rimangono inalterate nel tempo}. Uno stato di equilibrio rappresenta una condizione particolarmente semplice di un sistema. \\
+Per poter trattare di termodinamica di non equilibrio (in cui stanno effettivamente avvenendo le trasformazioni) bisogna introdurre le disequazioni. Dunque porre le disequazioni come equazioni semplifica i calcoli e permette di prevedere andamenti.
+
+\subsection{Principio zero della termodinamica} 
+\ce{Se due sistemi sono in equilibrio termico ciascuno con un terzo sistema, allora i primi due sistemi saranno in equilibrio termico anche tra loro}
+
+\subsection{Le proprietà dei gas}
+\begin{align*}
+    \text{Legge di Boyle-Mariotte (T=costante)} \quad&\quad pV=costante \\
+    \text{Legge di Charles (p=costante)} \quad&\quad \frac{V}{T}=costante \\
+\end{align*}
+\textit{Principio di Avogadro}: Volumi uguali di gas perfetti, nelle stesse condizioni di temperatura e pressione, contengono lo stesso numero di molecole.
+\paragraph{Equazione di stato dei gas perfetti}
+\begin{equation}
+    pV=nRT
+\end{equation}
+$R=0,082 \frac{L\cdot atm}{K\cdot mol} \equiv 8,31 \frac{J}{mol\cdot K}\equiv 1,987 \frac{cal}{mol\cdot K}$
+
+\paragraph{Legge di Dalton}
+La pressione totale ($p_{tot}$) esercitata da una miscela ideale di gas perfetti è la somma delle pressioni parziali $p_i$ esercitate da ciascun gas
+\begin{equation*}
+    P_{tot}=\sum_i p_i=\sum_i p_i^*x_i
+\end{equation*}
+(\gls{x_i})\\
+Le condizioni standard (\textbf{SATP}) sono condizioni di pressione e temperatura ambiente standard
+\\$T=298,15 \, K$
+\\$p=1 \, bar$
+\\ In queste condizioni per una mole di gas perfetto $V=24,789 \frac{L}{mol}$
+
+\subsection{Gas reali}
+\paragraph{Equazione di stato di Van der Waals}
+\begin{equation}
+    (p+a\frac{n^2}{V^2})(V-nb)=nRT
+\end{equation}
+Introdotti i coefficienti correttivi. Con questa nuova equazione la pressione risulta diminuita per effetto delle interazioni attrattive tra molecole e invece il volume aumentato perché non si può trascurare il \textbf{covolume}(nb), ovvero il volume occupato dalle molecole.
+\\ $b$ covolume occupato da una mole di gas: $b=V_mN_A$
+
+\paragraph{Equazioni di stato viriali} (dal latino, forza)
+\begin{equation*}
+\begin{split}
+    pV_m=RT(1+B'p+C'p^2+...)\\
+    pV_m=RT(1+\frac{B}{V_m}+\frac{C}{V_m^2}+...)
+\end{split}
+\end{equation*}
+(\gls{V_m})\\
+Dove $B,B',C,C'$ sono i coefficienti viriali, dipendenti dalla temperatura.
+
+\paragraph{Principio degli stati corrispondenti}: gas reali considerati nella stessa temperatura ridotta e allo stesso volume ridotto esercitano la stessa pressione ridotta
+\begin{equation*}
+    pV_m=zRT
+\end{equation*}
+\gls{z}=1 per i gas perfetti\\
+$z\neq 1$ per i gas reali\\
+$z$ si ricava graficamente da una serie di isoterme (temperature ridotte $T_r$) su una scala di pressioni ridotte $p_r$\\
+Per \textbf{variabili ridotte} si intendono le variabili dei gas ottenute dividendo quelle effettive per le corrispondenti variabili critiche.
+\begin{equation*}
+    p_r=\frac{p}{p_c} \quad, \quad \quad T_r=\frac{T}{T_c}\quad, \quad \quad V_{m,r}=\frac{V_m}{V_{m,c}}
+\end{equation*}
+\begin{center}
+    \includegraphics[width=15cm]{grafico fattore di compressibilità.png}
+\end{center}
+
+\paragraph{Diagramma di fase di una sostanza pura}:\\ Al di sopra di $T_c$ la sostanza può esistere solo allo stato gassoso, qualunque sia la pressione
+\begin{center}
+    \includegraphics[width=6 cm]{piano pv sostanza pura.png}
+\end{center}
+Sotto i valori della temperatura critica inizia a condensare il gas. \\
+\textit{L'isoterma critica presenta un punto di flesso}, quindi, dall'equazione di Van der Waals, è possibile ricavare i valori di pressione, temperatura e volume critici.
+\begin{equation*}
+    p=\frac{RT}{V_m-b}-\frac{a}{V_m^2}
+\end{equation*}
+
+\begin{equation*}
+    \begin{cases}
+        (\frac{\partial P}{\partial V_m})_T&=-\frac{RT}{(V_m-b)^2}+\frac{2a}{v_m^3}=0\\
+        (\frac{\partial^2 P}{\partial V_m^2})_T&=-\frac{2RT}{(V_m-b)^3}-\frac{6a}{v_m^4}=0
+    \end{cases}
+    \so
+    \begin{cases}
+        p_c&=\frac{a}{27b^2} \\
+        T_c&=\frac{8a}{27Rb} \\
+        V_{m,c}&=3b 
+    \end{cases}
+\end{equation*}
+
+\subsection{Proprietà delle funzioni di stato e relazioni tra derivate parziali}
+Sia $f$ una funzione di $x$ e $y$, grandezze che possono variarie di quantità infinitesime $dx$ e $dy$,e sia inoltre $z$ una variabile dalla quale dipendono $x$ e $y$; allora sussistono le seguenti relazioni tra le variazioni infinitesime di $f(x,y,z)$ ovvero fra le derivate parziali:
+\begin{equation*}
+    df(x,y,z)=(\frac{\partial f}{\partial x})_{y,z}dx+(\frac{\partial f}{\partial y})_{x,z}dy+(\frac{\partial f}{\partial z})_{x,y}dz
+\end{equation*}
+\begin{equation*}
+    (\frac{\partial f}{\partial x})_z=(\frac{\partial f}{\partial x})_{y}+(\frac{\partial f}{\partial y})_x(\frac{\partial f}{\partial x})_z
+\end{equation*}
+Operatore di inversione:
+\begin{equation*}
+    (\frac{\partial x}{\partial y})_z=(\frac{\partial y}{\partial x})_z^{-1}
+\end{equation*}
+Operatore di permutazione:
+\begin{equation*}
+    (\frac{\partial x}{\partial y})_z=-(\frac{\partial x}{\partial z})_y(\frac{\partial z}{\partial y})_x
+\end{equation*}
+Equazione di Eulero:
+\begin{equation*}
+    (\frac{\partial x}{\partial y})_z(\frac{\partial y}{\partial z})_x(\frac{\partial z}{\partial x})_y=-1
+\end{equation*}
+Inoltre sia $df=g(x,y)dx+h(x,y)dy$ allora esso è un differenziale esatto se 
+\begin{equation*}
+    (\frac{\partial g}{\partial y})_x=(\frac{\partial h}{\partial x})_y
+\end{equation*}
+Se $df$ è un \textbf{differenziale esatto} il suo integrale definito è indipendente dal percorso e quindi $f$ è una \textbf{FUNZIONE DI STATO}
+
+\subsection{Primo principio della termodinamica}
+\paragraph{Principio di conservazione dell'energia}
+\begin{center}
+    \textit{Ogni sistema isolato è caratterizzato da un contenuto di energia interna costante U} \\ \textbf{L'energia è l'attitudine a compiere lavoro}
+\end{center}
+
+\begin{equation*}
+    \Delta U=W_{ad}
+\end{equation*}
+
+L'energia di un sistema può anche essere fatta variare con modalità diverse dal lavoro, ad esempio attraverso una variazione della temperatura. Quando l'energia di un sistema muta per l'influenza della temperatura diciamo che si è verificato un flusso di calore $Q$
+\begin{align*}
+    \Delta U&=W_{aq}+Q\\
+    dU&=dW+dQ
+\end{align*}
+\begin{center}
+    (in forma differenziale)
+\end{center}
+
+\subsection{Entalpia}
+Se, nel corso di una trasformazione che comporta un lavoro meccanico di tipo espansivo $W=pV$, desideraimo poter valutare sia le variazioni di $U$, associate a trasferimento di calore ed eventuali forme di lavoro (tipo elettrico), sia la variazione di energia per effetto del lavoro espansivo, possiamo ricorrere ad una nuova funzione, l'entalpia:
+\begin{align*}
+    H&=U+pV\\
+    dH&=dU+pdV+Vdp
+\end{align*}
+ Sia $\delta U$ che $\delta H$ non dipendono dal percorso della trasformazione, ma solo dallo stato iniziale e finale del sistema $\so$ $U$ e $H$ sono \textbf{funzioni di stato}.
+ \\ Per la convenzione egoistica $dq$ e $dW$ sono negativi se sono ceduti dal sistema e positivi se acquistati.
+
+\paragraph{Equivalenza meccanica del calore}
+\begin{equation*}
+    Q=\Delta U -  W_{ad}
+\end{equation*}
+\ce{Il calore è il trasferimento di energia ad un sistema che porta ad un aumento di temperatura} 
+Se il trasferimento di energia ha carattere infinitesimo l'incremento di temperatura è proporzionale al calore somministrato.
+
+\paragraph{Capacità termica}
+\begin{equation*}
+    T \propto dQ \so dQ=CdT
+\end{equation*}
+In generale \gls{C} (una proprietà dei materiali) non è una costante ma è una funzione della temperatura $C(T)$ che si esprime attraverso relazioni empiriche come polinomi del tipo: $C(T)=a+bT+cT^2+...$ dove a, b, c sono coefficienti noti e tabulati, per ciascuna sostanza, in determinati intervalli di temperatura.
+\\ La capacità termica dipende dalle condizioni operative:
+\begin{itemize}
+    \item Se il trasferimento di calore avviene in condizioni di \textbf{volume costante}
+      \begin{equation*}
+           dQ=C_VdT
+      \end{equation*}
+      ($C_V$ capacità termica isocora)\\
+      In assenza di altre forme di lavoro: 
+      \begin{equation*}
+          dU=dQ \so C_V=(\frac{\partial U}{\partial T})_V
+      \end{equation*}
+      \item Se il trasferimento di calore avviene in condizioni di \textbf{pressione costante}
+      \begin{equation*}
+           dQ=C_pdT
+      \end{equation*}
+      ($C_p$ capacità termica isobara)\\
+      In assenza di altre forme di lavoro: 
+      \begin{equation*}
+          dH=dQ \so C_p=(\frac{\partial H}{\partial T})_p
+      \end{equation*}
+\end{itemize}
+Vediamo che a p o V costante il calore diventa una \textit{funzione di stato}. \\
+Nel caso dei gas perfetti (posto n=1)
+\begin{align*}
+    H=U+pV&=U+RT\\
+    \frac{dH}{dT}&=\frac{dU}{dT}+\frac{d(RT)}{dT}
+\end{align*}
+Essendo $\frac{dH}{dT}=(\frac{\partial H}{\partial T})_p=C_p$ e $\frac{dU}{dT}=(\frac{\partial U}{\partial T})_V=C_V$
+\begin{equation*}
+    C_p=C_V+R
+\end{equation*}
+
+\subsection{Trasformazioni di fase}
+\begin{center}
+    \includegraphics[width=14cm]{Trasformazioni di fase.png}
+\end{center}
+Le trasformazioni di fase allo stato solido sono chiamate allotropiche. \\
+A ciascuna transizione di fase (se avviene in maniera reversibile e in condizioni isoterme e isobare) corrisponde una determinata variazione energetica:
+\begin{equation*}
+    \Delta_{sublimazione}H^o_T \quad , \quad \quad \Delta_{fusione}H^o_T, \quad ...
+\end{equation*}
+Per il principio di conservazione dell'energia l'entalpia di fusione è uguale all'entalpia di cristallizzazione ma cambiata di segno
+
+\subsection{Entalpia di riscaldamento}
+\ce{Si tratta della quantità di calore necessaria per modificare la temperatura di una sostanza}
+\begin{equation*}
+    \Delta H^o=\sum_{i=1}^{fasi}\int_TC_{pi}dT+\sum_{j=1}^{trans. \, di \, fase} \Delta_{trs}H^o_{Tj}
+\end{equation*}
+(T finale incognita)
+\paragraph{Legge di Trouton}
+Per le sostanze le cui molecole non presentano forti interazioni allo stato liquido (come legami a idrogeno):
+\begin{equation*}
+    \Delta_{vap}H^o_T \approx 85 \frac{J}{K\cdot mol}T_{pb}
+\end{equation*}
+$T_{pb}$ temperatura di ebollizione normale del liquido
+
+
+\subsection{Equazione di Clausius}
+Se una mole di sostanza passa mediante una trasformazione reversibile, isoterma e isobara da una fase $i$ a una fase $f$ essendo $\lambda \text{(calore latente associato alla trasformazione)}\equiv \Delta_{trs}H^o_{T}$ 
+\begin{equation*}
+    \frac{dp}{dT}=\frac{\lambda}{T(V_f-V_i)}
+\end{equation*}
+\paragraph{Equazione di Clausis-Clapeyron}
+Nel caso di una trasformazione fase condensata-fase gassosa, il volume della fase condensata può ritenersi trascurabile rispetto a quello occupato dal volume della fase gas. Se poi si connsidera il gas ideale si può ottenere:
+\begin{equation*}
+    \frac{dp}{dT}=\frac{\lambda}{T(V_{gas})}=\lambda\frac{p}{RT^2}
+\end{equation*}
+Equazione differenziale a due variabili (se si considera $\lambda$ costante, quindi per piccoli intervalli di T) risolvibile con la separazione delle variabili e integrazione, è così possibile ricavare l'equazione di una retta con la pendenza $m=-\frac{\Delta_{vap}H^o}{R}$ (il calore di vaporizzazione risulterebbe determinato).
+
+
+
+
+\section{Termochimica}
+\ce{Studio delle variazioni termiche che si manifestano nel corso delle reazioni chimiche}
+Il calore $Q$, ovvero l'energia che si trasferisce in forma termica durante una reazione, dipende, in generale, dal modo in cui avviene la reazione $\so$ non è una funzione di stato. \\
+Come visto prima però se la reazione avvenisse a pressione costante sarebbe possibile identificare il trasferimento di calore con la variazione di una funzione di stato, l'entalpia, che chiameremo \textit{entalpia di reazione}.
+\begin{equation*}
+    Q_p=\Delta_rH
+\end{equation*}
+$\Delta_rH$ è la funzione di stato più comunemente usata per il calcolo del calore di reazione siccome normalmente le reazioni avvengono a pressione atmosferica (se non diversamente specificato). \\
+Se la reazione avvenisse a volume costante si ricorrerebbe all'energia interna: $Q_V=\Delta_rU$
+
+\subsection{Relazione tra entalpia e energia interna di reazione}
+
+In una reazione che coinvolge fasi condensate e gassose (ipotizzandole come gas perfetti), svolta a temperatura costante:
+\begin{equation*}
+    \Delta H=\Delta U + \Delta(PV)=\Delta U + \Delta(nRT) \so \Delta H=\Delta U + RT\Delta n_g
+\end{equation*}
+Quindi i calori di reazione a volume o a pressione costante differiscono per un termine che tiene conto della variazione complessiva delle moli gassose, assumento positive quelle dei prodotti e negative quelle dei reagenti.
+\\ Definiamo:
+\begin{itemize}
+    \item LO STATO STANDARD DI UNA SOSTANZA lo stato costituito dalla sua forma pura considerata a $p=1\,bar$ e alla temperatura specificata (quella convenzionale è 298,15 K)
+    \item FASE DI RIFERIMENTO la fase termodinamicamente più stabile di un elemento alla pressione standard
+\end{itemize}
+
+\paragraph{Entalpia di formazione standard} $\Delta_fH^o$
+\ce{Il calore relativo al processo nel quale il composto ha preso corpo a partire dagli elementi considerati ciascuno nella propria fase di riferimento}  $\Delta_fH^o$ degli elementi si assume nulla a qualunque temperatura.
+
+\subsection{Legge di Hess e l'entalpia di reazione standard}
+
+\begin{center}
+    \textit{L'entalpia di reazione standard ($\Delta_rH^o$) è la somma delle entalpie standard delle reazioni, considerate alla medesima temperatura, nelle quali si può formalmente scomporre la reazione complessiva}
+\end{center}
+Quindi $\Delta_rH^o$ è il calore (per quantità unitaria di materia reagita) associato alla trasformazione dei reagenti, considerati nel proprio stato standard, in prodotti, sempre nel loro stato standard. \\
+Disponendo delle entalpie di \textit{formazione} delle sostanze presenti nella reazione:
+\begin{equation*}
+    \Delta_rH^o=\sum_{i=1}^n\nu_i\Delta_fH_i^o
+\end{equation*}
+(\gls{nu})
+
+\subsection{Entalpia di combustione standard}
+Il calore associato alla reazione di ossidazione di una sostanza. \\
+Disponendo dei calori di combustione di tutte le sostanze presenti in una reazione, la legge di Hess risulta:
+\begin{equation*}
+    \Delta_rH^o=-\sum_{i_1}^{prodotti}\nu_i\Delta_cH^o+\sum_{i_1}^{reagenti}\nu_i\Delta_cH^o
+\end{equation*}
+Cambiato di segno perché si sta distruggendo il composto.
+\\ La maggior parte delle reazioni sono di equilibrio, si considerano però qui completamente verso destra perché si sta valutando l'energia
+
+\subsection{Legge di Kirchoff}
+Per il calcolo della dipendenza della temperatura dall'entalpia di reazione
+\begin{equation*}
+    \Delta_rH^o(T_2)=\Delta_rH^o(T_1)+\int_{T_1}^{T_2}\Delta_rC_p(T)dT
+\end{equation*}
+$\Delta_rC_p(T)dT$ è la somma delle capacità termiche delle singole sostanze alla temperatura T ciascuna moltiplicata per il corrispondente coefficiente stechiometrico.
+\begin{equation*}
+    \Delta_rC_p(T)dT=\sum_j\nu_jC_{pj}
+\end{equation*}
+Nel caso in cui l'intervallo di temperatura comprenda, per una o più sostanze, eventuali passaggi di stato, occorre tenerne conto:
+\begin{equation*}
+    \Delta_rH^o(T_2)=\Delta_rH^o(T_1)+\sum_i^{fasi}\int_T\Delta_rC_p(T)dT+\sum_j^{trs. fase}\Delta_{trs}H_T^o
+\end{equation*}
+
+\subsection{Temperatura di fiamma}
+Ipotizziamo di voler determinare la temperatura della fiamma della combusitione del propano in aria:
+\begin{itemize}
+    \item Tutte le reazioni di combustione sono fortemente esotermiche ed avvengono così rapidamente che il calore liberato, non avendo l'ambiente esterno il tempo di dissiparlo, va ad innalzare la temperatura delle sostanze presenti alla fine della combustione fino a valori così elevati da produrre fenomeni luminosi.
+    \item Reazione considerata:
+        \begin{equation*}
+            C_3H_{8 (g)}+5O_{2(g)}\rightarrow 2CO_{2(g)}+4H_2O_{(g)}
+        \end{equation*}
+    Per semplicità supponiamo che la reazione si svolga completamente, a partire da temperatura ambiente, fra sostanze in quantità stechiometrica esatta e che il processo possa essere perfettamente adiabatico
+    \item Tutto il calore sviluppato dalla reazione viene completamente assorbito dai prodotti, quindi:
+    \begin{equation*}
+        -\Delta_rH^o(T_C)=\int_{T_C}^{T_f}\Delta C_pdT
+    \end{equation*}
+    Con $T_f$ massima temperatura che i prodotti possono raggiungere, cioè la \textbf{temperatura di fiamma}, e il termine $\Delta C_p$ la sommatoria delle capacità termiche delle sostanze che assorbono il calore sviluppato dalla reazione.
+    \item Tenere presente che la reazione avviene in aria (20$\%$ ossigeno 80 $\%$azoto)
+    \item Si calcola il calore della reazione di combustione
+    \item con una tabella dei coefficienti della la capacità termica delle sostanze sottoposte al riscaldamento si può sviluppare il calcolo successivo per ottenere la temperatura di fiamma
+    \item Si interga
+    \item Con il metodo iterativo di Newton si ottiene $T_f=2329K$
+    \item Il valore ottenuto eccede di circa 100 K dal valore corretto (errore sotto il 5$\%$): oltre ad una parziale dissipazione di calore nell'ambiente, occorrerebbe tenere conto anche della parziale decomposizione della $CO_2$ e della $H_2O$. Inoltre la temperatura di fiamma è superiore all'intervallo di validità dell'espressione della capacità termica disponibile (i coefficienti non sono proprio corretti)
+    \item Il calore assorbito dall'azoto nell'aria è un calore sottratto ai prodotti della combustione, comporta un abbassamento della temperatura di fiamma. Se la combustione avvenisse in un'atmosfera più ricca di ossifeno la temperatura di fiamma potrebbe raggiungere valori molto più alti.
+\end{itemize}
+
+\subsection{Entalpia di soluzione standard}
+$\Delta_sH^o$ è il calore associato al dissolvimento di una mole di soluto in n moli di solvente. \\
+Nel caso di un soluto gassoso corrisponde al \textbf{calore di solvatazione} delle molecole del soluto.
+\\Nel caso in cui il soluto sia un solido molecolare, il processo di dissoluzione può essere considerato come il risultato di due processi:
+\begin{center}
+    soluto$_{(s)} \so $ soluto$_{(molecolare)}$ $\Delta_{subl}H^o$ \\
+    soluto$_{(molecolare)}$ +solvente $\so$ soluzione $\Delta_{solvatazione}H^o$
+\end{center}
+\begin{equation*}
+    \Delta_sH^o=\Delta_{subl}H^o+\Delta_{solvtz}H^o
+\end{equation*}
+\paragraph{Entalpia di soluzione a diluizione infinita} quella relativa al dissolvimento di una sostanza in una quantità di solvente così grande che possa essere considerata infinita, ovvero tale che le interazioni fra gli ioni ( o molecole ) del soluto siano trascurabili. In questo caso, al fine dei calcoli, si possono usare i calori di formazione degli ioni in soluzione.
+
+\subsection{Entalpia di neutralizzazione standard}$\Delta_nH^o$ è il calore della reazione di neutralizzazione di un acido con una base. \\
+Per convenzione si pone uguale a zero l'entalpia di formazione standard dello ione $H_{aq}^+$ cosicché si possono definire i singoli valori ionici con riferimento ad esso. \\
+Se la reazione avviene fra acido forte e base forte, essendo specie compeltamente dissociate, può essere ricondotta essenzialmente alla:
+\begin{equation*}
+    H^++OH^-\rightarrow H_2O
+\end{equation*}
+Quindi $\Delta_nH^o=-55,898 \frac{kJ}{mol}$ può essere assunto come valore di riferimento.
+
+
+\subsection{Entalpia di dissociazione standard}
+$\Delta_mH^o_{A-B}$ è il calore risultante dalla rottura di un legame chimico, in una molecola gassosa, con formazione dei rispettivi frammenti molecolari. \\
+Dispondendo delle energie di legame delle sostanze presenti in una reazione, la legge di Hess risulta:
+\begin{equation*}
+    \Delta_rH^o=-\sum_{i=1}^{prodotti}\nu_iBE_i+\sum_{i=1}^{reagenti}\nu_iBE_i
+\end{equation*}
+è necessario distinguere l'entalpia di dissociazione \textit{del singolo legame}, che dipende dalla struttura del resto della molecola, dall'\textit{entalpia di dissociazione media} che corrisponde all'energia di legame in quanto è un valore ricavato, per un certo legame A-B, dalla media dei valori relativi a una serie di composti affini.\\
+L'utilità delle entalpie di legame e del loro impiego per il calcolo delle entalpie di reazione, risiede nella possibilità che offrono di stimare le variazioni entalpiche di reazioni che non si prestano a rilevazioni dirette.
+
+
+\subsection{Entalpia di atomizzazione standard}
+$\Delta_{at}H^o$ è il calore che accompagna la demolizione di una molecola negli atomi corrispondenti. \\
+Per il principio di addittività dell'entalpia (legge di Hess) l'entalpia di atomizzazione è la somma delle entalpie di dissociazione di tutti i legami presenti nella molecola.\\
+Nel caso di \textit{metalli} e \textit{solidi monoatomici}, l'entalpia di atomizzazione coincide con l'entalpia di sublimazione, posto che anche il vapore abbia carattere monoatomico. \\
+Un valore tipico di grande utilità è l'entalpia di sublimazione del carbonio (della grafite):
+\begin{equation*}
+    \Delta_{subl}H^o=716,68 \frac{kJ}{mol}
+\end{equation*}
+
+\subsection{Entalpia di ionizzazione standard}
+$\Delta_{ion}H^o$ è il calore relativo alla rimozione di un elettrone da una specie chimica in fase gas
+\begin{equation*}
+    M_{(g)}\rightarrow M_{(g)}^++e^-
+\end{equation*}
+Un catione può subire anch'esso la ionizzazione, nel qual caso la variazione di energia (e corrispondente variazione di entalpia) si dice \textit{energia di ionizzazione secondaria} (sempre maggiore della primaria).\\
+La variazione standard di entalpia che accompagna la cattura di un elettrone da parte di un atomo, uno ione o una molecola in fase gas corrisponde al calore o energia di \textbf{affinità elettronica} $\Delta_{ea}H^o$
+\begin{equation*}
+    X_{(g)}+e^-\rightarrow X_{(g)}^-
+\end{equation*}
+
+\subsection{Entalpia reticolare standard}
+$\Delta_LH^o$ è il calore relativo alla reazione di formazione di un gas di ioni a parte dal solido cristallino
+\begin{equation*}
+    MX_{(s)}\rightarrow M_{(g)}^++X_{(g)}^-
+\end{equation*}
+Le entalpie reticolari sono tutte positive
+
+\subsection{Ciclo di Born-Haber}
+L'entalpia di formazione di un composto solido può essere determinata componendo la reazione globale in più contibuti distinti.\\
+Dal momento che, per il PRINCIPIO DI CONSERVAZIONE DELL'ENERGIA, la somma delle variazioni entalpiche calcolata sull'intero ciclo è nulla, il ciclo consente di determinare l'entalpia di uno qualsiasi di tali contributi.
+\begin{center}
+    \includegraphics[width=13cm]{ciclo di Born Haber.png}
+\end{center}
+
+
+\section{Sull'efficienza delle macchine termiche}
+\paragraph{Cosa determina il verso delle trasformazioni spontanee?} Il verso di svolgimento delle trasformazioni spontanee è legato con la distribuzione dell'energia: esse sono invariabilmente accompagnate da una perdita di qualità dell'energia nel senso che essa si degrada fino ad assumere una forma più dispersa e caotica non più dispondibile a compiere lavoro
+
+\subsection{Macchina termica}
+
+Il \textbf{rendimento} di una macchina termica è il rapporto tra il lavoro utile che la macchina risce a compiere e il calore totale assorbito dal sistema
+\begin{equation*}
+    \eta=1-\frac{Q_2}{Q_1}=1-\frac{T_2}{T_1} \so \frac{Q_1}{T_1}=\frac{Q_2}{T_2}
+\end{equation*}
+Nessuna macchina termica è in grado di trasformare completamente calore in lavoro, poiché una parte $Q_2$ del calore fornito inizialmente al sistema $Q_1$ viene ceduta al mezzo a temperatura più bassa rispetto alla T alla quale esso è stato somministrato e di conseguenza tale calore non può essere più utilizzato. \\
+Da ciò si deduce che il rendimento di una macchina termica non può mai essere pari all'unità poiché $Q_2\neq0$ sempre.
+\begin{center}
+    \includegraphics[width=8 cm]{Ciclo termico.png}
+\end{center}
+
+Nel caso del \textit{ciclo di Carnot} il rendimento dipende solo dalle temperature $T_1$ e $T_2$ poiché lo scambio di calore avviene solo durante le isoterme.
+\begin{equation*}
+    \eta=\frac{Q_1-Q_2}{Q_1}=\frac{T_1-T_2}{T_1}=1-\frac{T_2}{T_1}
+\end{equation*}
+Il rendimento di una macchina termica non dipende dalla NATURA del fluido utilizzato ma solo all'intervallo di temperatura, ovvero il contenuto energetico, nel quale la macchina opera.
+
+
+\subsection{Entropia}
+Consideriamo ora un ciclo arbitrario nel piano pV come una combinazione di un numero infinito di cicli di Carnot per i quali si può scrivere
+\begin{equation*}
+    \sum_i\frac{Q_i}{T_i}=0
+\end{equation*}
+Nel caso di cicli infinitesimi reversibili:\\\includegraphics[width=5cm]{Cicli di carnot infinitesimi.png}
+\begin{equation*}
+    \oint \frac{dQ}{T}=0
+\end{equation*}
+Se $\oint f(x)=0$ f è una funzione di stato
+
+Quindi la quantità $\frac{dQ}{T}$ è una funzione di stato che Clausius definisce \textbf{entropia}
+\begin{equation*}
+    dS\equiv \frac{dQ}{T} \so \oint dS=0 \so \int_A^BdS=S_B-S_A
+\end{equation*}
+Uguaglianze vere solo per \textit{cicli reversibili} e valgono sia per il sistema che per l'ambiente esterno a cui esso è riferito.\\
+Tutte le macchine termiche reali che compiono un ciclo in un \textit{tempo finito} comprendono processi irreversibili, per cui una minore frazione di $Q_1$ (il calore assorbito dalla sorgente calda) è convertito in lavoro e il calore ceduto alla sorgente fredda $Q_2^{irr}>Q_2$. \\
+La loro efficienza sarà:
+\begin{equation*}
+    \eta=1-\frac{Q_2}{Q_1}<1-\frac{T_2}{T_1} \So \frac{Q_1}{T_1}-\frac{Q_2^{irr}}{T_2}<0
+\end{equation*}
+Quindi in un ciclo irreversibile :
+\begin{equation*}
+    dS>\frac{dQ}{T}
+\end{equation*}
+Per il sistema:
+\begin{equation*}
+    \oint dS=0 \so \oint \frac{dQ}{T}<0 
+\end{equation*}
+Per l'ambiente esterno:
+\begin{equation*}
+    \oint\frac{dQ}{T}>0
+\end{equation*}
+In un ciclo irreversibile il sistema espelle una maggiore quantità di calore all'esterno: c'è una conversione di energia meccanica in calore attraverso processi irreversibili e l'entropia dell'ambiente cresce.
+
+\paragraph{Il teorema di Carnot} (1824) non solo ha un'enorme importanza dal punto di vista tecnologico, ma la sua completa comprensione introduce i concetti alla base dello sviluppo successivo della termodinamica:
+\begin{itemize}
+    \item Definizione di calore come fonte di energia
+    \item concetto di rendimento 
+    \item reversibilità come modo di idealizzare processi fisici
+    \item definizione di temperatura
+    \item idea di entropia
+    \item seconda legge della termodinamica
+\end{itemize}
+
+\paragraph{Diseguaglianza di Clausius} nei processi naturali e in generale per una trasformazione qualsiasi in cui il calore non sia stato scambiato in maniera reversibile
+\begin{equation*}
+    dS\ge \frac{dQ}{T}
+\end{equation*}
+Nei sistemi isolati $dQ=0 \so dS\ge0$
+\begin{center}
+    \textit{Nel corso di tutte le trasformazioni spontanee l'entropia dei sistemi isolati aumenta. Di conseguenza i processi spontanei si risolvono in un aumento dell'entropia dell'Universo:}$\Delta S^U\ge0$
+\end{center}
+
+\subsection{Secondo principio della termodinamica}
+\begin{enumerate}
+    \item è impossibile costruire una macchina termica che compie un ciclo e converte in lavoro meccanico tutto il calore che assorbe da una sorgente
+    \item il calore, da solo, non può passare da un corpo più freddo a uno più caldo
+    \item la somma delle variazioni di entropia di un sistema e dell'ambiente esterno non può mai diminuire
+    \item l'energia dell'Universo è costante. L'entropia dell'Universo tende ad un massimo
+\end{enumerate}
+Il secondo principio può essere rappresentato quindi dall'\textit{entropia}.\\
+Con il primo principio della termodinamica $\so$ ribadito il principio di conservazione dell'energia. \\
+Con il secondo principio $\so$ viene affermato che l'energia totale si conserva ma viene ripartita in maniera diversa
+
+\subsection{Differenza di temperatura, diversità dei serbatoi di calore}
+Il secondo principio della termodinamica evidenzia la tendenza universale ineluttabile verso il disordine che è anche perdita dell'informazione e della disponibilità di energia utilie.\\
+Questa tendenza, chiamata da Clausius \textit{"la morte termica"}, porta al cosiddetto \textit{"equilibrio termodinamico"}, appunto la morte dei sistemi biologici e degli ecosistemi, attraverso la distribuzione delle diversità.\\
+Questa situazione si può raggiungere in due modi:
+\begin{enumerate}
+    \item quando, scambiando energia sottoforma di calore, le differenze di temperatura vengono meno, portando alla livelizzazione delle energie e all'impossibilità pratica di fare qualsiasi cosa, perché lo scambio di energia utile è impedito
+    \item quando un sistema rimane isolato e, consumando le proprie risorse, porta ad un grande aumento di entropia interna e, in ultima analisi, alla propria autodistruzione
+\end{enumerate}
+
+\subsection{La disuguaglianza di Clausius e le funzioni di Helmholtz e di Gibbs}
+Calore trasferito a volume costante (L=pV):
+\begin{align*}
+    (dq)_V=dU \So& dS-\frac{dU}{T}\ge0\\
+    TdS\ge dU \So& dU-TdS\le0\\
+    dU=0 \So& (dS)_{U,V}\ge0\\
+    dS=0 \So& (dU)_{S,V}\le0
+\end{align*}
+Calore trasferito a pressione costante:
+\begin{align*}
+    (dq)_p=dH \So& dS-\frac{dH}{T}\ge0\\
+    TdS\ge dH \So& dH-TdS\le0\\
+    dH=0 \So& (dS)_{H,p}\ge0\\
+    dS=0 \So& (dH)_{S,p}\le0
+\end{align*}
+\paragraph{Energia libera di Helmholtz}
+\begin{equation*}
+    A=U-TS
+\end{equation*}
+Lavoro di un sistema termodinamico
+\paragraph{Energia libera di Gibbs}
+\begin{equation*}
+    G=H-TS
+\end{equation*}
+Per una variazione di stato a temperatura costante:
+\begin{align*}
+    dA=dU-TdS \So& (dA)_{T,V}\le0\\
+    dG=dH-TdS \So& (dG)_{T,p}\le0
+\end{align*}
+Dove si considera minore per una trasformazione spontantea e = per una trasformazione in condizioni di equilibrio.\\
+Sia $G=f(T,p)=H-TS \so dG=dH-SdT$
+\begin{equation*}
+    dH=dU+pdV+Vdp=(TdS-pdV)+pdV+Vdp 
+\end{equation*}
+\begin{equation*}
+    dG=(TdS-pdV)+pdV+Vdp-TdS-SdT
+\end{equation*}
+\begin{equation*}
+    dG=Vdp-SdT
+\end{equation*}
+\begin{equation*}
+    dG=\dpar{G}{p}{T}\dpar{G}{T}{p}
+\end{equation*}
+Quindi
+\begin{itemize}
+    \item $(\frac{\partial G}{\partial p})_T=V$
+    \item $(\frac{\partial G}{\partial T})_p=-S$
+\end{itemize}
+Se $f(x,y)$ è una funzione di stato allora $df=g(x,y)dx+h(x,y)dy$ è un differenziale esatto. Sussiste l'uguaglianza:
+\begin{equation*}
+    (\frac{\partial g}{\partial y})_x=(\frac{\partial h}{\partial x})_y
+\end{equation*}
+Ed essendo $dG$ esatto dal momento che G(T,p) è una funzione di stato, possiamo ricavare l'uguaglianza:
+\begin{equation*}
+    (\frac{\partial V}{\partial T})_p=-(\frac{\partial S}{\partial p})_T
+\end{equation*}
+Le quattro funzioni termodinamiche $U,\,H,\,A,\,G$ definite, possono essere considerate funzione di due \textit{qualunque} fra p, V e T. Per esempio si può considerare $u=f(V,T)$ e $S=f(V,T)$. \\
+Dalla seconda equazione possiamo pensare di ricavare T in funzione di S e V e  quindi, sostituendo nella prima equazione l'espressione ottenuta, si avrebbe $U=f(S,V)$.\\
+Procedendo in questa direzione si può supporre che ciascuna delle otto grandezze p, V, T, S, U, A e G possa essere espressa in funzione di due qualunque delle altre.\\
+Considerando un sistema idrostatico che compia una trasformazione infinitesima reversibile fra stati di equilibrio potremmo avere le seguenti variazioni:
+\begin{enumerate}
+    \item $dU=dQ-pdV=TdS-pdV$ \\posto che U, T e p siano funzioni di S e V
+    \begin{align*}
+        &dU=\dpar{U}{S}{V}+\dpar{U}{V}{S} \So \dpar{U}{S}{V}=T, \quad \dpar{U}{V}{S}=-p\\
+        &\frac{\partial^2 U}{\partial S \partial V}=\left(\frac{\partial T}{\partial V}\right)_S, \quad \frac{\partial^2 U}{\partial V\partial S }=-\left(\frac{\partial p}{\partial S}\right)_V \\  &\left(\frac{\partial T}{\partial V}\right)_S=-\left(\frac{\partial p}{\partial S}\right)_V
+    \end{align*}
+    \item $dH=dU+pdV+Vdp=TdS+Vdp$ \\posto che H, T e V siano funzioni di S e p
+    \item $dA=dU-TdS-SdT=-pdV-SdT$ \\posto che A, p e S siano funzioni di V e T
+    \item $dG=dH-TdS-SdT=Vdp-SdT$ \\posto che G, V e S siano funzioni di p e T
+\end{enumerate}
+Ovvero \textbf{le quattro equazioni di Maxwell}:
+\begin{align*}
+    1)&\quad dU=TdS-pdV \So \dpar{T}{V}{S}=-\dpar{p}{S}{V}\\
+    2)&\quad dH=TdS+Vdp \So \dpar{T}{p}{S}=\dpar{V}{S}{p}\\
+    3)&\quad dA=-pdV-SdT \So \dpar{p}{T}{V}=\dpar{S}{V}{T}\\
+   4)&\quad dG=Vdp-SdT \So \dpar{V}{T}{p}=-\dpar{S}{p}{T}
+\end{align*}
+---\\
+Essendo l'entropia una funzione di stato la sua variazione relativa ad una trasformazione irreversibile dallo stato iniziale $i$ allo stato finale $f$ può essere calcolata seguendo un certo numero di trasformazioni reversibili che portino il sistema dallo stato stato iniziale allo stesso stato finale.\\
+---
+\\
+\paragraph{Esercizio miscela}:\\
+\textit{Calcolare la variazione di entropia associata alla formazione di una misela di} $N_2$ \textit{e} $O_2$ \textit{alla pressione p=1 atm e alla temperatura di 0°C partendo da 1} $dm^3$ \textit{di} $N_2$ \textit{e 4} $dm^3$ \textit{di} $O_2$ \textit{entrambi alla stessa temperatura e pressione.} \\
+Possiamo considerare una trasformazione a temperatura costante di un gas (N2) che passa da un volume iniziale a un volume finale e di gas (O2) che passa da un volume iniziale a un volume finale.\\
+La variazione di entropia totale è quella riferita alla somma dei due processi.\\
+
+
+Con la terza equazione di Maxwell
+\begin{equation*}
+    \Delta S=\int_{V_i}^{V_f}(\frac{\partial p}{\partial T})_VdV=\int_{V_i}^{V_f}(\frac{\frac{\partial nRT}{V}}{\partial T})_VdV=nR\int_{V_i}^{V_f}\frac{\partial V}{V}=nR\ln{\frac{V_f}{V_i}}
+\end{equation*}
+Quindi:
+\begin{equation*}
+    \Delta S_{mix}=n_{N_2}R\ln{\frac{V_{tot}}{V_{N_2i}}}+n_{O_2}R\ln{\frac{V_{tot}}{V_{O_2i}}}
+\end{equation*}
+Numericamente, avendo determinato le moli di azoto e ossigeno, si ottiene $\Delta S_{mix}=9,27 \frac{J}{K}$.\\
+Questo può essere considerato un risultato generale e quindi si può definire l'\textbf{entropia di miscela}
+\begin{equation*}
+    \Delta S_{mix}=-R\sum_{i=1}n_i\ln{x_i}
+\end{equation*}
+
+\paragraph{Paragone con entalpia}:
+\\anche per l'entropia si può scrivere una relazione del tutto simile alla legge di Kirchoff (calcolo della dipendenza della temperatura dall'entropia di reazione)
+\begin{equation*}
+    \Delta_rS^o(T_2)=\Delta_rS^o(T_1)+\int_{T_i}^{T_f}\frac{\Delta_rC_p(T)}{T}dT
+\end{equation*}
+Nel caso di passaggi di stato si procede allo stesso modo dell'entalpia, introducendo la sommatoria delle entropie di transizione.
+
+\newpage
+
+
+\section{Equilibrio chimico}
+\subsection{Dipendenza di G dalla temperatura}
+La variazione di G con T è espressa da: $(\frac{\partial G}{\partial T})_p=-S$, ora proviamo ad ottenere una relazione tra G e T tramite l'entalpia: \\$G=H-TS$
+\begin{align*}
+    \dparx{G}{T}{p}=&\frac{G-H}{T}\\
+    \dparx{G}{T}{p}-&\frac{G}{T}=-\frac{H}{T}
+\end{align*}
+Dalle regole di derivazione del quoziente:
+\begin{equation*}
+    \dparx{(\frac{G}{T})}{T}{p}=\frac{1}{T}\dparx{G}{T}{p}+G\dparx{\frac{1}{T}}{T}{p}=\frac{1}{T}\dparx{G}{T}{p}-\frac{G}{T^2}=\frac{1}{T}\left[  \dparx{G}{T}{p}-\frac{G}{T}\right]
+\end{equation*}
+(quello tra parentesi quadre = $-\frac{H}{T}$)\\
+Otteniamo l'\textbf{equazione di Gibbs-Helmholtz}
+\begin{equation}
+    \dparx{(\frac{G}{T})}{T}{p}=-\frac{H}{T^2}
+\end{equation}
+Applicandola a trasformazioni per cui $\Delta G=G_f-G_i$:
+\begin{equation*}
+     \dparx{\frac{G_f}{T}}{T}{p}-\dparx{\frac{G_i}{T}}{T}{p}=-\left[ \frac{H_f}{T^2}-\frac{H_i}{T^2}\right] \so \dparx{(\frac{\Delta G}{T})}{T}{p}=-\frac{\Delta H}{T^2}
+\end{equation*}
+
+\subsection{Dipendenza di G dalla pressione}
+Ricordiamo che $(\frac{\partial G}{\partial p})_T=V \So G(p_2)=G(p_1)+\int_{p_1}^{p_2}V(p)dp$, quindi (con gas ideali):
+\begin{equation*}
+    G(P_2)=G(p_1)+nRT\int_{p_1}^{p_2}\frac{1}{p}dp=G(p_1)+nRT\ln{\frac{p_2}{p_1}}
+\end{equation*}
+Lo stato standard del gas perfetto è posto alla pressione esatta (p°) di 1 bar. Il corrispondente stato per la funzione G viene indicato come G°, pertanto:
+\begin{equation*}
+    G(p)=G^o+nRT\ln{\frac{p}{p^o}} \so G_m(p)=G_m^o+RT\ln{\frac{p}{p^o}}
+\end{equation*}
+Introduciamo un nuova grandezza
+\paragraph{Il potenziale chimico}
+\begin{equation*}
+    \mu=G_m(p)=\mu_m(p)=\mu_m^o+RT\ln{\frac{p}{p^o}}=\mu_m^o+RT\ln{a}
+\end{equation*}
+
+(\gls{a})
+
+
+\subsection{Sistemi aperti: dipendenza di G dalla composizione}
+Sia G funzione della pressione, della temperatura e della composizione, possiamo scrivere:
+\begin{equation*}
+    dG=(\frac{\partial G}{\partial p})_{T,n_1,n_2,...}dp+(\frac{\partial G}{\partial T})_{p,n_1,n_2,...}dT+(\frac{\partial G}{\partial n_1})_{p,T,n_2,...}dn_1+(\frac{\partial G}{\partial n_2})_{p,T,n_1,...}dn_2
+\end{equation*}
+\begin{enumerate}
+    \item A composizione costante
+    \begin{equation*}
+        dG=(\frac{\partial G}{\partial p})_{T,n_1,n_2,...}dp+(\frac{\partial G}{\partial T})_{p,n_1,n_2,...}dT\quad, \quad \quad dT=Vdp-SdT
+    \end{equation*}
+    \item a temperatura e pressione costante, per una i-esima sostanza pura $G=nG_m=n\mu \so dG=\mu dn$
+\end{enumerate}
+\begin{equation*}
+    (\frac{\partial G}{\partial n_i})_{p,T,n_{j\neq i},...}=\mu
+\end{equation*}
+Il potenziale chimico contiene visibilmente l'informazione relativa al mutamento di G in funzione di un'aggiunta al sistema della i-esima sostanza.\\
+
+\begin{equation*}
+    dG=Vdp-SdT+\mu_1dn
+\end{equation*}
+In conclusione $dG=Vdp-SdT+\mu_1dn_1+\mu_2dn_2+...$
+
+\subsection{Equilibri chimici}
+In una generica reazione chimica (R a dare P) una quantità infinitesima di reagenti R, ovvero d\gls{xi}, si trasforma in prodotti P. \\
+A temperatura e pressione costante:
+\begin{equation*}
+    dG=\mu_Rdn_R+\mu_Pdn_P=-\mu_Rd\xi+\mu_Pd\xi \So (\frac{\partial G}{\partial \xi})_{T,p}=\mu_P-\mu_R
+\end{equation*}
+Per una variazione finita, la funzione energia libera di Gibbs di reazione diventa:
+\begin{equation*}
+    \Delta_rG=\Delta_fG(P)-\Delta_fG(R)=\mu_P-\mu_R
+\end{equation*}
+Ne segue che se
+\begin{itemize}
+    \item $\mu_R>\mu_P$, $\Delta G<0$, $R\rightarrow P$ la reazione avanza 
+    \item $\mu_R<\mu_P$, $\Delta G>0$, $R\leftarrow P$ la reazione retrocede
+    \item $\mu_R=\mu_P$, $\Delta G=0$, $R \rightleftharpoons  P$ la reazione è all'equilibrio
+\end{itemize}
+
+
+\subsection{Reazioni fra gas perfetti}
+
+\begin{equation*}
+    \Delta_rG=\mu_P-\mu_R=\left[\mu_P^o+RT\ln{\frac{p_P}{p^o}}\right]+\left[\mu_R^o+RT\ln{\frac{p_R}{p^o}}\right]=\Delta_rG^o+RT\ln\frac{p_P}{p_R}
+\end{equation*}
+Ponendo, all'equilibrio ($\Delta_rG=0$), $\frac{p_P}{p_R}=K_p$ quoziente di reazione o COSTANTE DI EQUILIBRIO
+\begin{equation}
+    K_P=\sum_i\left(\frac{p_i}{p^o}\right)^\nu_i \So \Delta_rG^o=-RT\ln K_p
+\end{equation}
+
+\subsection{Reazioni fra gas reali}
+Se esprimiamo la pressione di una fase reale attraverso la sua \textbf{fugacità} $f=$\gls{gamma}$\cdot p$, allora:
+\begin{equation*}
+    \mu=\mu^o+RT\ln\frac{f}{p^o}=\mu^o+RT\ln\frac{p}{p^o}+RT\ln\gamma
+\end{equation*}
+$K_f=K_pK_\gamma$
+\begin{equation*}
+    \Delta_rG^o=-RT\ln K_f
+\end{equation*}
+In generale:
+\begin{equation*}
+    K_f=\sum_i\left(\frac{f_i}{p^o}\right)^\nu_i
+\end{equation*}
+
+La \textbf{fugacità} si identifica con la pressione effettiva del gas a bassi valori di pressione in quanto è, per definizione
+\begin{equation*}
+    \lim_{p\to0}\frac{f}{p}=1
+\end{equation*}
+I valori di \gls{gamma} possono essere convenientemente considerati come funzioni delle coordinate ridotte $T_r$ e $p_r$ in quanto, ad una data $T_r$ vale la seguente relazione:
+\begin{equation*}
+    \ln\frac{f}{p}=\int_0^{p_r}\frac{z-1}{p_r}dp_r \So \gamma=exp \int_0^{p_r}\frac{z-1}{p_r}dp_r
+\end{equation*}
+Tale espressione è ricavabile considerando che per una variazione reversibile infinitesima a temperatura costante relativa ad una mole di gas reale definito dall'equazione di stato $pV=zRT$ si ha $dG_T=Vdp=RTd\ln f$ e quindi
+\begin{equation*}
+    (\frac{\partial\ln f}{\partial p})_T=\frac{V}{RT}=\frac{z}{p} \so  (\frac{\partial\ln f}{\partial \ln p})_T=z \so d\ln \frac{f}{p}=(z-1)d\ln p
+\end{equation*}
+Passando in coordinate ridotte e integrando fra 0 (f=p) e $p_r$ si ottiene la relazione data
+
+\paragraph{Regola di Lewis-Randall}:\\
+La fugacità di un componente in miscela $f_i$ è uguale al prodotto della frazione molare del componente per la fugacità del componente puro $f_i'$ calcolata alla temperatura e pressione totale di miscela
+\begin{equation*}
+    f_i=\gamma_i\cdot p_i=\gamma_i\cdot x_i \cdot p=x_i\cdot f_i'
+\end{equation*}
+Regola applicabile solo a \textit{miscele ideali di gas reali}
+
+\subsection{La risposta degli equilibri al variare della pressione}
+La pressione, sebbene non influisca sulla costante termodinamica di equilibrio, può influire sulla posizione dell'equilibrio, ovvero sul grado di avanzamento
+\begin{equation*}
+    K_f=K_\gamma\cdot K_p=K_\gamma \cdot K_x \cdot p^{\Delta \nu}=K_\gamma \cdot K_n\cdot \left(\frac{p}{\sum n_i}\right)^{\Delta \nu}
+\end{equation*}
+Quando il sistema può essere considerato costituito da gas ideali, cioè $K_\gamma =1$ si ha che se
+\begin{itemize}
+    \item $\Delta \nu > 0 \So$ un aumento della pressione sposta l'equilibrio verso sinistra (retrocede)
+    \item $\Delta \nu < 0 \So$ un aumento della pressione sposta l'equilibrio verso destra (avanza)
+    \item $\Delta \nu = 0 \So$ la posizione dell'equilibrio non dipende da p
+\end{itemize}
+Quando il sistema deve essere considerato costituito da \textbf{gas reali} occorre tenere conte anche del valore di $K_\gamma$. In particolare si $\Delta \nu=0$ si ha che se
+\begin{itemize}
+    \item $K_\gamma >1 \So$ la reazione retrocede
+    \item $K_\gamma <1 \So$ la reazione avanza
+\end{itemize}
+L'effetto dell'\textit{aggiunta di gas inerti ideali} a pressione totale costante influisce sulla frazione molare dei reagenti considerati e si ha che se
+\begin{itemize}
+    \item $\Delta \nu > 0 \So$ la reazione avanza
+    \item $\Delta \nu < 0 \So$ la reazione retrocede
+    \item $\Delta \nu = 0 \So$ non si riscontra al effetto
+\end{itemize}
+
+\subsection{La risposta degli equilibri al variare della temperatura}
+\begin{equation*}
+    \Delta_rG^o=-RT\ln K \so \ln K=-\frac{\Delta_rG^o}{RT}
+\end{equation*}
+\begin{equation*}
+    \frac{d\ln K}{dT}=-\frac{1}{R}\frac{d(\Delta_rG^o/T)}{dT}
+\end{equation*}
+Usando la relazione di Gibbs-Helmoltz $\frac{d(\Delta_rG^o/T)}{dT}=-\frac{\Delta_rH^o}{T^2}$ si ottiene :
+\paragraph{L'equazione di Van't Hoff}
+\begin{equation*}
+    \frac{d \ln K}{dT}=\frac{\Delta_rH^o}{RT^2} \so (\frac{d\frac{1}{T}}{dT}=-\frac{1}{T^2})\so \frac{d \ln K}{d\frac{1}{T}}=-\frac{\Delta_rH^o}{R}
+\end{equation*}
+
+\subsection{Principio di Le Chatelier}
+\begin{center}
+    \textit{Se un sistema in equlibrio viene sottoposto ad un'azione perturbatrice esterna, il sistema si trasformerà modificando le condentrazioni dei prodotti e dei reagenti in modo da sottrarsi alla perturbazione imposta}
+\end{center}
+
+\subsection{Conseguenze dell'equazione di Van't Hoff}
+Per una reazione endotermica l'aumento della temperatura favorisce la formazione dei prodotti, viceversa per una reazione esotermica. \\Tramite misure della costante di equilibrio in funzione della temperatura è possibile pervenire ad una determinazione non calorimetrica del $\Delta_rH^o$.\\
+Integrando l'equazione di van't Hoff è possible determinare il valore della costante di equilibrio ad una qualsiasi temperatura $T^*$ noto il valore di K ad una temperatura T:
+\begin{equation*}
+    \int_{\ln K}^{\ln K^*}d\ln K=-\int_{\frac{1}{T}}^{\frac{1}{T^*}}(\frac{\Delta_rH^o}{R})d\frac{1}{T}
+\end{equation*}
+Posto che $\Delta_rH^o$ sia costante nell'intervallo di temperatura $T-T^*$:
+\begin{equation*}
+    \ln K^*=\ln K-\frac{\Delta_rH^o}{R}(\frac{1}{T^*}-\frac{1}{T})
+\end{equation*}
+
+\newpage
+
+\section{Equilibri di fase}
+Un \textbf{sistema eterogeneo} è un sistema costituito da parti con differenti proprietà fisiche o chimiche, ciascuna delle quali è omogenea. Ciascuna parte omogenea è chiamata \textbf{fase}, ovvero uno stato della materia uniforme in tutta la sua massa non soltanto in relazione alla composizione chimica, ma anche allo stato fisico.\\
+I \textbf{componenti} sono i costituenti del sistema: le specie indipendenti necessarie a definire la composizione di tutte le fasi presenti nel sistema stesso. $\So$ il numero di componenti $\so$ \textit{numero minimo di variabili indipendenti} tramite le quali la composizione di ciascuna fase presente in un equilibrio possa essere espressa.\\
+
+\begin{itemize}
+	\item Se le specie presenti in un sistema non reagiscono $\So C=S$
+	\item Se le specie reagiscono e sono all'equilibrio dobbiamo tenere conto di tutte le possibili relazioni che intercorrono fra le specie $\so C=S-R$
+\end{itemize}
+
+\subsection{Diagramma di stato di una sostanza pura}
+\textbf{Confini di fase o curve limite}: luogo dei punti (valori di T e p) per i quali due fasi coesistono in equilibrio.
+\\ \textbf{Pressione di vapor saturo / tensione di vapore}: pressione del vapore in equilibrio con la sua fase condensata.\\
+\textbf{Temperatura / Pressione critica}: T / p alla quale scompare la superficie di separazione tra le fasi. \\
+\textbf{Punto triplo}: punto invariante nel quale coesistonno simultaneamente tre fasi in equilibrio
+
+\paragraph{Dipendenza della stabilità delle fasi dalla temperatura}:
+\\ Per effetto dell'innalzamento della temperatura il potenziale chimico di una sostanza pura diminuisce
+\begin{center}
+    \includegraphics[width= 7 cm]{dipendenza potenziale dalla T.png}
+\end{center}
+\begin{equation*}
+    (\frac{\partial \mu}{\partial T})_p=-S_m
+\end{equation*}
+
+\paragraph{Dipendenza della stabilità delle fasi dalla pressione}:
+\\ Per effetto dell'innalzamento della pressione il potenziale chimico di una sostanza pura aumenta e si innalza la temperatura delle transizioni di fase
+\begin{center}
+    \includegraphics[width= 7 cm]{dipendenza potenziale dalla p.png}
+\end{center}
+\begin{equation*}
+    (\frac{\partial \mu}{\partial p})_T=-V_m
+\end{equation*}
+
+\paragraph{Classificazione delle transizioni di fase secondo Ehrnefest}
+\begin{itemize}
+    \item TRANSIZIONI DI FASE DEL PRIM'ORDINE: sono quelle che presentano una discontinuità nella derivata prima dell'energia libera, calcolata rispetto ad una variabile termodinamica (come trasf. solido/liquido/vapore)
+    \begin{center}
+        \includegraphics[width=14 cm]{transizioni di fase del prim'ordine.png}
+    \end{center}
+    \begin{equation*}
+        (\frac{\partial \mu}{\partial T})_p=-S_m
+    \end{equation*}
+    \item TRANSIZIONI DI FASE DEL SECONDO ORDINE: sono quelle che presentano una discontinuità in una derivata seconda dell'energia libera (tipo trans. superconduttore / conduttoere alla $T_c$ e transizione ferromagnete / paramagnete alla T di Curie)
+    \begin{center}
+        \includegraphics[width=14 cm]{transizioni di fase del secondo ordine.png}
+    \end{center}
+\end{itemize}
+
+\paragraph{Inclinazione dei confini di fase} $\frac{dp}{dT}$
+\\Facciamo variare T e p in modo tale che due fasi permangano in equilibrio:
+\\ $d\mu_\alpha=d\mu_\beta$ dove $d\mu=-S_mdT+V_mdp$
+\begin{equation*}
+    \So -S_{m\alpha}dT+V_{m\alpha}dp=-S_{m\beta}dT+V_{m\alpha}dp \so (V_\beta-V-\alpha)dp=(S_{m\beta}-S_{m\alpha})dT
+\end{equation*}
+Da cui si ricava \textbf{l'equazione di Clausius}
+\begin{equation*}
+    \frac{dp}{dT}=\frac{\Delta S_m}{\Delta V_m}=\frac{\Delta Q}{T\Delta V_m}=\frac{\lambda}{T\Delta V_m}
+\end{equation*}
+
+\subsection{Come descrivere un sistema eterogeneo all'equilibrio}
+Siano $C$ i componenti e $P$ le fasi; consideriamo inoltre le eventuali variabili esterne che agiscono sul sistema (di norma 2, pressione e temperatura):
+\begin{itemize}
+    \item la composizione di ciascuna fase è definita da $C-1$ termini di concentrazione
+    \item in tutto, per P fasi, sono necessari $P(C-1)$ termini
+    \item considerando anche temperatura e pressione le variabili risultano essere $P(C-1)+2$
+    \item Posto che il sistema sia all'equilibrio, ciò implica che i potenziali chimici delle diverse fasi dei singoli componenti indipendenti siano, fra loro, uguali, quindi le equazioni indipendenti per descrivere l'equilibrio sono $P-1$ per ciascun componente e, complessivamente, $C(P-1)$
+\end{itemize}
+\paragraph{Regola delle fasi di Gibbs}:\\
+Il numero di variabili indipendenti, ovvero il numero di variazioni che possono essere operate indipendentemente sul sitema, è uguale al numero totale di variabili meno quelle variabili che sono automaticamente fissate dalle condizioni di equilibrio
+\begin{equation*}
+    F=[P(c-1)+2]-[C(P-1)]=C-P+2
+\end{equation*}
+Questa equazione definisce le condizioni di equilibrio di un sistema eterogeneo tramite una relazione fra il numero di fasi esistenti e il numero di componenti.
+
+\subsection{Potenziale chimico di una sostanza in una miscela}
+In un sistema aperto, l'energia di Gibbs dipende, oltre che da T e p, anche dalla composizione. Per un sistema binario (a due componenti):
+
+\begin{equation*}
+    dG=\dpar{G}{T}{p,n_1,n_2}+\dpar{G}{p}{T,n_1,n_2}+\dpar{G}{n_1}{p,T,n_2}+\dpar{G}{n_2}{p,T,n_1}
+\end{equation*}
+
+\begin{align*}
+    &dG=-SdT+Vdp+\mu_1dn_1+\mu_2dn_2\\
+    &dG=-SdT+Vdp+\sum_j\mu_jdn_j
+\end{align*}
+A T e p costante $dG=\sum_j\mu_jdn_j$.\\
+Così come per le miscele di gas si fa uso della pressione parziale (il contributo di un componente alla pressione totale), per descrivere termodinamicamente il comportamento delle miscele si deve introdurre il concetto di analoghe proprietà "parziali"
+ \paragraph{Volume parziale molare}
+ \begin{equation*}
+     V_j=(\frac{\partial V}{\partial n_j})_{p,T,n'}
+ \end{equation*}
+Il volume parziale molare della specie j rappresenta la variazione di volume totale osservata al variare del numero di moli di j quando pressione, temperatura e quantità di tutte le altre specie presenti in miscela rimangono costanti. \\
+Se in una miscela binaria (A+B) la composizione viene cambiata per aggiunta di $dn_A$ moli di A e $dn_B$ moli di B, il volume totale varia di $dV$
+\begin{equation*}
+    dV=(\frac{\partial V}{\partial n_A})_{p, T, n_B}dn_A+(\frac{\partial V}{\partial n_B})_{p, T, n_A}dn_B
+\end{equation*}
+\begin{equation*}
+    dV=V_Adn_A+V_Bdn_B
+\end{equation*}
+Noti i volumi parziali molari alla composizione voluta e ad una certa T, possiamo conoscere il volume  della miscela
+\begin{equation*}
+     V=V_An_A+V_Bn_B
+\end{equation*}
+
+\paragraph{Energia libera di Gibbs parziale molare} $G=n_A\mu_A+n_B\mu_B$ ($\mu_i$ sono i potenziali chimici ad una data composizione)\\
+Per variazioni infinitesime di composizione, la variazione corrispondente di G sarà:
+\begin{equation*}
+    dG=\mu_Adn_A+\mu_Bdn_B+n_Ad\mu_A+n_Bd\mu_B
+\end{equation*}
+ma è anche (a p e T costante):
+\begin{equation*}
+    dG=\mu_Adn_A+\mu_Bdn_B \So  n_Ad\mu_A+n_Bd\mu_B=0
+\end{equation*}
+In generale (\textbf{Equazione di Gibbs-Duhem}):
+\begin{equation}
+    \sum_jn_jd\mu_j=0
+\end{equation}
+\begin{center}
+    In una miscela binaria i potenziali chimici non sono indipendenti: se il potenziale di una specie aumenta, l'altro deve diminuire
+\end{center}
+
+\paragraph{Energia libera di Gibbs di mescolamento dei gas}:\\
+Consideriamo due gas perfetti separati alla stessa T e p
+\begin{equation*}
+    G_i=n_A\mu_A+n_B\mu_B=n_A\left[\mu_A^o+RT\ln\frac{p}{p^o}\right]+n_B\left[ \mu_B^o+RT\ln\frac{p}{p^o}\right]
+\end{equation*}
+Dopo miscelazione, le pressioni parziali dei due gas sono $p_A$ e $p_B$ con $p=p_A+p_B$
+\begin{equation*}
+    G_f=n_A\mu_A+n_B\mu_B=n_A\left[\mu_A^o+RT\ln\frac{p_A}{p^o}\right]+n_B\left[ \mu_B^o+RT\ln\frac{p_B}{p^o}\right]
+\end{equation*}
+Quindi
+\begin{equation*}
+    \Delta_{mix}G=G_f-G_i=n_ART\ln\frac{p_A}{p}+n_BRT\ln\frac{p_B}{p}
+\end{equation*}
+Essendo $\frac{p_j}{p}=x_j$ e $n_j=x_jn$
+\begin{align*}
+    &\Delta_{mix}G=nRT(x_A\ln x_A+x_B\ln x_B)\\
+    &\Delta_{mix}G=nRT\sum_jx_j\ln x_j
+\end{align*}
+\begin{center}
+    L'energia libera di mescolamento è negativa perché i gas ideali si mescolano spontaneamente in tutte le proporzioni
+\end{center}
+
+\subsection{Entropia di mescolamento dei gas}
+Dal $\Delta_{mix}G$ è possibile calcolare l'entropia di miscela $\Delta_{mix}S$
+\begin{equation*}
+    \dpar{G}{T}{p,n}=-S
+\end{equation*}
+\begin{equation*}
+    \Delta_{mix}S=-\dpar{\Delta_{mix}G}{T}{p, n_A, n_B}=-nR(x_A\ln x_A+x_B\ln x_B)
+\end{equation*}
+\begin{center}
+    L'entropia di mescolamento è sempre positiva
+\end{center} 
+
+\subsection{Entalpia di mescolamento dei gas}
+Si ricava $\Delta_{mix}G=\Delta H-T\Delta_{mix}S$\\
+(a T e p costanti)
+\begin{equation*}
+    \Delta_{mix}H=0
+\end{equation*}
+L'entalpia di mescolamento è nulla perché nei gas ideali non c'è interazione tra le particelle
+
+\subsection{Potenziale chimico dei liquidi}
+Per soluzioni ideali all'equilibrio
+\begin{equation*}
+    \mu_A^*(l)=\mu_A^o+RT\ln \frac{p_A^*}{p^o}
+\end{equation*}
+$\mu_A^*(l)$ potenziale chimico del liquido puro A\\
+$RT\ln \frac{p_A^*}{p^o}$ potenziale chimico di A nel vapore\\
+$p_A^*$ tensione di vapore del liquido puro A\\
+$p_A$ tensione di vapore del liquido A in soluzione\\
+
+In presenza di soluto:
+\begin{align*}
+    &\mu_A^*(l)=\mu_A^o+RT\ln \frac{p_A}{p^o} \\
+    &\mu_A(l)=\mu_A^*(l)-RT\ln \frac{p_A^*}{p^o}+RT\ln \frac{p_A}{p^o}\\
+    &\So \mu_A(l)=\mu_A^*(l)+RT\ln\frac{p_A}{p_A^*}
+\end{align*}
+Questa equazione mette in relazione il rapporto tra le pressioni di vapore (liq. in soluzione/liq.puro) e la composizione del liquido. Vale sempre, sia per casi ideali che reali.
+
+\subsection{Soluzioni ideali}
+Vale la \textbf{legge di Raoult} in tutto l'intervallo di composizione, sia per il soluto, sia per il solvente
+\begin{align*}
+    p_A=&p_A^*X_A\\
+    \mu_A(l)=&\mu_A^*(l)+RT\ln x_A
+\end{align*}
+\begin{center}
+    \includegraphics[width=6cm]{soluzioni ideali legge di Raoult.png}
+\end{center}
+
+\subsection{Soluzioni idealmente diluite}
+Si intendono le miscele per cui il solvente obbedisce alla legge di Raoult, mentre il soluto segue la legge di Henry.
+\begin{center}
+    \includegraphics[width=7 cm]{soluzioni idealmente diluite.png}
+\end{center}
+A bassa concentrazione di soluto si trova sperimentalmente che, sebbene la pressione di vapore di soluto è proporzionale alla sua frazione molare, la costante di proporzionalità non corrisponde alla pressione di vapore della sostanza pura
+\begin{equation*}
+    p_B=x_BK_B
+\end{equation*}
+$x_B$ frazione molare di soluto e $K_B$ è una costante (con dimensioni di una pressione), scelta in modo che sia tangente alla curva sperimentale della pressione di vapore quando $x_b \to 0$
+
+\subsection{Soluzioni reali}
+(miscela binaria A+B)
+\paragraph{Attività del solvente A}
+\begin{equation*}
+    \mu_A(l)=\mu_A^*(l)+RT\ln a_A \quad \left(a_A=\frac{p_A}{p_A^*}=\gamma_Ax_A \right) \so \mu_A(l)=\mu_A^*(l)+RT\ln x_A+RT\ln \gamma_A
+\end{equation*}
+
+\paragraph{Attività del solvente B};\\
+Definiamo lo stato standard per il soluto in soluzioni idealmente diluite:
+\begin{equation*}
+    \mu_B=\mu_B^*+RT\ln\frac{p_B}{p_B^*}=\mu_B^*+RT\ln\frac{K_B}{p_B^*}+RT\ln x_B=\mu_B^\#+RT\ln x_B
+\end{equation*}
+\begin{equation*}
+    \mu_B=\mu_B^\#+RT\ln a_B \quad \left(a_B=\frac{p_B}{K_B}=\gamma_Bx_B \right) \so \mu_B=\mu_B^\#+RT\ln x_B+RT\ln \gamma_B
+\end{equation*}
+
+\subsection{Miscele liquide}
+L'energia di Gibbs di una miscela liquida si può ottenere come per il caso di una miscela di gas. $G_i=+n_A\mu_A^*(l)+n_B\mu_B^*(l)$\\
+Per i due liquidi separati:
+\begin{equation*}
+    G_i=n_A(\mu_A^*+RT\ln x_A)+n_B(\mu_B^*+RT\ln x_B)
+\end{equation*}
+Dopo miscelazione:
+\begin{equation*}
+    \Delta_{mix}=G_f-G_i=nRT(x_A\ln x_A+x_B\ln x_B)
+\end{equation*}
+Come per i gas, nelle soluzioni ideali il processo è guidato dall'aumento di entropia.\\
+Analogamente, siccome la media delle interazioni A-B nella miscela è uguale alle interazioni medie A-A, B-B nei liquidi puri
+\begin{equation*}
+    \Delta_{mix}=0
+\end{equation*}
+Nelle soluzioni reali l'entità delle interazioni A-B può essere diversa dalla media A-A, B-B, quindi non solo ci può essere un'entalpia di miscela diversa da zero, ma anche un diverso contributo entropico, a seconda del modo in cui le molecole si aggregano piuttosto che mescolarsi casualmente. \\
+ne segue che se $\Delta H$ è positivo o se $\Delta S$ è negativo (perché le molecole sono organizzate in un ordine spaziale) il $\Delta_{mix}G$ può essere positivo.\\
+In questi casi i liquidi sono immiscibili parzialmente o totalmente e c'è separazione tra fasi
+
+\newpage
+
+\section{Termodinamica di equilibrio}
+\subsection{Diagrammi di fase}
+Per registrare e visualizzare i risultati ottenuti dallo studio degli effetti delle variabili di stato su un sistema, i diagrammi sono stati ideati per mostrare la relazioni tra varie fasi che appaiono nel sistema in condizioni di equilibrio. \\
+Per questo i diagrammi sono chiamati diagrammi costituzionali, diagrammi di equilibrio o diagrammi di fase.\\
+Un diagramma di fase a un / due componente/i può essere semplicemente un grafico che mostra i cambiamenti di fase nella sostanza con il variare di tempratura e pressione.
+
+
+\paragraph{Sistemi binari di leghe isomorfe}
+\begin{itemize}
+    \item lega binaria: una miscela di due metalli
+    \item sistema isomorfo: due elementi completamente solubili l'uno nell'altro allo stato sia liquido che solido
+    \item di solito soddisfano una o più regole della solubilità solida di Hume-Rothery
+    \item composizioni di fase liquida + solida ad ogni temperatura può essere determinata disegnando una linea di collegamento
+\end{itemize}
+
+\subsection{Soluzioni solide}
+Quando atomi diversi sono incorporati in una struttura cristallina, sia in siti sostitutivi che interstiziali, la risultante fase è una soluzione solida del materiale della matrice (solvente) e degli atomi introdotti (soluto).
+
+\begin{itemize}
+    \item Soluzioni solide sostitutive: gli atomi estranei (soluti) occupano gli stessi "normali" siti reticolari occupati dagli atomi dell'ospite(solvente), ad es. Cu-Ni;Ge-Si
+    \item Soluzioni solide interstiziali: gli atomi estranei occupano siti interstiziali della struttura cristallina dell'ospite (es. Fe-C)
+\end{itemize}
+
+\paragraph{Tipi di solubilità solida}
+
+\begin{itemize}
+    \item Solubilità solida illimitata: soluto e solvente sono reciprocamente solubili ad ogni concentrazione (tipo sistemi Cu-Ni). Soddisfa i requisiti delle regole di Hume-Rothery. Il risultato è una lega monofase
+    \item Solubilità solida limitata o parziale: c'è un limite alla quantità di soluto che può dissolversi in un solvente prima che la saturazione sia raggiunta (es Pb-Sn o molti altri sistemi). Non soddisfa le regole di H-R. Il risultato è una lega multi fase
+\end{itemize}
+Regole di Hume-Rothery
+\begin{enumerate}
+    \item Rapporto dimensioni relative $\pm 15\%$
+    \item la struttura cristallina deve essere la stessa
+    \item la differenza di elttronegatività deve essere tra $-0,4<\chi<0,4$
+    \item deve esserci la stessa valenza
+\end{enumerate}
+
+\subsection{Regola della leva inversa}
+Fornisce il peso $\%$ delle fasi in ogni regione di un diagramma binario. \\
+(rivedi)
+\begin{center}
+    \includegraphics[width=7 cm]{Regola della leva inversa.png}
+\end{center}
+\begin{center}
+    \includegraphics[width=10 cm]{diagrammi di fase e energia libera.png}
+\end{center}
+
+\subsection{Differenza dall'idealità}
+Se $\Delta_mH>0$ e $\Delta_mH^\alpha>\Delta_mH^l$ c'è una maggiore differenza dall'idealità per soluzioni solide rispetto a quelle che liquide. \\
+Una differenza crescente nel raggio atomico dei componenti introduce un'energia di deformazione reticolare nella soluzione solida che non è presente nella struttura più aperta della soluzione liquida
+\begin{center}
+    \includegraphics[width=10cm]{diagrammi fase 1.png}
+    \includegraphics[width=10cm]{Diagrammi fase 2.png}
+    \includegraphics[width=10cm]{daigrammi di fase ancora.png}
+\end{center}
+
+\subsection{Sistemi binari di leghe eutettiche}
+In alcuni sistemi di leghe binarie, i componenti hanno una solubilità solida limitata soluzioni solide terminali con solubilità solida limitata fasi $\alpha$ e $\beta$ composizione eutettica congela a temperatura inferiore rispetto a tutte le altre composizioni, questa temperatura più bassa è chiamata temperatura eutettica.  (rivedi)\\
+Reazioni eutettiche sono reazioni invarianti
+\begin{equation*}
+    liquid \to \alpha + \beta
+\end{equation*}
+
+\subsection{Diagrammi di fase con fasi e composti intermedi}
+\begin{center}
+    \includegraphics[width=14 cm]{diagrammi di faseeee.png}
+\end{center}
+
+\subsection{Sistemi binari di leghe peritettiche}
+La fase liquida reagisce con al fase solida per formare una nuova e diversa fase solida
+\begin{equation*}
+    liquido +\alpha \to \beta
+\end{equation*}
+
+Durante solidificazioni rapide di leghe attraverso una reazione peritettica, la fase $\beta$ crea una barriera attorno alla fase $\alpha$
+
+\subsection{Trasformazioni di fase congruenti}
+Nessun cambiamento di composizione associato alla trasformazione. \\
+Esempi:
+\begin{itemize}
+    \item trasformazioni di fase allotropiche
+    \item punti di fusione di metalli puri
+    \item punti di fusione congruenti
+\end{itemize}
+
+(cerca definizione di congruente)\\
+
+Molte fasi intermedie hanno range di omogeneità abbastanza grandi, tuttavia moltre altre hanno range di omogeneità molto limitati o non significativi. \\
+Quando una fase intermedia di intervallo di omogeneità limitato (o assente) si trova in corrispondenza o in prossimità di un rapporto specifico di elementi componenti che riflette il normale posizionamento degli atomi componenti nella struttura cristallina della fase, viene spesso chiamato \textbf{composto} (o composto lineare ).
+\\
+Quando i componenti del sistema sono metallici, tale fase intermedia è spesso chiamata composto intermetallico. 
+\\
+I composti intermetallici non devono essere confusi con i composti chimici, dove il tipo di legame è diverso da quello dei cristalli e dove il rapporto ha un significato chimico.
+\begin{center}
+    \includegraphics[width=10 cm]{composizioni.png}
+\end{center}
+Il composto terminale di alcuni diagrammi di fase binari può anch'esso essere un composto binario (ternario, quaternario).
+
+
+\subsection{Diagrammi di fase ternari}
+Quando un terzo componente è aggiunto al sistema binario, illustrare le condizioni di equilibroi in due dimensioni diventa più complicato. \\
+Un modo può essere aggiungere una terza dimensione di composizione alla base, formando un digramma in 3 dimensioni avente diagrammi binari ai suoi lati (3). Può essere rappresentato con una proiezione isometrica modificata. \\
+In una figura planare un diagramma di fase ternario è costruito usando un triangolo equilatero come base. I componenti puri sono ai vertici e le composizioni delle leghe binarie sul punto medio dei lati. 
+\\ La temperatura può essere rappresentata come uniforme in tutto il diagramma (con sezioni isoterme).
+
+\subsection{Metodi sperimentali per costruire diagrammi di fase}
+Bisogna considerare:
+\begin{itemize}
+    \item La purezza chimica dei componenti:\\
+    Per risultati accurati serve un'alta purezza (contaminazioni possono portare ad un diagramma inaccurato). L'unica eccezione a questo è se le particelle sono flussi, che accelerano solo la velocità di reazione.
+    \item Le caratteristiche chimiche dei materiali di partenza: \\
+    Per l'equilibrio sono necessari materiali in particelle fini accuratamente miscelati e toccanti.
+    Se necessario, questi possono essere prodotti attraverso una varietà di mezzi diversi, inclusi gel, sol e preparazioni colloidali.
+    Se si studia un sistema di formatura del vetro, i materiali vengono fusi, frantumati e rifusi fino ad ottenere un materiale omogeneo.
+    \\ Se i materiali non sono omogenei, il diagramma non sarà accurato a causa di materiali incoerenti
+    \item I criteri di tempo:\\
+    Il tempo tenuto a qualsiasi temperatura deve essere abbastanza lungo per permettere che la reazione vada a completezza (questo può durare anni se i flussi non sono stati aggiunti). Le reazioni devono essere ocmplete per determinare i corretti campi nel diagramma
+    \item La costanza della composizione:
+    \\La composizione deve rimanere costante durante tutto l'esperimento, qualsiasi variazione causerà inesattezze. Il contenitore deve rimanere lo stesso per tutto l'esperimento in modo tale da controllare la quantità di contaminanti di questo. \\ Serve controllare anche la volatilizzazione, altrimenti le composizioni cambieranno col tempo. I trattamenti termici in contenitori chiusi e non reattivi possono aiutare a controllare questo problema.
+    \item La composizione chimica e l'analisi chimica:\\
+    Se non si conoscono la composizione e purezza dei materiali di partenza, bisogna fare analisi spettrochimiche e chimiche.\\
+    Il prodotto finale deve anch'esso essere analizzato se è stata effettuata qualunque tipo di reazione.\\
+    (tecniche speciali: alta pressione, controllo della pressione dell'ossigeno per ceramiche elettroniche e magnetiche, metodi idrotermici per accelerare la velocità di redox e produrre equilibri che non si otterrebbero in altri casi)
+    \item L'identificazione delle fasi: 
+    \begin{itemize}
+        \item Microscopia ottica: soddisfacente per determinare indici di rifrazione, birifrangenza, dispersione e altre proprietà ottiche. Ci sono problemi per la determinazione di limiti di solubilità solida e immiscibilità liquida. Per determinare le proprietà serve che i materiali abbiano una grana ragionevole
+        \item Diffrazione a raggi X: usata per determinare la struttura cristallina dei materiali. Usata per aggregati dalla grana fine.
+        \item Miscroscopia elettronica: ottima per determinare separazioni di fase nei vetri. La microscopia a trasmissione elettronica è usata per studiare molte ceramiche e materiali composti ceramici.
+    \end{itemize}
+    Per risultati accurati è necessario impiegare più metodi.
+\end{itemize}
+Attraverso l'osservazione sperimentale delle curve di raffreddamento di una miscela di due (o più) componenti a diversa composizione è possibile determinare alcuni punti caratteristici del diagramma di stato. Acendo a disposizione un numero sufficiente di dati sperimentali si può disegnare l'intero diagramma di fase.
+
+\subsection{Tipi di analisi}
+\paragraph{Analisi termica}: insieme di tecniche nelle quali una proprietà fisica di una sostanza è misurata in funzione della temperatura (o del tempo) mentre la sostanza è sottoposto ad un programma controllato di temperatura (riscaldamento, raffreddamento, isoterma)
+\paragraph{Analisi termica differenziale (DTA)}: tecnica che misura la differenza di temperatura tra un campione ed un riferimento (interte termicamente) in funzione del tempo o della temperatura, quando questi sono sottoposti ad un programma controllato di temperatura.
+\paragraph{Termogravimetria (TG)}: tecnica che misura la variazione del peso del campione in funzione della temperatura o del tempo, mentre il campione è sottoposto ad un programma controllato di temperatura. \\ 
+Si ottiene una curva a gradini dove le variazioni di peso possono essere valutate per via grafica. \\
+Di norma l'analisi termogravimetrica viene effettuara congiuntamente all'analisi termica differenziale (TG-DTA o SDTA). Spesso viene pure collegata ad un'analisi dei prodotti di decomposizione (EGA, evolved gas analysis).\\
+Le applicazioni della SDTA sono nello studio delle reazioni solido-gas, delle decomposizioni termiche, della corrosione dei matieriali, della determinazione di composti volatili, della determinazione dell'umidità o idratazione dei solidi, delle cinetiche di trasformazione.
+\paragraph{Calorimetria differnziale a scansione (DSC)}: tecnica con cui la differenza in input di energia verso una sostanza ed un riferimento è misurata in funzione della temperatura mentre questi sono sottoposti ad un programma controllato di temperatura. \textit{Si registra l'energia nevessaria per mantenere nulla la differenza di temperatura tra il campione ed il riferimento.}
+
+\img{10}{DSC.png}
+
+\newpage
+
+\section{Terzo principio della termodinamica}
+\begin{align*}
+        &\Delta G=\Delta H-T\Delta S \\
+        &\Delta S=\frac{\Delta Q}{T}\\
+        &\Delta Q =C\Delta T
+\end{align*}
+\subsection{Legge di Debye}
+\begin{center}
+    ovvero legge del $T^3$
+\end{center}
+\begin{equation*}
+    \lim_{T\to0}C_p(T)=\alpha T^3
+\end{equation*}
+Per i solidi metallici $\lim_{T\to0}C_p(T)=aT+bT^3$\\
+Per i solidi non metallici $C=\frac{12R\pi^2}{5}(\frac{T}{\theta_D})^3$ (\gls{teta})\\
+($C_p(s)\propto T^3$)
+
+\subsection{Terzo principio}
+\paragraph{Postulato di Nerst}: tutte le sostanze cristalline pure possiedono la stessa entropia a 0 K 
+\begin{equation*}
+    \lim_{T\to0}\Delta_fS=0
+\end{equation*}
+\paragraph{Postulato di Plank}: l'entropia di una sostanza pura di avvicina a zero al tendere di T a 0 K
+\begin{equation*}
+    \lim_{T\to0}S=0
+\end{equation*}
+
+\begin{center}
+    \textit{Ogni sostanza possiede un'entropia positiva che, allo zero assoluto, può diventare nulla. Ciò accade solo nel caso di una sostanza cristallina perfetta.}
+\end{center}
+
+\newpage
+
+\section{Termodinamica statistica}
+La termodinamica classica è la termodinamica dei sistemi macroscopici e descrive comportamenti "medi". \\
+La termodinamica statistica è la termodinamica dei sistemi microscopici e descrive i comportamenti "singoli", ovvero fornisce una descrizione degli stati energetici molecolari.
+
+\subsection{Energia interna}
+$\Delta U$ è una funzione di stato, per i gas perfetti $\Delta U \equiv \Delta U_{termica}$.\\
+L'energia termica rappresenta la differenza tra l'energia interna del gas ad una certa temperatura T e l'energia interna "residua" del gas a 0 K. \\
+L'energia interna di un sistema è la somma di vari contributi che includono termini traslazionali, rotazionali, vibrazionali, elettronici e nucleari.
+\begin{equation*}
+    U_{ter}=U_{tras}+U_{rot}+U_{vib}=\frac{1}{2}RT+\frac{1}{2}RT+\frac{RTx}{e^x-1}
+\end{equation*}
+\begin{equation*}
+    \begin{cases}
+    x=\frac{h\nu}{kT}\\
+    x=\frac{1,439 \bar\nu}{T} \quad \quad \bar\nu=\frac{\nu}{c}
+\end{cases}
+\end{equation*}
+
+Siano \textbf{N} gli atomi di una molecola, sono 3N i gradi di libertà
+\begin{itemize}
+    \item Gas perfetto monoatomico: $U=\frac{3}{2}RT+0+0$
+    \item Gas perfetto biatomico lineare: $U=3(\frac{1}{2}RT)+2(\frac{1}{2}RT)+\frac{RTx}{e^x-1}$
+    \item Gas perfetto poliatomico lineare: $U=\frac{5}{2}RT+\sum_{i=1}^{2N-5}\frac{RTx_i}{e^{x_i}-1}$
+    \item Gas perfetto poliatomico non lineare: $U=3(\frac{1}{2}RT)+2(\frac{1}{2}RT)+\sum_{i=1}^{2N-6}\frac{RTx_i}{e^{x_i}-1}$
+\end{itemize}
+
+\subsection{Funzione di distribuzione di Boltzman}
+In quanti modi possono essere distribuite N molecole in un certo numero di stati energetici?
+\begin{align*}
+    &W=\frac{N!}{n_0!\cdot n_1!\cdot n_2!\cdot ...}\\
+    &\ln W=\ln N!-(\ln n_0!+\ln n_1!+\ln n_2!+...)=\ln N!+\sum_i\ln n_i\\
+    &\ln W \approx (N\ln N-N)-[\sum_i(n_i\ln n_i-n_i)]=N\ln N -\sum_i n_i\ln n_i
+\end{align*}
+(applicando l'approssimazione di Stirling $\ln x!=x\ln x-x$
+\\
+Cerchiamo il valore massimo di W, ovvero la CONFIGURAZIONE DOMINANTE
+\begin{equation*}
+    d\ln W=\sum_i\dpar{\ln W}{n_i}{}=0
+\end{equation*}
+Vincoli:
+\begin{itemize}
+    \item l'energia totale è costante $E=\sum_in_i\varepsilon_i$
+    \item il numero totale di molecole è costante $N=\sum_in_i$
+\end{itemize}
+\begin{align*}
+    &d\ln W=\sum_i\left[ \dpar{W}{n_i}{} +\alpha-\beta\varepsilon_i \right]dn_i=0 \\
+    & \dpar{W}{n_i}{} +\alpha-\beta\varepsilon_i=0\\
+    &-\ln \frac{n_i}{N}+\alpha-\beta\varepsilon_i=0\\
+    &\frac{n_i}{N}=e^{\alpha-\beta\varepsilon_i}=\frac{e^{-\beta\varepsilon_i}}{\sum e^{\beta\varepsilon_i}}
+\end{align*}
+
+\subsection{Interpretazione della funzione di distribuzione di Boltzmann}
+\begin{itemize}
+    \item $\frac{n_i}{N} \so$ frazione delle molecole che si trovano nello stato $i$
+    \item $\beta=\frac{1}{kT} \so \frac{n_i}{N}=f(T) \quad$ con $k=1,38\cdot 10^{-23}\frac{J}{K}$ costante di Boltzmann e $N_Ak=R$ costante dei gas
+    \item $q=\sum e^{-\beta \varepsilon_i}$
+\end{itemize}
+
+\subsection{Funzione di partizione dei gas perfetti}
+Funzione di partizione molecolare 
+\begin{equation*}
+    q=\sum e^{-\beta \varepsilon_i}
+\end{equation*}
+Per N molecole indistinguibili
+\begin{equation*}
+    Q=\frac{q^N}{N}
+\end{equation*}
+I contributi a $\varepsilon_\alpha$ sono di tipo traslazionale, vibrazionale, elettronico e nucleare
+
+\begin{equation*}
+    \begin{cases}
+        &\varepsilon_{\alpha}=\varepsilon_{tras}+\varepsilon_{rot}+\varepsilon_{vib}+\varepsilon_{el}+\varepsilon_{nuc}\\
+        &q_{\alpha}=q_{tras}+q_{rot}+q_{vib}+q_{el}+q_{nuc}\\
+        &Q=\frac{(q_\alpha)^N}{N!}
+    \end{cases}
+\end{equation*}
+
+\subsection{Le funzioni termodinamiche in termini statistici}
+\begin{align*}
+    &U-U_0=-\dpar{Q}{\beta}{V}=kT^2\dpar{Q}{T}{V}\\
+    &H-H_0=-\dpar{Q}{\beta}{V}+kTV\dpar{Q}{V}{T}\\
+    &G-G_0=-kT\ln Q+kTV\dpar{Q}{V}{T}
+\end{align*}
+\begin{equation*}
+    S=kT\dpar{Q}{T}{V}+k\ln Q \so S_0=k\ln Q=R\ln W
+\end{equation*}
+
+\subsection{L'entropia residua a 0 K}
+\begin{equation*}
+    S_0=k\ln Q=R\ln W
+\end{equation*}
+
+Nell'acqua solida a T=0K ogni atomo di O è circondato da quattro atomi di H in coordinazione tetraedrica. Due atomi di H sono congiunti da legami $\sigma$ brevi e gli altri due da legami idrogeno lunghi. La distribuzione casuale dei due legami brevi comporta che il numero delle disposizioni permesse è
+\begin{equation*}
+    W=2^{2N}(\frac{6}{16})^n=(\frac{3}{2})^N
+\end{equation*}
+\begin{equation*}
+    \So S_m(0)=k\ln (\frac{3}{2})^N=kN\ln (\frac{3}{2})=R(\frac{3}{2})=3,4\frac{J}{K \cdot mol}
+\end{equation*}
+
+\newpage
+
+\section{Elementi di cristallografia}
+La struttura di un cristallo è la disposizione regolare di atomi, ioni o molecole che lo compongono. Tale disposizione è "l'ID" dei solidi cristallini e ne determina le proprietà. \\
+\subsection{La Cristallografia}La branca che studia le strutture cristalline. Scienza trasversale dedicata allo sviluppo di metodologie e tecniche sperimentali, computazionali e teoriche, volte alla comprensione della disposizione spaziale di atomi, etc., con particolare riferimento alle relazioni struttura-proprietà ed alla previzione di reattività e di stabilità cinetica e termodinamica. 
+\paragraph{Tecniche spettroscopiche}:\\
+studio delle interazioni radiazione-materia, per fenomenti di assorbimento, emissione e/o fluorescenza (radiofrequenze, microonde, infrarosso, UV-visibile, raggi X)
+\paragraph{Tecniche diffrattometriche (cristallografia)}: \\
+studio delle interazioni radiazione-materia per fenomeni di diffusione elastica (e non) di fotoni e altro (raggi X, elettroni, neutroni, particelle $\alpha$)
+\paragraph{Altre tecniche "strutturali"}: spettrometria di massa, misure di suscettività magnetica, analisi termiche, microscopie (ottica, elettronica, AFM, STM)
+
+\paragraph{Cristallografia elementare}: (?)
+
+\subsection{Simmetria}
+Parliamo di
+\begin{itemize}
+    \item \textbf{Operazioni di simmetria} quando si effettua un'azione che lascia l'oggetto invariato
+    \item \textbf{elementi di simmetria}: punto, retta, piano rispetto al quale l'operazione è stata effettuata
+\end{itemize}
+La molecola di ammoniaca possiede un asse ternario, quella di acqua un asse binario (rotazione di 180° (orario=antiorario).\\
+Un cubo per esempio possiede invece 13 assi di rotazione
+\paragraph{Riflessione}($\alpha$): operazione corrispondente ad un piano di riflessione. \\
+L'acqua possiede due piani di riflessione, il naftalene 3
+\paragraph{Inversione}($i$): operazione rispetto ad un centro di simmetria. Il centro di inversione "ribalta" il punto
+\paragraph{Rotazione impropria}($S$): ottenuta effettuando prima una rotazione, seguita da una riflessione rispetto ad un piano perpendicolare all'asse di rotazione
+\paragraph{Gruppo puntuale}: insieme di operazioni di simmetria che lasciano invariato almeno un punto in comune. \\
+Esistono 32 gruppi puntuali.\\
+Per le molecole si utilizza la notazione di Schoenflies, per i cristalli la notazione di Hermann-Mauguin
+
+\subsection{I cristalli}
+I solidi cristallini sono costituiti da arrangiamenti tridimensionali regolari di atomi o molecole. Sono caratterizzati da una periodicità che si ripete nelle tre dimensioni. Presentano un ordine a lungo raggio, a differenza dei solidi amorfi, in cui l'ordine è a corto raggio. Possiedono simmetria intrinseca, che si riflette sul loro "habitus" esterno.
+
+\subsection{Storia}
+\begin{itemize}
+    \item 1611 - Keplero studia la forma dei fiocchi di neve
+    \item 1670 - Stenone stabilisce la legge della costanza degli angoli diedri tra le facce
+    \item 1783 - Romè di l'Isle applica le leggi di Stenone a un gran numero di cristalli
+    \item 1784 - Renè Just d'Hauy enuncia la legge della razionalità degli indici
+    \item 1830 - Hessel definisce le 32 classi cristalline. Nasce la cristallografia morfologica
+    \item 1848-1894 - anni della cristallografia teorica
+    \item Bravais trova che gli atomi nei solidi sono disposti secondo ripetizioni tridimensionali ordinate. Stabilisce i 14 tipi di ripetizione per la sola traslazione (reticolo di Bravais).\\
+    La base (atomi, molecole, etc) che si dispone secondo un reticolo a formare una struttura cristallina induce determinate distanze (le particelle hanno una loro dimensione). A parità di reticolo, i lati di cella (e il volume) saranno diversi a seconda della base di cui sono composti.
+    \item Schoenflies e Fedorov ricavano i 230 modi di ripetere gli atomi nei solidi
+    \item 1895 - Rontgen scopre i raggi X
+    \item Negli anni successivi si ipotizza la natura ondulatoria dei raggi X e Sommerfeld stima la $\lambda\approx0,4 A$ (Angstrom)
+    \item 1912 - Max von Laue suggerisce l'uso dei cristalli come reticoli di diffrazione per i raggi X: inizio della cristallografia strutturale
+    \item Friedrich e Knipping (studenti di Rongten) eseguono con successo il primo esperimento di diffrazione
+    \item Bragg e von Laue usano gli spettri di diffrazione a RX per dedurre la struttura cristallina di $NaCl, \, KBr, \, KI$
+    \item dal 1940 in avanti il numero di strutture risolte da cristallo singolo inizia a crescere sempre più velocemente
+    \item 1960 - risolte le prime strutture di proteine
+    \item 1969 - Hugo M.Rietveld pubblica "A profile refinement method for nuclear and magnetic structures". Comincia l'era degli affinamenti strutturali da polveri
+\end{itemize}
+
+\subsection{Reticoli}
+In un solido la disposizione degli atomi nello spazio viene comunemente descritta come l'insieme delle posizioni degli atomi stessi in un sistema di riferimento cartesiano. \\
+La ripetizione ordinata di un \textit{motivo strutturale} in un cristallo porta ad indurre il concetto di \textbf{reticolo cristallino}.
+\paragraph{Un reticolo} è caratterizzato dalla presenza di simmetria traslazionale (periodicità reticolare), simmetria puntuale (locale) e mista. \\
+Per SIMMETRIA TRASLAZIONALE si intende indicare il fatto che l'intero reticolo, costituito da un insieme infinito di punti, può essere riprodotto individuando una porzione di esso, detta \textit{cella unitaria / elementare}, e replicandola nello spazio attraverso operazioni di traslazione (spostamento rigido).
+
+\paragraph{Cella elementare / primitiva} di un reticolo, definita da un volume di spazio che, traslato attraverso tutti i vettori di un \textbf{reticolo di Bravais}, riempe completamente il reticolo senza sovrapposizioni e senza lasciare spazi vuoti. \\
+Una cella primitiva contiene un solo punto del reticolo ed ha stesso simmetria di questo.\\
+Si tratta della più piccola unità di ripetizione che mostra la simmetria completa della struttura cristallina.\\
+La geometria di un reticolo tridimensionale è completamente descritta specificando le dimensioni della corrispondente cella elementare.\\
+Le celle elementari sono calssificate in sette sistemi cristallini a seconda degli elementi di simmetria che possiedono.
+
+
+\paragraph{Reticolo di Bravais}($R$)(in geometria e in cristallografia): insieme infinito di punti con una dispersione geometrica identica in tutto lo spazio. I punti del reticolo sono particelle e il reticolo permette di descrivere la struttura atomica dei cristalli.\\
+Si ponga l'origine degli assi cartesiani su un qualsiasi punto del reticolo, ogni punto è individuato da un vettore. \\
+Un reticolo di Bravais è generato da operazioni di traslazione nello spazio di un insieme di vettori, detti \textbf{vettori primitivi}
+\begin{equation*}
+    R=\sum_{i=1}^{d}n_ia_i
+\end{equation*}
+$n_i$ numeri interi\\$a_i$ vettori primitivi del reticolo.
+\\
+Il reticolo in £D viene definito da:
+\begin{equation*}
+    R=n_1a+n_2b+n_3c
+\end{equation*}
+con $a, \,b,\,c$ vettori primitivi, non complanari.\\
+Le operazioni di traslazione ammissibili nello spazio tridimensionale individuano 7 sistemi (cubico, esagonale, trigonale, tetragonale, artorombico, monoclino, triclino).\\
+Alcuni di questi sistemi, oltre alla cella primitiva (cioè alla cella in cui risultano occupati solo i vertici del poliedro che li descrive) ammettono celle elementari caratterizzate dalla presenza di atomi posizionati al centro della cella o al centro delle sue facce. \\
+In totale, le celle primitive e non dei 7 sistemi danno luogo a \textbf{14 reticoli/celle di Bravais}.
+
+\img{13}{bravais.png}
+
+\textbf{Reticolo di Bravais + base = struttura cristallina}.
+\paragraph{NaCl}:
+\\Ciascun atomo (Na e Cl) forma una cella cubica a facce centrate. la coordinazione di Na e di Cl è 6. Rapporto 1:1.
+\paragraph{Fluorite, CaF2}:\\
+Gli ioni calcio sono in una struttura a facce centrate con gli atomi di fluoro presenti negli interstizi. F ha coordinazione 4, Ca ha coordinazione 8.
+\paragraph{ZnS}:\\
+due reticoli cubici a facce centrate interpenetrati. La coordinazione è 4 per entrambi gli elementi.\\
+Anche il diamanate ha un reticolo cubico a facce centrate, ma non appartiene allo stesso gruppo spaziale, perché le operazioni di simmetria che si possono applicare sono diverse in quanto in un caso gli atomi sono tutti uguali e nell'altro diversi.
+
+
+\begin{itemize}
+    \item PRIMI VICINI: i punti del reticolo più vicini ad un dato punto del reticolo stesso.\\
+    A causa della natura periodica del reticolo di Bravais ogni punti ha lo stesso numero di primi vicini.
+    \item NUMERO DI COORDINAZIONE: il numero di primi vicini; tale grandezza è una proprietà fondamentale del reticolo
+\end{itemize}
+
+\paragraph{Modelli di impaccamento}:modelli per descrivere l'arrangiamento di atomi o molecole nei diversi stati di aggregazione. \\
+L'impaccamento a sfere rigide è la rappresentazione delle strutture che si ottengono dall'impaccamento di atomi.\\
+(cubico semplice, esagonale compatto, cubico compatto, etc)
+
+\paragraph{Piani cristallografici}: una famiglia di piani che attraversano tutti i piani reticolari. Tutti i piani della stessa famiglia sono paralleli tra loro ed equispaziati e sono identificati da tre numeri interi $h,\,k,\,l$, generalmente indicati tra parentesi e chiamati \textbf{indici di Miller}.
+\paragraph{Distanza interplanare}($d_{hkl}$): distanza tra piani adiacenti. \\
+Per identificare gli indici di Miller in una data famiglia di piani:
+\begin{itemize}
+    \item si individua il piano più vicino all'origine della cella
+    \item si trovano le intercette frazionarie del piano sui tre assi
+    \item si considerano i reciproci di questi valori e si racchiudono tra parentesi tonde
+    \item (l'insiem dei piani equivalenti per simmetria è identificato con \{hkl\})
+\end{itemize}
+Nelle tecniche di diffrazione ci interessano i piani cristallini, perché sono questi che "riflettono" gli elettroni
+
+\subsection{Direzioni cristallografiche}
+Sono definite dalla linea parallela alla direzione considerata che passa anche per l'origine della cella.\\
+Per una data direzione:
+\begin{itemize}
+    \item Si individuano le coordinate frazionarie del punto di intersezione della linea con i lati della cella elementare
+    \item si trasformano questi valori nei numeri interi più piccoli possibili
+    \item si racchiudono tali numeri tra parentesi quadre
+\end{itemize}
+(es: se la linea passa per il punto di coordinate 0 a, 1/2 b, 1 c, gli indici sono [0 1 2])
+
+\paragraph{Formule quadratiche}: distanze interplanari in funzione degli indici di Miller e dei parametri di cella (V è il volume della cella elementare)
+\begin{align*}
+    &\frac{1}{d^2}=\frac{h^2+k^2+l^}{a^2}&\text{cubico}\\
+    &\frac{1}{d^2}=\frac{h^2+k^2}{a^2}+\frac{l^2}{c^2}&\text{tetragonale}\\
+    &\frac{1}{d^2}=\frac{h^2}{a^2}+\frac{k^2}{b^2}+\frac{l^2}{c^2}&\text{ortorombico}\\
+    &\frac{1}{d^2}=\frac{4}{3}\left(\frac{h^2+hk+k^2}{a^2}\right)+\frac{l^2}{c^2}&\text{esagonale}\\
+    &\frac{1}{d^2}=\frac{1}{\sin^2\beta}\left(\frac{h^2}{a^2}+\frac{k^2\sin^2\beta}{b^2}+\frac{l^2}{c^2}-\frac{2hl\cos\beta}{ac}\right)&\text{monoclino}
+\end{align*}
+(ci sarebbe il triclino)
+
+\subsection{Tecniche di diffrazione}
+\begin{center}
+    L'insime di tutte le lunghezze d'onda è l'intero spettro elettromagnetico
+\end{center}
+Lunghezza d'onda radio $>$ microonde $>$ infrarosso $>$ visibile $>$ ultravioletto $>$ raggi X $>$ raggi gamma
+\\
+Le onde possono interferire tra loro
+\begin{itemize}
+    \item Le perturbazioni si sommano: interferenza costruttiva, ampiezza maggiore
+    \item Le perturbazioni si sottraggono: interferenza distruttiva, ampiezza minore
+\end{itemize}
+Se l'onda durante la sua propagazione incontra un ostacolo può essere deviata. Se le dimensione dell'ostacolo sono comparabili con la lunghezza d'onda, si parla di \textbf{diffrazione}
+
+\subsection{Produzione dei raggi X}
+I raggi X vengono prodtti per rallentamento improvviso, da parte di una targhetta metallica, di elettroni fortemente accelerati, che quindi convertono la loro energia cinetica in radiazione. Oltre una certa soglia di energia, gli elettroni incidenti sono in grado di estrarre gli elettroni più interni degli atomi del metallo, provocando così una vacanza.\\
+Gli elettroni degli orbitali più esterni vanno a riempire tali vacanze generando una radiazione caratteristica la cui lunghezza d'onda $\lambda$ dipende dall'energia dei livelli energetici interessati alla transizione.
+\\
+(nei punti scuri ho maggior segnale, vuol dire che la radiazione è maggiore $\so$ interferenza costruttiva, i punti scuri hanno una certa geometria)\\
+Supponiamo per semplicità che i piani cristallografici siano degli specchi paralleli che riflettono la radiazione incedente monocromatica
+\img{13}{rad.png}
+
+
+\paragraph{Legge di Bragg} (per la diffrazione dei raggi X)
+\begin{equation*}
+    n\lambda=sd\sin\theta
+\end{equation*}
+$\lambda$ deriva dal tubo radiogeno (nota)\\
+$\theta$ misurato sperimentalmente (noto) \\
+$d$ incognita
+
+\paragraph{Diffrattometri}
+\begin{itemize}
+    \item Camera di Debey-Scherrer
+    \item diffrattometro Bragg-Brentano
+\end{itemize}
+Si ottiene un diffrattogramma in cui si identificano gli angoli di diffrazione e l'intensità dei picchi
+
+\paragraph{Sorgenti}
+\begin{itemize}
+    \item Sorgente da luce di sincrotrone
+    \item FEL (free electron laser)
+    \item diffrazione elettronica
+    \item diffrazione neutronica
+\end{itemize}
+
+
+\clearpage
+\printglossary[title=Glossario]
+
+\end{document}

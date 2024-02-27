@@ -1,0 +1,568 @@
+
+;-------------------------------------------------------------------------------------------
+; SAMARBAR ---------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------
+
+(defwindow samarbar
+    :monitor 0
+    :geometry (geometry :x "0%"
+                :y "0%"
+                :width "100%"
+                :height "5%"
+                :anchor "top center"
+              )
+    :stacking "fg"
+    :exclusive true
+    (bar)
+)
+
+(defvar show-bar true)
+
+(defwidget bar []
+    (box :class "main-box"
+         :orientation "horizontal"
+         :space-evenly true
+         :hexpand false
+         :visible show-bar
+
+        (box :class "left-box"
+             :orientation "horizontal"
+             :space-evenly false
+             :halign "start"
+             :spacing 5
+            (clock)
+            (workspaces)
+            (player)
+        )
+
+        (box :class "right-box"
+             :orientation "horizontal"
+             :space-evenly false
+             :halign "end"
+             :spacing 2
+
+            (updates)
+            (brightness :brightness {brightness}
+                        :mute " " :low  " " 
+                        :low2 " " :low3 " " 
+                        :medium " " :high " " 
+                        :high2 " " :high3 " "
+                        :full " "
+            )
+            (volume :volume {volume}
+                    :status {is-mute}
+                    :high "墳 " :medium " "
+                    :low " "  :mute " "
+            )
+            (battery :status {EWW_BATTERY.BAT0.status}
+                     :battery {EWW_BATTERY.BAT0.capacity}
+                     :charge "" :full " "         :almost-full " " 
+                     :half " "  :almost-empty " " :empty " " :danger " "
+            )
+            (network)
+        )
+    )
+)
+
+;-------------------------------------------------------------------------------------------
+; BUILDING BLOCKS --------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------
+
+
+(defwidget left-slider [box-class show-name show-value program btn-text btn-class reveal-class]
+	(eventbox :onhover "eww update ${show-name}=true" 		
+	          :onhoverlost "eww update ${show-name}=false"
+              :onclick "${program}"
+              :cursor "pointer"
+        (box  :orientation "h" 	  
+              :space-evenly "false" 
+              :class "${box-class}"
+            (revealer :transition "slideleft"
+                      :duration "0.5s"
+                      :reveal {show-value}
+                (box :class "${reveal-class}"
+                    (children)
+                )
+            )
+            (box :class "${btn-class}"
+                 :halign "start"
+                (label :text "${btn-text}")
+            )
+        )
+    )
+)
+
+(defwidget right-slider [box-class show-name show-value program btn-text btn-class reveal-class]
+	(eventbox :onhover "eww update ${show-name}=true" 		
+	          :onhoverlost "eww update ${show-name}=false"
+              :onclick "${program}"
+              :cursor "pointer"
+        (box  :orientation "h" 	  
+              :space-evenly "false" 
+              :class "${box-class}"
+            (box :class "${btn-class}"
+                 :halign "start"
+                (label :text "${btn-text}")
+            )
+            (revealer :transition "slideright"
+                      :duration "0.5s"
+                      :reveal {show-value}
+                (box :class "${reveal-class}"
+                    (children)
+                )
+            )
+        )
+    )
+)
+
+(defwidget badge [onclick class-box visible]
+    (eventbox :onclick "${onclick}"
+              :cursor "pointer"
+        (box :class "${class-box}"
+             :cursor "pointer"
+             :halign "start"
+             :visible {visible}
+            (children)
+        )
+    )
+)
+
+;-------------------------------------------------------------------------------------------
+; WIDGETS ----------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------
+
+;; Workspaces -------------------------------------------------------
+;;-----------------------------------------------------------------
+
+;; Configuration
+;; for further configuration see scripts/parse_workspaces.py
+;; where you can set your icons
+
+;; Enables process name preview on selected workspace
+(defvar enable_process_name false)
+
+;; Disables showing the process icon
+(defvar disable_process_icon false)
+
+;; Shows the workspace number beside the icon
+(defvar enable_workspace_number false)
+
+;; Enables multiple icon previews per workspace
+(defvar enable_multiple_icons true)
+
+;; Implementation
+(deflisten workspace_str
+    :initial_value "{}"
+    "$HOME/.config/eww/scripts/parse_workspaces_hyprland.py")
+
+(defwidget workspaces []
+    (box
+        :class "workspaces"
+        :spacing 1
+        :orientation "h"
+        :space-evenly false
+        :valign "center"
+        (for workspace in "${workspace_str['icons']}"
+            (eventbox
+                :class "ws-box"
+                :cursor "pointer"
+                :onclick "hyprctl dispatch workspace ${workspace.workspace}"
+                (box
+                    :class "${workspace.current ? 'ws-active' : 'ws-not-active'}"
+                    :spacing 10
+                    :space-evenly false
+                    :hexpand false
+                    :vexpand false
+                    :halign "center"
+                    :valign "center"
+                    (for icon in
+                        "${disable_process_icon ? '' : enable_multiple_icons ? '${workspace['icons']}' : '[${jq(workspace, '.icons[0]')}]'}"
+                        (label
+                            :class "icon"
+                            :xalign 0.5
+                            :justify "center"
+                            :text "${icon}"
+                        )
+                    )
+                    ;(label
+                    ;    :class "number"
+                    ;    :text "${enable_workspace_number ? '${workspace.workspace}' : ''}")
+                    ;(label
+                    ;    :class "process"
+                    ;    :text "${enable_process_name && workspace.current ? ' - ${workspace.process}' : ''}")
+                    ;    
+                )
+            )
+        )
+    )
+)
+
+
+;; Clock and Date ----------------------------------------------------------------
+;;-----------------------------------------------------------------
+
+(defpoll time :interval "1m"
+              :initial `date +'{"hour":"%H","min":"%M","date":"%Y-%m-%d"}'`
+              `date +'{"hour":"%H","min":"%M","date":"%A %d %B"}'`
+)
+
+(defvar show-date false)
+
+(defwidget clock []
+    (right-slider :box-class "date-box" 
+                  :btn-class "clock-btn" 
+                  :reveal-class "date-btn"
+                  :show-name "show-date" 
+                  :show-value {show-date}
+                  :program "" 
+                  :btn-text "${time.hour} : ${time.min}"
+        (label :text "${time.date}")  
+    )
+)
+
+;; Battery -----------------------------------------------------------------------
+;;-----------------------------------------------------------------
+
+(defwidget battery [battery status charge full 
+                    almost-full half almost-empty empty danger]
+    (badge :onclick "" 
+           :class-box {battery < 16 && status != 'Charging' ? "bat-btn-danger" : "bat-btn"}
+           :visible true
+        (label :class "bat-lbl"
+               :text "${status == 'Charging' ? charge :
+                        battery < 16 ? danger :
+                        battery < 36 ? empty :
+                        battery < 51 ? almost-empty :
+                        battery < 71 ? half :
+                        battery < 86 ? almost-full : full}  ${EWW_BATTERY.BAT0.capacity} %"
+        )
+    )
+)
+
+;; Volume -----------------------------------------------------------------------
+;;-----------------------------------------------------------------
+
+(defpoll volume  :interval "1s"
+                 :initial "N/A"
+                 "pamixer --get-volume")
+
+(defpoll is-mute :interval "1s"
+                 :initial false
+                 "pamixer --get-mute")
+
+(defvar show-volume false)
+
+(defwidget volume [volume status high medium low mute]
+    (left-slider :box-class "aud-box" 
+                 :btn-class {volume == 0 || status == true ? "aud-btn-mute" : "aud-btn"} 
+                 :reveal-class "aud-slid-box"
+                 :show-name "show-volume" 
+                 :show-value {show-volume}
+                 :program "pavucontrol &" 
+                 :btn-text "${volume == 0 || status == true ? mute :
+                              volume < 33 ? low :
+                              volume < 66 ? medium :
+                              high}  ${volume} %"
+        (scale  :flipped true
+                :value volume
+                :class "aud-slid"
+                :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%" 
+        )
+    
+    )
+)
+
+;; Brightness -----------------------------------------------------
+;;-----------------------------------------------------------------
+
+(defpoll brightness  :interval "1s"
+                 :initial "N/A"
+                 "brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'")
+
+(defvar show-brightness false)
+
+
+(defwidget brightness [brightness mute low low2 low3 medium high high2 high3 full]
+    (left-slider :box-class "bright-box" 
+                 :btn-class "bright-btn"
+                 :reveal-class "bright-slid-box"
+                 :show-name "show-brightness" 
+                 :show-value {show-brightness}
+                 :program "" 
+                 :btn-text "${brightness == 0 ? mute :
+                              brightness < 16 ? low :
+                              brightness < 28 ? low2 :
+                              brightness < 40 ? low3 :
+                              brightness < 52 ? medium :
+                              brightness < 64 ? high :
+                              brightness < 76? high2 :
+                              brightness < 88 ? high3 :
+                              full}  ${brightness} %"
+        (scale  :flipped true
+                :value brightness
+                :class "bright-slid"
+                :onchange "brightnessctl set {}%" 
+        )
+    
+    )
+)
+
+;; updates --------------------------------------------------------
+;;-----------------------------------------------------------------
+
+(defpoll updates_poll :initial "" :interval "1m" "./scripts/updates.sh &")
+
+(defwidget updates []
+    (badge :onclick "kitty yay -Syu &" 
+           :class-box "updates"
+           :visible {updates_poll != "" && updates_poll != "0"}
+        (label :text "  ${updates_poll}")
+    )
+)
+
+;; player --------------------------------------------------------------
+;;-----------------------------------------------------------------
+
+(deflisten player-data :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defwidget player []
+    (badge :onclick "playerctl play-pause" 
+           :class-box "player"
+           :visible {player-data != ""}
+        (label :text "  ${player-data}"
+               :limit-width 50
+               :hexpand false)
+    )
+)
+
+;; wifi -----------------------------------------------------------
+;;-----------------------------------------------------------------
+
+;; DA FINIRE
+
+(defpoll net :initial "N/A" :interval "100s" "./scripts/ssid.sh &")
+(defpoll net-quality :initial "____" :interval "30s" "./scripts/net-quality.sh &")
+
+(defvar show-ssid false)
+
+
+(defwidget network []
+    (left-slider :box-class "net-box" :btn-class "net-btn" :reveal-class "net-slid-box"
+                 :show-name "show-ssid" :show-value {show-ssid}
+                 :program "kitty nmtui &" :btn-text "${net-quality}"
+                (label :text "   ${net}")  
+    )
+)
+
+;-------------------------------------------------------------------------------------------
+; SAMARBOARD -------------------------------------------------------------------------------
+;-------------------------------------------------------------------------------------------
+
+(defwindow samarboard
+    :monitor 0
+    :geometry (geometry :x "0%"
+                :y "0%"
+                :width "100%"
+                :height "100%"
+                :anchor "top center"
+              )
+    :stacking "overlay"
+    :exclusive false
+    (bg)
+)
+
+(defvar blk-width 170)
+(defvar blk-height 140)
+
+(defwidget bg []
+    (box :class "bg"
+        (box :class "bg-filter"
+            (box :class "container"
+                 :orientation "vertical"
+                (box :class "up"
+                     :orientation "horizontal"
+                    
+                    (box :class "up-left"
+                         :orientation "vertical"
+                         :space-evenly false
+                        (box :orientation "horizontal"
+                             :height {blk-height * 2}
+                             :space-evenly false
+                             :class "a"
+                            (dsh-clock)             ;clock
+                            (box :class "test"
+                            :width {blk-width * 3})     ;greeter
+                        )
+                        (box :height {blk-height}
+                             :space-evenly false
+                             :class "b"
+                            (dsh-wifi)     ;wifi
+                            (box :class "test"
+                            :width {blk-width})     ;cpu
+                            (box :class "test"
+                            :width {blk-width})     ;ram
+                        )
+                        
+                    )
+                    (box :class "up-right"
+                         :orientation "vertical"
+                         :space-evenly false
+                        (box :orientation "horizontal"
+                             :space-evenly false
+                             :height {blk-height}
+                             :class "c"
+                            (box :class "test"
+                                :width {blk-width * 2})    ;phrases
+                            (box :class "test"
+                             :width {blk-width})    ;restart
+                            (box :class "test"
+                            :width {blk-width})    ;shutdown
+                        )
+                        (box :orientation "horizontal"
+                            :space-evenly false
+                            :height {blk-height * 2}
+                            :class "d"
+                            (dsh-player)   ;player
+                            (box :orientation "vertical"
+                            :class "e"
+                                (box :class "test"
+                                :width {blk-width});app1
+                                (box :class "test"
+                                :width {blk-width});app2
+                            )
+                        )
+                    )
+                )
+                (box :class "down"
+                     :orientation "horizontal"
+                    (box :class "down-left"
+                         :orientation "horizontal"
+                         :space-evenly false
+                        (box :orientation "vertical"
+                             :width {blk-width * 3}
+                             :class "f"
+                            (box :orientation "horizontal"
+                                :space-evenly false
+                                :class "g"
+                                (box :class "test"
+                                :width {blk-width * 2})     ;bluetooth
+                                (box :class "test"
+                                :width {blk-width})     ;space
+                            )
+                            (dsh-aud)     ;volume
+                            (dsh-bright)     ;brightness
+                        )
+                        (box :class "h"
+                            (dsh-bat)     ;battery
+                        )
+                    )
+                    (box :class "down-right"
+                         :orientation "horizontal"
+                         :space-evenly false
+                         :class "i"
+                        (box :orientation "vertical"
+                        :width {blk-width}
+                        :class "j"
+                            (box :class "test")     ;app3
+                            (box :class "test")     ;app4
+                            (box :class "test")     ;app5
+                        )     
+                        (box :class "test"
+                            :width {blk-width * 3})     ;files
+                    )
+                )
+            )
+        )
+    )
+)
+
+(defwidget dsh-clock []
+    (box :class "dsh-clock"
+         :orientation "vertical"
+         :width {blk-width}
+        (label :text "${time.hour}")
+        (label :text "${time.min}")
+    )
+)
+
+(defwidget dsh-aud []
+    (overlay
+        (scale  :value volume
+                :class "dsh-aud"
+                :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%" 
+                :width {blk-width*3}
+                :height {blk-height}
+        )
+        (label  :text "墳"
+                :halign "start"
+                :class "dsh-aud-sym")
+    )
+)
+
+(defwidget dsh-bright []
+    (overlay
+        (scale  :value brightness
+                :class "dsh-bright"
+                :onchange "brightnessctl set {}%" 
+                :width {blk-width*3}
+                :height {blk-height}
+        )
+        (label  :text ""
+                :halign "start"
+                :class "dsh-bright-sym")
+    )
+)
+
+(defwidget dsh-bat []
+    (overlay
+        (progress :value {EWW_BATTERY.BAT0.capacity}
+                  :width {blk-width}
+                  :height {blk-height*3}
+                  :orientation "vertical"
+                  :class "dsh-bat"
+                  :flipped true
+        ) 
+        (label :text " "
+               :valign "end"
+               :class "dsh-bat-sym"
+        )
+    )
+)
+
+(defwidget dsh-wifi []
+    (box :class "dsh-wifi"
+         :orientation "horizontal"
+         :width {blk-width*2}
+         :height {blk-height}
+         :space-evenly false
+        (label  :text "󰖩"
+                :halign "start"
+                :class "dsh-wifi-sym"
+                :limit-width 15
+                :x-align 0.5
+        )
+        (label :class "dsh-wifi-name"
+               :halign "start"
+               :text net)
+    )
+)
+
+(defwidget dsh-player []
+    (box :class "dsh-player"
+         :orientation "horizontal"
+         :width {blk-width*3}
+         :height {blk-height*2}
+         :space-evenly false
+        (label  :text player-data
+                :halign "start"
+                :class "dsh-player-name"
+                :x-align 0.5
+        )
+    )
+)
+
+
+;-------------------------------------------------------------------------------------------
+
+;; REFACTOR THE CODE !!!

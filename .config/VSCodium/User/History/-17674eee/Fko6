@@ -1,0 +1,17 @@
+sort=-time
+layer=overlay
+background-color=#C33161
+width=300
+height=110
+border-size=2
+border-color=#C3316169
+border-radius=15
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+font=SauceCodePro Nerd Font 10
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0

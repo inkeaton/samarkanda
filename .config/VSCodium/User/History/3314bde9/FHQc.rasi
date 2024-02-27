@@ -1,0 +1,12 @@
+configuration {
+  display-drun: "Applicazioni:";
+  font: "SauceCodePro Nerd Font 12";
+  show-icons: true;
+}
+
+element-icon {
+    size: 8;
+    border: 0px;
+}
+
+@theme "rounded/ghost-spider.rasi"

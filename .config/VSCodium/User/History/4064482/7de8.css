@@ -1,0 +1,201 @@
+@import "colors/ghost-spider.css";
+
+* {
+    border-radius: 15px;
+    font-family: "SauceCodePro Nerd Font", FontAwesome;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @bg-main;
+    color: @fg-main;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 0;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inherit;
+    border-radius: 10px;
+}
+
+#workspaces {
+    background-color: @bg-wrksp;
+    margin: 6px 3px;
+    padding: 0px 10px;
+}
+
+#workspaces button {
+    color: @fg-wrksp-button ;
+    background-color: @fg-wrksp-button;
+    padding: 0px 5px;
+    margin: 6px 8px;
+    border-radius: 15px;
+    min-width: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+	border-radius: 15px;
+    min-width: 50px;
+}
+
+#workspaces button.active {
+    color: @fg-wrksp-active;
+    background-color: @fg-wrksp-active;
+    border-radius: 15px;
+    min-width: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#idle_inhibitor,
+#custom-pacman,
+#window,
+#mpd {
+    padding: 0px 15px;
+    margin: 6px 3px;
+    color: @fg-main;
+}
+
+
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: @bg-clock;
+}
+
+#battery {
+    background-color: @bg-battery;
+}
+
+#battery.charging, #battery.plugged {
+    color: @fg-battery-charg;
+    background-color: @bg-battery-charg;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @bg-urgent;
+    color: @fg-battery-charg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: @sfondo;
+}
+
+#backlight {
+    background-color: @bg-brightness;
+}
+
+#network {
+    background-color: @bg-network;
+}
+
+#network.disconnected {
+    background-color: @bg-deactivated;
+}
+
+#pulseaudio {
+    background-color: @bg-audio;
+    color: @fg-audio;
+}
+
+#pulseaudio.muted {
+    background-color: @bg-deactivated;
+    color:@fg-deactivated;
+}
+
+#wireplumber {
+    background-color: @bg-audio;
+    color: @fg-audio;
+}
+
+#wireplumber.muted {
+    background-color: @bg-deactivated;
+    color:@fg-deactivated;
+}
+
+#custom-media {
+    background-color: @bg-media;
+    color: @fg-media;
+    min-width: 100px;
+}
+
+#tray {
+    background-color: @bg-tray;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @bg-urgent;
+}
+
+/*pacman updates*/
+@keyframes blink-update {
+	to {
+		background-color: @bg-pacman;
+	}
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+    color: @theme-black
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+}
+

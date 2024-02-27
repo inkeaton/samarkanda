@@ -1,0 +1,7 @@
+
+# Progetto Finale Base di Dati 2022-2023 
+## Gruppo 8
+### Giovanni Sganga - Edoardo Vassallo - Oscar Zanotti Campo
+### S4691545 - S4965918 - S5282081
+
+

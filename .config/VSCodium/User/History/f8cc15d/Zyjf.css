@@ -1,0 +1,53 @@
+label {
+    font-weight: bold;
+}
+
+.bar {
+    background-color: rgba(14, 25, 37, 0.7);
+}
+
+.workspaces button,
+.media {
+    background-color: #efefef;
+    color: #eee;
+}
+
+.workspaces button:hover,
+.media:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #efefef;
+}
+
+.workspaces button:active,
+.media:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.workspaces button.focused {
+    border-bottom: 3px solid aqua;
+    background-color: rgba(255, 255, 25, 0.2);
+}
+
+.client-title {
+    margin-left: 1em;
+    color: aqua;
+}
+
+.notification image {
+    color: yellow;
+    margin-left: 1em;
+}
+
+.battery progressbar {
+    margin: 0 6px;
+}
+
+.clock {
+    margin: 0 6px;
+}
+
+progress, highlight {
+    background-color: aqua;
+    min-height: 8px;
+}

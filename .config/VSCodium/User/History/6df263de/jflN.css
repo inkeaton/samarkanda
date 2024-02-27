@@ -1,0 +1,13 @@
+/*for her*/
+* {
+    bg0:    #0e1925c9;
+    bg1:    #9D4A2E;
+    bg2:    #FFFFFF;
+    bg3:    #E5EBE2;
+    fg0:    #E5EBE2;
+    fg1:    #FFFFFF;
+    fg2:    #E5EBE2;
+    fg3:    #3D3D3D;
+}
+
+@import "rounded-common.rasi"

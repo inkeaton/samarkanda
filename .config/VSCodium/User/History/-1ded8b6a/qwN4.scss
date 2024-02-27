@@ -1,0 +1,321 @@
+@import "colors/swingin-through-midtown.scss";
+
+//////////////////////////////////////////////////////////////////////////////
+//    GENERAL
+//////////////////////////////////////////////////////////////////////////////
+
+button {
+    background-image: none;
+}
+
+slider {
+    border: rgba(33, 40, 52, 0);
+        background: none;
+        -webkit-box-shadow: none;
+	    -moz-box-shadow: none;
+	    box-shadow: none;
+}
+
+.samarbar {
+    font-family: $my-font;
+    font-weight: $my-font-weight;
+    font-size: $my-font-size;
+    background-color: $bg-bar;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    COMMON
+//////////////////////////////////////////////////////////////////////////////
+
+// pill revealers 
+.bar-lum, .bar-aud, .bar-aud-mut, .bar-bat, .bar-net {
+    border: none;
+    border-radius: 15px;
+
+    label {
+        color: $fg-wht;
+        padding: 3px 10px;
+    }
+}
+
+.bar-lum-pll, .bar-aud-pll, .bar-bat-pll, .bar-net-pll {
+    border: none;
+    border-radius: 15px;
+    margin: 6px 6px;
+    padding: 0px 0px;
+
+    label {
+        color: $fg-wht;
+        padding: 0px 10px;
+    }
+}
+
+// sliders in revealers
+.bar-lum-pll scale trough, .bar-aud-pll scale trough {
+    all: unset;
+    border-radius: 50px;
+    min-height: 11px;
+    min-width: 100px;
+}
+
+
+.bar-lum-pll scale trough highlight, .bar-aud-pll scale trough highlight, .bar-bat-pll scale trough {
+    all: unset;
+    border-radius: 10px;
+}
+
+// fixes sliders heights
+.bar-bat-sld, .bar-aud-sld, .bar-lum-sld {
+    margin: -10px 0px;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    TIME AND DATE
+//////////////////////////////////////////////////////////////////////////////
+
+.bar-clk-pll {
+    background: $color6;
+    border: none;
+    border-radius: 15px;
+    margin: 6px 6px;
+
+    label {
+        color: $fg-wht;
+        padding: 0px 10px;
+    }
+}
+
+.bar-clk {
+    background: $color1;
+    border: none;
+    border-radius: 15px;
+    margin: 0px;
+    padding: 0px 0px;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    UPDATES
+////////////////////////////////////////////////////////////////////////////// 
+@keyframes blink-update {
+	to {
+		background-color: $color9;
+        border: none;
+	}
+}
+
+        // T O  B E  D O N E . . .
+
+
+//////////////////////////////////////////////////////////////////////////////
+//    NOTIFICATIONS
+////////////////////////////////////////////////////////////////////////////// 
+
+        // T O  B E  D O N E . . .
+
+//////////////////////////////////////////////////////////////////////////////
+//    MEDIA PLAYER
+////////////////////////////////////////////////////////////////////////////// 
+
+.bar-ply-pll {
+    background: $color9;
+    border:none;
+    border-radius: 15px;
+    margin: 6px 6px;
+
+    label {
+        color: $color6;
+        padding: 0px 10px;
+    }
+}
+
+.bar-ply {
+    margin: -5px 0px;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    WORKSPACES
+////////////////////////////////////////////////////////////////////////////// 
+
+.bar-wsp-pll {
+    border-radius: 15px;
+    background: $color5;
+    border-color: $color5;
+    margin: 0px -1px;
+    padding: 9px;
+    transition: all 0.3s ease-in-out;
+}
+
+.bar-wsp-foc, .bar-wsp {
+    background: $color6;
+    border: none;
+    border-radius: 30px;
+    margin: 0px 5px;
+    padding: 0px 0px;
+    transition: all 0.3s ease-in-out;
+    min-width: 15px;
+    min-height: 10px;
+
+    label {
+        color: $fg-wht;
+        transition: all 0.3s ease-in-out;
+        font-size: 0.1em;
+    }
+
+    &:hover {
+        min-width: 35px;
+    }
+}
+
+.bar-wsp-foc {
+    background: $color3;
+    min-width: 35px;
+
+    label {
+        color: $color6;
+        font-size: 1em;
+    }
+}
+
+// fixes workspaces height
+.tst-bar-ctr {
+    padding: 5px;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    BRIGHTNESS
+////////////////////////////////////////////////////////////////////////////// 
+
+.bar-lum-pll {
+    background: $color6;
+    label {
+        color: $fg-wht;
+    }
+}
+
+.bar-lum {
+    background: $color1;
+    label {
+        color: $fg-wht;
+    }
+}
+
+.bar-lum-pll scale trough {
+    background-color: $color1;
+}
+
+
+.bar-lum-pll scale trough highlight {
+    background-color: $color3;
+}
+//////////////////////////////////////////////////////////////////////////////
+//    AUDIO
+////////////////////////////////////////////////////////////////////////////// 
+
+// TO DO: Reorganize CSS
+
+.bar-aud-pll {
+    background: $color1;
+}
+
+.bar-aud {
+    background: $color3;
+
+    label {
+        color: $fg-blk;
+    }
+}
+
+.bar-aud-mut {
+    background: $color7;
+    label {
+        color: $fg-blk;
+    }
+}
+
+
+.bar-aud-pll scale trough {
+    background-color: $color6;
+}
+
+
+.bar-aud-pll scale trough highlight {
+    background-color: $color3;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    BATTERY
+////////////////////////////////////////////////////////////////////////////// 
+
+
+// TO DO: Reorganize CSS
+
+.bar-bat-pll {
+    background: $color1;
+}
+
+
+
+.bar-bat-rev {
+    color: $fg-wht;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.bar-bat {
+    background: $color2;
+}
+
+.bar-bat-chg {
+    background: $color9;
+    label {
+        color: $color6;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: $fg-wht;
+        border-color: $fg-wht;
+    }
+}
+
+.bar-bat-low {
+    background: red;
+    label {
+        color: $color6;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    NETWORK
+////////////////////////////////////////////////////////////////////////////// 
+
+.bar-net-pll {
+    background: $color6;
+    label {
+        color: $fg-wht;
+    }
+}
+        
+.bar-net {
+    background: $color8;
+    min-width: 35px;
+    label {
+        color: $fg-wht;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//    SYSTEM TRAY
+////////////////////////////////////////////////////////////////////////////// 
+
+.bar-sys {
+    background: $color6;
+    border: none;
+    border-radius: 15px;
+    margin: 6px 6px;
+}
+
+.tst-sys-icn {
+    padding: 0px 10px;
+}

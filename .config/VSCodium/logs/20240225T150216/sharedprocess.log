@@ -1,0 +1,24 @@
+2024-02-25 15:02:28.898 [info] Uninstalling extension from the profile: ms-ceintl.vscode-language-pack-it@1.85.0 vscode-userdata:/home/inkeaton/.vscode-oss/extensions/extensions.json
+2024-02-25 15:02:28.922 [info] Removing language packs from the extension ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:28.952 [info] Marked extension as uninstalled ms-ceintl.vscode-language-pack-it-1.85.0-universal
+2024-02-25 15:02:28.996 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/inkeaton/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/inkeaton/.vscode-oss/extensions/extensions.json.vsctmp'
+    at r.create (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:35852)
+    at a (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:35986)
+    at s.toFileSystemProviderError (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:47852)
+    at s.stat (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:38447)
+    at async C.stat (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:20932)
+    at async Y.onDidFilesChange (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:100:138138)
+2024-02-25 15:02:29.136 [info] Successfully uninstalled extension from the profile ms-ceintl.vscode-language-pack-it@1.85.0 vscode-userdata:/home/inkeaton/.vscode-oss/extensions/extensions.json
+2024-02-25 15:02:30.455 [info] Getting Manifest... ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:30.615 [info] Installing extension: ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:30.893 [info] Extension signature verification is not done: ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:30.895 [info] Removed the extension from uninstalled list: ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:30.908 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:30.965 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-it
+2024-02-25 15:02:30.982 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/inkeaton/.vscode-oss/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/inkeaton/.vscode-oss/extensions/extensions.json.vsctmp'
+    at r.create (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:35852)
+    at a (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:51:35986)
+    at s.toFileSystemProviderError (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:47852)
+    at s.stat (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:38447)
+    at async C.stat (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:56:20932)
+    at async Y.onDidFilesChange (/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/code/node/sharedProcess/sharedProcessMain.js:100:138138)

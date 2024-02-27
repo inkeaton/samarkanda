@@ -1,0 +1,72 @@
+
+//      Font     // -------------------------------------------------------------------------------
+
+$my-font:"SF Pro Rounded", "FontAwesome";
+$my-font-weight: bold;
+$my-font-size: 1em;
+
+//    Palette   // -------------------------------------------------------------------------------
+
+$bg-bar:      rgba(88, 9, 34, 0.7);
+$fg-white:    #FFFFFF;
+$fg-black:    #000000;
+
+$color1:      #38518C;
+$color2:      #2A2350;
+$color3:      #cdd6f4;
+$color4:      #FFF0F5;
+$color5:      #C33161;
+$color6:      #C52A46;
+$color7:      #B886AB;
+$color8:      #9FB935;
+$color9:      #66CC99;
+$color010:    #2A5C45;
+$color011:    #FE021A;
+
+// Associations // -------------------------------------------------------------------------------
+
+$fg-wht:     #FFFFFF;
+$fg-blk:     #000000;
+
+$fg-clk:      $fg-wht;
+$bg-clk:      $color1;
+$fg-clk-sld:  $fg-wht;
+$bg-clk-sld:  $color6;
+
+$bg-wsp:      $color6;
+$fg-wsp-btn:  $color3;
+$bg-wsp-btn:  $color2;
+
+$fg-ply:      $color10;
+$bg-ply:      $color9;
+
+$fg-upt:      $fg-blk;
+$bg-upt:      $color8;
+
+$fg-lum:      $fg-wht;
+$bg-lum:      $color1;
+$bg-lum-sld:  $color6;
+$fg-lum-bar:  $fg-wht;
+$bg-lum-bar:  $color1;
+
+$fg-aud:      $fg-blk;
+$bg-aud:      $color4;
+$bg-aud-sld:  $color1;
+$fg-aud-bar:  $color2;
+$bg-aud-bar:  $color6;
+
+$fg-aud-mut:  $fg-blk;
+$bg-aud-mut:  $color7;
+
+$fg-bat:      $fg-wht;
+$bg-bat:      $color2;
+
+$fg-net:      $fg-wht;
+$bg-net:      $color5;
+$fg-net-sld:  $fg-wht;
+$bg-net-sld:  $color1;
+
+$bg-mut:      $color7;
+$bg-urg:      $color011;
+
+// REFACTOR THE COLORS!

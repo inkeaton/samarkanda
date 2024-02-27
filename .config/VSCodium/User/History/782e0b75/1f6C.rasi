@@ -1,0 +1,13 @@
+/*swingin-through-midtown*/
+* {
+    bg0:    #0e1925b3;
+    bg1:    #9D4A2E;
+    bg2:    #FFFFFF;
+    bg3:    #E6E6E6;
+    fg0:    #E6E6E6;
+    fg1:    #FFFFFF;
+    fg2:    #969696;
+    fg3:    #3D3D3D;
+}
+
+@import "rounded-common.rasi"

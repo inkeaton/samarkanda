@@ -1,0 +1,13 @@
+/*ghost-spider*/
+* {
+    bg0:    #9e4265c9;
+    bg1:    #2A2350;
+    bg2:    #FFFFFF;
+    bg3:    #E6E6E6;
+    fg0:    #E6E6E6;
+    fg1:    #FFFFFF;
+    fg2:    #969696;
+    fg3:    #3D3D3D;
+}
+
+@import "rounded-common.rasi"

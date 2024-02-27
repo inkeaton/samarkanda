@@ -1,0 +1,49 @@
+[18:14:17.616][Logger] New log placeholder %WS1% registered for /home/inkeaton/Documenti/LaTeX .
+[18:14:17.616][Extension] Initializing LaTeX Workshop.
+[18:14:17.815][Build][Recipe] Set $LATEXWORKSHOP_DOCKER_LATEX: ""
+[18:14:17.842][Server] Creating LaTeX Workshop http and websocket server.
+[18:14:17.906][Format][Bib] Bibtex format config: {"tab":"  ","case":"lowercase","left":"{","right":"}","trailingComma":false,"sort":["key"],"alignOnEqual":true,"sortFields":false,"fieldsOrder":[],"firstEntries":["string","xdata"]}
+[18:14:17.938][Server] Server successfully started: {"address":"127.0.0.1","family":"IPv4","port":38295} .
+[18:14:17.941][Extension] Extension root: /home/inkeaton/.vscode-oss/extensions/james-yu.latex-workshop-9.18.2-universal
+[18:14:17.942][Extension] $PATH: /nix/store/1qjvqh6yl4cdrw48xwj5yb16v22ps39d-glib-2.78.3-bin/bin:/run/wrappers/bin:/home/inkeaton/.nix-profile/bin:/nix/profile/bin:/home/inkeaton/.local/state/nix/profile/bin:/etc/profiles/per-user/inkeaton/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:/nix/store/6zhs433c4cyaih7l65c11zm743sava5a-binutils-wrapper-2.40/bin:/nix/store/jhghi8cd0cc0f0h1q09fsfjzfhx7y2jl-pciutils-3.10.0/bin
+[18:14:17.942][Extension] $SHELL: /run/current-system/sw/bin/zsh
+[18:14:17.942][Extension] $LANG: it_IT.UTF-8
+[18:14:17.943][Extension] $LC_ALL: undefined
+[18:14:17.943][Extension] process.platform: linux
+[18:14:17.944][Extension] process.arch: x64
+[18:14:17.944][Extension] vscode.env.appName: VSCodium
+[18:14:17.944][Extension] vscode.env.remoteName: undefined
+[18:14:17.945][Extension] vscode.env.uiKind: 1
+[18:14:18.007][Extension] Trigger characters for intellisense of LaTeX documents: ["\\",",","{"]
+[18:14:18.010][Root] Current workspace folders: ["file://%WS1%"]
+[18:14:18.011][Extension] LaTeX Workshop initialized.
+[18:14:18.012][Root] Current workspaceRootDir: file://%WS1% .
+[18:14:18.014][Server] valdOrigin is http://127.0.0.1:38295
+[18:14:18.060][Root] Found files that might be root, choose the first one: %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.060][Root] Root file changed: from %WS1%/Elaborato Maturità/Elaborato Vassallo.tex to %WS1%/Elaborato Maturità/Elaborato Vassallo.tex, langID latex . Refresh dependencies
+[18:14:18.061][Event] ROOT_FILE_CHANGED: "%WS1%/Elaborato Maturità/Elaborato Vassallo.tex"
+[18:14:18.061][Cacher][Watcher] Reset.
+[18:14:18.061][Cacher][Watcher] Reset.
+[18:14:18.061][Cacher][Watcher] Reset.
+[18:14:18.065][Cacher] Adding %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.067][Cacher][Watcher] Watched %WS1%/Elaborato Maturità/Elaborato Vassallo.tex with a new watcher on %WS1%/Elaborato Maturità .
+[18:14:18.067][Event] FILE_WATCHED: "%WS1%/Elaborato Maturità/Elaborato Vassallo.tex"
+[18:14:18.068][Cacher] Caching %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.070][Cacher] Updated inputs of %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.070][Cacher] Parse LaTeX AST: %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.070][Event] ROOT_FILE_SEARCHED
+[18:14:18.434][Cacher] Parsed LaTeX AST: %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.435][File] Calling kpsewhich to resolve article.cls .
+[18:14:18.497][Cacher] Updated elements in 62.83 ms: %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.500][Event] FILE_PARSED: "%WS1%/Elaborato Maturità/Elaborato Vassallo.tex"
+[18:14:18.505][Structure] Structure force updated with 0 root sections for %WS1%/Elaborato Maturità/Elaborato Vassallo.tex .
+[18:14:18.505][Event] STRUCTURE_UPDATED
+[18:14:24.324][Root] Current workspace folders: ["file://%WS1%"]
+[18:14:24.325][Root] Found root file from active editor: %WS1%/Elaborato Maturità/Elaborato Vassallo.tex
+[18:14:24.325][Root] Keep using the same root file: %WS1%/Elaborato Maturità/Elaborato Vassallo.tex
+[18:14:24.325][Event] ROOT_FILE_SEARCHED
+[18:14:24.325][Event] STRUCTURE_UPDATED
+[18:14:24.326][Event] STRUCTURE_UPDATED
+[18:14:34.665][Cacher][Watcher] Reset.
+[18:14:34.666][Cacher][Watcher] Reset.
+[18:14:34.666][Cacher][Watcher] Reset.

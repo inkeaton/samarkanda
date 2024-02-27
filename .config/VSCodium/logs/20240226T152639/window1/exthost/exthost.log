@@ -1,0 +1,13 @@
+2024-02-26 15:26:40.997 [info] Extension host with pid 2020 started
+2024-02-26 15:26:40.997 [info] Skipping acquiring lock for /home/inkeaton/.config/VSCodium/User/workspaceStorage/aefc0694b45cca8699af7bbea5897d60.
+2024-02-26 15:26:41.181 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-02-26 15:26:41.488 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-02-26 15:26:41.645 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-02-26 15:26:41.645 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-02-26 15:26:41.737 [info] Eager extensions activated
+2024-02-26 15:26:41.790 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 15:26:41.791 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 15:26:41.791 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 15:26:41.798 [info] ExtensionService#_doActivateExtension YuTengjing.vscode-colorize-plus, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 15:27:11.339 [info] Extension host terminating: renderer closed the MessagePort
+2024-02-26 15:27:11.343 [info] Extension host with pid 2020 exiting with code 0

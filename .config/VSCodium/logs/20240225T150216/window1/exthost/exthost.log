@@ -1,0 +1,25 @@
+2024-02-25 15:02:17.495 [info] Extension host with pid 6426 started
+2024-02-25 15:02:17.514 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-02-25 15:02:17.562 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-02-25 15:02:17.563 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-02-25 15:02:17.631 [info] Eager extensions activated
+2024-02-25 15:02:17.638 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:17.638 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:17.638 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:17.645 [info] ExtensionService#_doActivateExtension YuTengjing.vscode-colorize-plus, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:22.729 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-02-25 15:02:42.594 [info] Extension host terminating: renderer closed the MessagePort
+2024-02-25 15:02:42.598 [info] Extension host with pid 6426 exiting with code 0
+2024-02-25 15:02:43.524 [info] Extension host with pid 6684 started
+2024-02-25 15:02:43.524 [info] Skipping acquiring lock for /home/inkeaton/.config/VSCodium/User/workspaceStorage/aefc0694b45cca8699af7bbea5897d60.
+2024-02-25 15:02:43.755 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-02-25 15:02:44.159 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-02-25 15:02:44.166 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-02-25 15:02:44.166 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-02-25 15:02:44.211 [info] Eager extensions activated
+2024-02-25 15:02:44.252 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:44.252 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:44.252 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:02:44.259 [info] ExtensionService#_doActivateExtension YuTengjing.vscode-colorize-plus, startup: false, activationEvent: 'onStartupFinished'
+2024-02-25 15:08:49.363 [info] Extension host terminating: renderer closed the MessagePort
+2024-02-25 15:08:49.366 [info] Extension host with pid 6684 exiting with code 0

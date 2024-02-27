@@ -1,0 +1,23 @@
+{
+    "workbench.iconTheme": "eq-material-theme-icons-darker",
+    "workbench.colorTheme": "AMOLED",
+    "editor.fontFamily": " Gintronic, 'JetBrainsMono Nerd Font', monospace",
+    "editor.fontLigatures": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.statusBar.visible": false,
+    "workbench.startupEditor": "none",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontVariations": false,
+    "git.openRepositoryInParentFolders": "never",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "git.confirmSync": false,
+    "window.zoomLevel": 1
+}

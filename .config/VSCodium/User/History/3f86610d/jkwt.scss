@@ -1,0 +1,74 @@
+
+//      Font     // -------------------------------------------------------------------------------
+
+$my-font:"SF Pro Rounded", "FontAwesome";
+$my-font-weight: bold;
+$my-font-size: 1em;
+
+//    Palette   // -------------------------------------------------------------------------------
+
+$bg-bar:      rgba(88, 9, 34, 0.7);
+$fg-white:    #FFFFFF;
+$fg-black:    #000000;
+
+$bg-clock:    #38518C;
+$bg-bat:      #2A2350;
+$bg-active-ws:#cdd6f4;
+$bg-ws:       #C52A46;
+$bg-aud:      #FFF0F5;
+$bg-net:      #C33161;
+$bg-aud-mute: #B886AB;
+$bg-updates:  #9FB935;
+$bg-player:   #66CC99;
+$fg-player:   #2A5C45;
+
+$bg-mute:     #B886AB;
+$bg-urgent:   #FE021A;
+
+// Associations // -------------------------------------------------------------------------------
+
+$fg-wht:     #FFFFFF;
+$fg-blk:     #000000;
+
+$fg-clk:      $fg-wht;
+$bg-clk:      $bg-clock;
+$fg-clk-sld:  $fg-wht;
+$bg-clk-sld:  $bg-ws;
+
+$bg-wsp:      $bg-ws;
+$fg-wsp-btn:  $bg-active-ws;
+$bg-wsp-btn:  $bg-bat;
+
+$fg-ply:      $fg-player;
+$bg-ply:      $bg-player;
+
+$fg-upt:      $fg-blk;
+$bg-upt:      $bg-updates;
+
+$fg-lum:      $fg-wht;
+$bg-lum:      $bg-clock;
+$bg-lum-sld:  $bg-ws;
+$fg-lum-bar:  $fg-wht;
+$bg-lum-bar:  $bg-clock;
+
+$fg-aud:      $fg-blk;
+$bg-aud:      $bg-aud;
+$bg-aud-sld:  $bg-clock;
+$fg-aud-bar:  $bg-bat;
+$bg-aud-bar:  $bg-ws;
+
+$fg-aud-mut:  $fg-blk;
+$bg-aud-mut:  $bg-aud-mute;
+
+$fg-bat:      $fg-wht;
+$bg-bat:      $bg-bat;
+
+$fg-net:      $fg-wht;
+$bg-net:      $bg-net;
+$fg-net-sld:  $fg-wht;
+$bg-net-sld:  $bg-clock;
+
+$bg-mut:      $bg-aud-mute;
+$bg-urg:      $bg-urgent;
+
+// REFACTOR THE COLORS!

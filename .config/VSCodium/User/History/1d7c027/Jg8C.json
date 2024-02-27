@@ -1,0 +1,36 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "AMOLED",
+    "editor.fontFamily": " Gintronic, 'JetBrainsMono Nerd Font', monospace",
+    "editor.fontLigatures": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.statusBar.visible": false,
+    "workbench.startupEditor": "none",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontVariations": false,
+    "git.openRepositoryInParentFolders": "never",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "git.confirmSync": false,
+    "workbench.productIconTheme": "material-product-icons",
+    "window.zoomLevel": 1,
+    "material-icon-theme.folders.color": "#ca0c62",
+    "colorize.languages": [
+        "css",
+        "sass",
+        "scss",
+        "less",
+        "postcss",
+        "sss",
+        "stylus",
+        "xml",
+        "svg"
+    ]
+}

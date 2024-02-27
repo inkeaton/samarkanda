@@ -1,0 +1,27 @@
+2024-02-27 18:03:49.146 [info] Extension host with pid 4045 started
+2024-02-27 18:03:49.176 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-02-27 18:03:49.223 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-02-27 18:03:49.223 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-02-27 18:03:49.304 [info] Eager extensions activated
+2024-02-27 18:03:49.321 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:03:49.322 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:03:49.322 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:03:49.330 [info] ExtensionService#_doActivateExtension YuTengjing.vscode-colorize-plus, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:04:36.942 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-02-27 18:10:28.914 [info] Extension host terminating: renderer closed the MessagePort
+2024-02-27 18:10:28.918 [info] Extension host with pid 4045 exiting with code 0
+2024-02-27 18:10:30.202 [info] Extension host with pid 11009 started
+2024-02-27 18:10:30.202 [info] Skipping acquiring lock for /home/inkeaton/.config/VSCodium/User/workspaceStorage/47625ff0cfdf54af253f633e9c8bda94.
+2024-02-27 18:10:30.221 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-02-27 18:10:30.295 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-02-27 18:10:30.296 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-02-27 18:10:30.396 [info] Eager extensions activated
+2024-02-27 18:10:30.419 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:10:30.419 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:10:30.419 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:10:30.424 [info] ExtensionService#_doActivateExtension YuTengjing.vscode-colorize-plus, startup: false, activationEvent: 'onStartupFinished'
+2024-02-27 18:13:16.876 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-02-27 18:14:17.607 [info] ExtensionService#_doActivateExtension James-Yu.latex-workshop, startup: false, activationEvent: 'onLanguage:latex'
+2024-02-27 18:14:17.925 [warning] DiagnosticCollection with name 'BibTeX' does already exist.
+2024-02-27 18:14:34.661 [info] Extension host terminating: renderer closed the MessagePort
+2024-02-27 18:14:34.669 [info] Extension host with pid 11009 exiting with code 0

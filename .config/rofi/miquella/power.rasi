@@ -1,0 +1,90 @@
+configuration {
+  display-drun: "Applicazioni:";
+  display-window: "Finestre:";
+  drun-display-format: "{icon} {name}";
+  show-icons: true;
+  font: "SauceCodePro Nerd Font 18";
+}
+
+@theme "/dev/null"
+
+* {
+  // Dancing Friends
+  /*bg: #07031e40;
+  bg-alt: #161134;
+
+  fg: #f3d6e6;
+  fg-alt: #787c99;*/
+
+  // Blade of Miquella
+  bg: #1f040e40;
+  bg-alt: #380719;
+
+  fg: #F9E2C0;
+  fg-alt: #AD9DA2;
+  background-color: @bg;
+
+  background-color: @bg;
+  
+  border-radius:    30px 30px 30px 30px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 10%;
+  height: 9%;
+}
+
+element {
+  padding: 8 8;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+element-text {
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 25;
+  padding: 0 10 0 0;
+}
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  text-color: @fg;
+}
+
+inputbar {
+    enabled: false;
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 3;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [inputbar, listview];
+}
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
+}
+
+/* vim: ft=sass

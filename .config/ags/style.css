@@ -1,0 +1,219 @@
+button {
+  background-image: none; }
+
+slider {
+  border: rgba(33, 40, 52, 0);
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+.samarbar {
+  font-family: "SF Pro Rounded", "FontAwesome";
+  font-weight: bold;
+  font-size: 1em;
+  background-color: rgba(14, 32, 37, 0.7); }
+
+.bar-lum, .bar-aud, .bar-aud-mut, .bar-bat, .bar-bat-chg, .bar-bat-low, .bar-net {
+  border: none;
+  border-radius: 15px; }
+  .bar-lum label, .bar-aud label, .bar-aud-mut label, .bar-bat label, .bar-bat-chg label, .bar-bat-low label, .bar-net label {
+    color: #FFFFFF;
+    padding: 3px 10px; }
+
+.bar-lum-pll, .bar-aud-pll, .bar-bat-pll, .bar-net-pll {
+  border: none;
+  border-radius: 15px;
+  margin: 6px 6px;
+  padding: 0px 0px; }
+  .bar-lum-pll label, .bar-aud-pll label, .bar-bat-pll label, .bar-net-pll label {
+    color: #FFFFFF;
+    padding: 0px 10px; }
+
+.bar-lum-pll scale trough, .bar-aud-pll scale trough {
+  all: unset;
+  border-radius: 50px;
+  min-height: 11px;
+  min-width: 100px; }
+
+.bar-lum-pll scale trough highlight, .bar-aud-pll scale trough highlight, .bar-bat-pll scale trough {
+  all: unset;
+  border-radius: 10px; }
+
+.bar-bat-sld, .bar-aud-sld, .bar-lum-sld {
+  margin: -10px 0px; }
+
+.bar-clk-pll {
+  background: #39335E;
+  border: none;
+  border-radius: 15px;
+  margin: 6px 6px; }
+  .bar-clk-pll label {
+    color: #FFFFFF;
+    padding: 0px 10px; }
+
+.bar-clk {
+  background: #8A0C3C;
+  border: none;
+  border-radius: 15px;
+  margin: 0px;
+  padding: 0px 0px; }
+
+@keyframes blink-update {
+  to {
+    background-color: #66CC99;
+    border: none; } }
+
+.bar-inv {
+  background: none;
+  border: none;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  animation-name: none; }
+
+.bar-upt {
+  background: none;
+  border: none;
+  border-radius: 15px;
+  margin: 6px 6px;
+  min-width: 20px;
+  animation-name: blink-update;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: #39335E;
+  padding: 0px 10px; }
+
+.bar-ply-pll {
+  background: #66CC99;
+  border: none;
+  border-radius: 15px;
+  margin: 6px 6px; }
+  .bar-ply-pll label {
+    color: #39335E;
+    padding: 0px 10px; }
+
+.bar-ply {
+  margin: -5px 0px; }
+
+.bar-wsp-pll {
+  border-radius: 15px;
+  background: #bc2d69;
+  border-color: #bc2d69;
+  margin: 0px -1px;
+  padding: 9px;
+  transition: all 0.3s ease-in-out; }
+
+.bar-wsp-foc, .bar-wsp {
+  background: #39335E;
+  border: none;
+  border-radius: 30px;
+  margin: 0px 5px;
+  padding: 0px 0px;
+  transition: all 0.3s ease-in-out;
+  min-width: 15px;
+  min-height: 10px; }
+  .bar-wsp-foc label, .bar-wsp label {
+    color: #FFFFFF;
+    transition: all 0.3s ease-in-out;
+    font-size: 0.1em; }
+  .bar-wsp-foc:hover, .bar-wsp:hover {
+    min-width: 35px; }
+
+.bar-wsp-foc {
+  background: #e7e5c7;
+  min-width: 35px; }
+  .bar-wsp-foc label {
+    color: #39335E;
+    font-size: 1em; }
+
+.tst-bar-ctr {
+  padding: 5px; }
+
+.bar-lum-pll {
+  background: #39335E; }
+  .bar-lum-pll label {
+    color: #FFFFFF; }
+
+.bar-lum {
+  background: #8A0C3C; }
+  .bar-lum label {
+    color: #FFFFFF; }
+
+.bar-lum-pll scale trough {
+  background-color: #8A0C3C; }
+
+.bar-lum-pll scale trough highlight {
+  background-color: #e7e5c7; }
+
+.bar-aud-pll {
+  background: #8A0C3C; }
+
+.bar-aud {
+  background: #e7e5c7; }
+  .bar-aud label {
+    color: #000000; }
+
+.bar-aud-mut {
+  background: #98546C; }
+  .bar-aud-mut label {
+    color: #000000; }
+
+.bar-aud-pll scale trough {
+  background-color: #39335E; }
+
+.bar-aud-pll scale trough highlight {
+  background-color: #e7e5c7; }
+
+.bar-bat-pll {
+  background: #8A0C3C; }
+
+.bar-bat-rev {
+  color: #FFFFFF;
+  padding-left: 10px;
+  padding-right: 5px; }
+
+.bar-bat {
+  background: #981855; }
+
+.bar-bat-chg {
+  background: #66CC99; }
+  .bar-bat-chg label {
+    color: #39335E; }
+
+@keyframes blink {
+  to {
+    background: #FFFFFF;
+    border-color: #FFFFFF; } }
+
+.bar-bat-low {
+  background: #FE021A;
+  border: none;
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; }
+  .bar-bat-low label {
+    color: #000000; }
+
+.bar-net-pll {
+  background: #39335E; }
+  .bar-net-pll label {
+    color: #FFFFFF; }
+
+.bar-net {
+  background: #282341;
+  min-width: 35px; }
+  .bar-net label {
+    color: #FFFFFF; }
+
+.bar-sys {
+  background: #bc2d69;
+  border: none;
+  border-radius: 15px;
+  margin: 6px 6px; }
+
+.tst-sys-icn {
+  padding: 0px 10px; }

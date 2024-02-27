@@ -1,0 +1,12 @@
+2024-02-26 16:28:30.575 [info] Extension host with pid 18425 started
+2024-02-26 16:28:30.595 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-02-26 16:28:30.597 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: false, activationEvent: 'onLanguage:git-commit'
+2024-02-26 16:28:30.657 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-02-26 16:28:30.657 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-02-26 16:28:31.006 [info] Eager extensions activated
+2024-02-26 16:28:31.009 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 16:28:31.009 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 16:28:31.009 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 16:28:31.015 [info] ExtensionService#_doActivateExtension YuTengjing.vscode-colorize-plus, startup: false, activationEvent: 'onStartupFinished'
+2024-02-26 16:28:31.909 [info] Extension host terminating: renderer closed the MessagePort
+2024-02-26 16:28:31.912 [info] Extension host with pid 18425 exiting with code 0
