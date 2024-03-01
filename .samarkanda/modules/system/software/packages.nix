@@ -8,17 +8,38 @@
 # 888       "Y888888  "Y8888P 888  888 "Y888888  "Y88888  "Y8888   88888P' 
 #                                                    888                   
 #                                               Y8b d88P                   
-#                                                "Y88P"                    
+#                                                "Y88P"                     
 
 { config, lib, pkgs, inputs, ... }:
 
-{
 ####################################################
 # TO-DO ############################################
 ####################################################
 #   [ ] Use xwayland bridge with discord           #
 ####################################################
 
+let
+    # python and its packages
+    python3-with-my-packages =
+        pkgs.python3.withPackages (python-packages: with python-packages; [
+            numpy               # numbers
+            matplotlib          # plot graphs
+            pandas              # data manipulation
+            notebook            # jupyter notebook
+        ]);
+    # latex and its packages
+    latex-with-my-packages =
+        (pkgs.texlive.combine { 
+            inherit (pkgs.texlive) scheme-medium 
+                cancel 
+                psnfss 
+                hyperref 
+                multirow 
+                float 
+                wasysym; 
+        }); 
+in
+{
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -30,39 +51,45 @@
 
     # Packages
     environment.systemPackages = with pkgs; [
-        alsa-firmware                # TMP test, for microphone
-        pavucontrol                  #
-        zsh                          # Shell
-        oh-my-zsh
-        zsh-autosuggestions
-        zsh-syntax-highlighting
-        zsh-powerlevel10k
-        most
-        gitFull                      # Git
-        gh                           # Github
-        ranger                       # File Manager
-        poppler_utils                # For pdf preview
-        firefox                      # Browser
-        gedit                        # File Editor 
-        kitty                        # Terminal 
-        swww                         # Wallpaper Daemon
-        rofi-wayland                 # App Launcher (temporary)
-        eza                          # ls substitute
-        bat                          # cat substitute
-        vscodium                     # Code Editor
-        polkit_gnome                 # Polkit 
-        pamixer                      # audio control
-        brightnessctl                # brightness control 
-        zip                          # Archive managers 
-        unzip                        #
-        p7zip                        #
-        gnutar                       #
-        rar                          #
-        udisks                       # disks utilities
-        usbutils
-        udiskie
-        python3                      # python3
-        libreoffice                  # rich text documents editor
+
+    # SYSTEM ###############################[
+
+        libsForQt5.sddm              # display manager
+        where-is-my-sddm-theme       # display manager theme
+        polkit_gnome                 # polkit 
+        gtk4                         # gtk
+        adw-gtk3                     # adwaita theme
+        alsa-firmware                # for microphone        (temporary)
+
+    # SHELL ################################[
+
+        zsh                          # shell
+        oh-my-zsh                    # shell customizer
+        zsh-autosuggestions          # autosuggestions plugin
+        zsh-syntax-highlighting      # syntax highlighting plugin
+        zsh-powerlevel10k            # shell theme
+    
+    # TERMINAL APPS ########################[
+
+        most                         # pager                 (less substitute)
+        eza                          # directory list        (ls substitute)
+        bat                          # display file contents (cat substitute)
+        plocate                      # finder
+        btop                         # task manager
+        neofetch                     # system info utility
+        cava                         # audio visualiser
+        efibootmgr                   # manage EFI boot entries
+        ranger                       # file manager
+        gitFull                      # git
+        gh                           # github
+
+    # GUI APPS #############################[
+
+        kitty                        # terminal 
+        firefox                      # browser
+        gedit                        # file editor 
+        vscodium                     # code editor
+        libreoffice                  # rtf documents editor
         qbittorrent                  # torrent manager
         obsidian                     # notes taking app
         webcord-vencord              # discord
@@ -70,41 +97,50 @@
         godot_4                      # game engine
         prismlauncher                # minecraft launcher
         mpv                          # video player
-        mpvScripts.mpris             # MPRIS plugin
-        playerctl                    # to control MPRIS
-        plocate                      # finder
         gnome.gnome-font-viewer      # font-viewer
-        (texlive.combine { inherit (texlive) scheme-medium cancel psnfss hyperref multirow float wasysym; }) 
-        # Latex medium packages, combined with some select, required ones
-        # TO DO: Riordinare, e capire quali pacchetti sono richiesti
-        grim                         # screenshot utilities
-        slurp
-        swappy
+        pavucontrol                  # audio control widget
         kooha                        # screen recording utility
+        xorg.xeyes                   # x11 tester
+        rofi-wayland                 # app launcher          (temporary)
+        rofi-power-menu              # power menu            (temporary)
+
+
+    # UTILITIES ############################[
+
+        mako                         # notification deamon   (temporary)
+        poppler_utils                # For pdf preview
+        zip                          # archive managers 
+        unzip                        #
+        p7zip                        #
+        gnutar                       #
+        rar                          #
+        udisks                       # disks utilities
+        usbutils
+        udiskie
+        swww                         # wallpaper daemon
+        pamixer                      # audio control
+        brightnessctl                # brightness control 
+        mpvScripts.mpris             # mpv MPRIS plugin
+        playerctl                    # mpv control MPRIS
+        grim                         # screenshot utilities
+        slurp                        #
+        swappy                       #
         wl-clipboard                 # copy utility
         hyprpicker                   # color picker
-        yt-dlp                       # YouTube support for mpv
+        yt-dlp                       # youtube support for mpv
         opentabletdriver             # tablet drivers
-        neofetch                     # system info utility
-        cava                         # audio visualiser
         sassc                        # convert css to scss
         upower                       # battery utility
-        gtk4                         # gtk
-        adw-gtk3                     # Adwaita Theme
-        xorg.xeyes                   # check if something is running on X11
         openssh_hpn                  # ssh
-        mako                         # Notification (temporary)
-        libnotify                    # Provides notify-send
+        libnotify                    # provides notify-send
         imv                          # image viewer
         mupdf                        # pdf viewer
-        rofi-power-menu              # (temporary)
-        efibootmgr                   # manage EFI boot entries
-        #lshw                         # see hw info
-        #mesa-demos                   # to test nvidia PRIME
-        btop                          # task manager
-        libsForQt5.sddm              # display manager
-        where-is-my-sddm-theme       # display manager theme
-        #sl
+
+    # CODING ##########################[
+
+        python3-with-my-packages     # python3
+        latex-with-my-packages       # latex
+
     ];
 
     # Zsh configuration

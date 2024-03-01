@@ -11,4 +11,5 @@ Nixos config for a light OS, configured to my needs
 	+ ranger
 	+ rofi
 	+ swappy
+	+ zsh
 + Swap `mako` and `rofi` for ags widgets 
