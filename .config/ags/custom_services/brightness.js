@@ -1,6 +1,3 @@
-import Service from 'resource:///com/github/Aylur/ags/service.js';
-import { exec, execAsync } from 'resource:///com/github/Aylur/ags/utils.js';
-
 class BrightnessService extends Service {
     // every subclass of GObject.Object has to register itself
     static {
@@ -24,10 +21,17 @@ class BrightnessService extends Service {
         );
     }
 
-    _screenValue = 0;
+    // this Service assumes only one device with backlight
+    #interface = Utils.exec("sh -c 'ls -w1 /sys/class/backlight | head -1'");
+
+    // # prefix means private in JS
+    #screenValue = 0;
+    #max = Number(Utils.exec('brightnessctl max'));
 
     // the getter has to be in snake_case
-    get screen_value() { return this._screenValue; }
+    get screen_value() {
+        return this.#screenValue;
+    }
 
     // the setter has to be in snake_case too
     set screen_value(percent) {
@@ -37,19 +41,33 @@ class BrightnessService extends Service {
         if (percent > 1)
             percent = 1;
 
-        execAsync(`brightnessctl s ${percent * 100}% -q`)
-            .then(() => {
-                this._screenValue = percent;
-                this.changed('screen-value');
-            })
-            .catch(print);
+        Utils.execAsync(`brightnessctl set ${Math.round(percent * 100)}% -q`);
+        // the file monitor will handle the rest
     }
 
     constructor() {
         super();
-        const current = Number(exec('brightnessctl g'));
-        const max = Number(exec('brightnessctl m'));
-        this._screenValue = (Math.round((current / max) * 100)/100);
+
+        // setup monitor
+        const brightness = `/sys/class/backlight/${this.#interface}/brightness`;
+        Utils.monitorFile(brightness, () => this.#onChange());
+
+        // initialize
+        this.#onChange();
+    }
+
+    #onChange() {
+        this.#screenValue = Number(Utils.exec('brightnessctl get')) / this.#max;
+
+        // signals have to be explicity emitted
+        this.emit('changed'); // emits "changed"
+        this.notify('screen-value'); // emits "notify::screen-value"
+
+        // or use Service.changed(propName: string) which does the above two
+        // this.changed('screen-value');
+
+        // emit screen-changed with the percent as a parameter
+        this.emit('screen-changed', this.#screenValue);
     }
 
     // overwriting the connect method, let's you
@@ -60,7 +78,7 @@ class BrightnessService extends Service {
 }
 
 // the singleton instance
-const service = new BrightnessService();
+const service = new BrightnessService;
 
 // make it global for easy use with cli
 globalThis.brightness = service;

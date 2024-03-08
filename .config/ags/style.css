@@ -44,7 +44,7 @@ slider {
   margin: -10px 0px; }
 
 .bar-clk-pll {
-  background: #39335E;
+  background: #4F2C28;
   border: none;
   border-radius: 15px;
   margin: 6px 6px; }
@@ -53,7 +53,7 @@ slider {
     padding: 0px 10px; }
 
 .bar-clk {
-  background: #8A0C3C;
+  background: #6f9c5b;
   border: none;
   border-radius: 15px;
   margin: 0px;
@@ -82,7 +82,7 @@ slider {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  color: #39335E;
+  color: #4F2C28;
   padding: 0px 10px; }
 
 .bar-ply-pll {
@@ -91,7 +91,7 @@ slider {
   border-radius: 15px;
   margin: 6px 6px; }
   .bar-ply-pll label {
-    color: #39335E;
+    color: #4F2C28;
     padding: 0px 10px; }
 
 .bar-ply {
@@ -99,14 +99,14 @@ slider {
 
 .bar-wsp-pll {
   border-radius: 15px;
-  background: #bc2d69;
-  border-color: #bc2d69;
+  background: #AF4043;
+  border-color: #AF4043;
   margin: 0px -1px;
   padding: 9px;
   transition: all 0.3s ease-in-out; }
 
 .bar-wsp-foc, .bar-wsp {
-  background: #39335E;
+  background: #4F2C28;
   border: none;
   border-radius: 30px;
   margin: 0px 5px;
@@ -122,36 +122,36 @@ slider {
     min-width: 35px; }
 
 .bar-wsp-foc {
-  background: #e7e5c7;
+  background: #fcd09b;
   min-width: 35px; }
   .bar-wsp-foc label {
-    color: #39335E;
+    color: #4F2C28;
     font-size: 1em; }
 
 .tst-bar-ctr {
   padding: 5px; }
 
 .bar-lum-pll {
-  background: #39335E; }
+  background: #4F2C28; }
   .bar-lum-pll label {
     color: #FFFFFF; }
 
 .bar-lum {
-  background: #8A0C3C; }
+  background: #662545; }
   .bar-lum label {
     color: #FFFFFF; }
 
 .bar-lum-pll scale trough {
-  background-color: #8A0C3C; }
+  background-color: #662545; }
 
 .bar-lum-pll scale trough highlight {
-  background-color: #e7e5c7; }
+  background-color: #fcd09b; }
 
 .bar-aud-pll {
-  background: #8A0C3C; }
+  background: #6f9c5b; }
 
 .bar-aud {
-  background: #e7e5c7; }
+  background: #e7d5c7; }
   .bar-aud label {
     color: #000000; }
 
@@ -161,13 +161,13 @@ slider {
     color: #000000; }
 
 .bar-aud-pll scale trough {
-  background-color: #39335E; }
+  background-color: #4F2C28; }
 
 .bar-aud-pll scale trough highlight {
-  background-color: #e7e5c7; }
+  background-color: #fcd09b; }
 
 .bar-bat-pll {
-  background: #8A0C3C; }
+  background: #6f9c5b; }
 
 .bar-bat-rev {
   color: #FFFFFF;
@@ -175,12 +175,17 @@ slider {
   padding-right: 5px; }
 
 .bar-bat {
-  background: #981855; }
+  background: #254D4C; }
+
+.bar-bat-icn {
+  margin-left: 10px; }
+  .bar-bat-icn label {
+    color: #000000; }
 
 .bar-bat-chg {
   background: #66CC99; }
   .bar-bat-chg label {
-    color: #39335E; }
+    color: #4F2C28; }
 
 @keyframes blink {
   to {
@@ -199,7 +204,7 @@ slider {
     color: #000000; }
 
 .bar-net-pll {
-  background: #39335E; }
+  background: #4F2C28; }
   .bar-net-pll label {
     color: #FFFFFF; }
 
@@ -210,7 +215,7 @@ slider {
     color: #FFFFFF; }
 
 .bar-sys {
-  background: #bc2d69;
+  background: #AF4043;
   border: none;
   border-radius: 15px;
   margin: 6px 6px; }
