@@ -9,12 +9,14 @@ import { volume }      from './volume.js';
 import { battery }     from './battery.js';
 import { network }     from './network.js';
 
+import { power_profiles }     from './power_profiles.js';
+
 
 /*////////////////////////////////////////////////////////////////////////////
     SAMARBAR
 ////////////////////////////////////////////////////////////////////////////*/ 
 
-function Left() {
+function left() {
     return Widget.Box({
         className: "tst-bar-lft",
         children: [
@@ -24,7 +26,7 @@ function Left() {
     })
 };
 
-function Center() {
+function center() {
     return Widget.Box({
         className: "tst-bar-ctr",
         children: [
@@ -33,12 +35,13 @@ function Center() {
     })
 };
 
-function Right() {
+function right() {
     return Widget.Box({
         className: "tst-bar-rgt",
         hpack: 'end',
         children: [
             systray(),
+            power_profiles,
             luminosity(),
             volume(),
             battery(),
@@ -54,9 +57,9 @@ export function samarbar(monitor = 0) {
         anchor: ['top', 'left', 'right'],
         exclusivity: 'exclusive',
         child: Widget.CenterBox({
-            startWidget:  Left(),
-            centerWidget: Center(),
-            endWidget:    Right(),
+            startWidget:  left(),
+            centerWidget: center(),
+            endWidget:    right(),
         }),
     })
 }

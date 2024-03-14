@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 button {
+    all: unset;
     background-image: none;
 }
 
@@ -164,8 +165,8 @@ slider {
 .bar-wsp-pll {
     border-radius: 15px;
     background: $color5;
-    border-color: $color5;
-    margin: 0px -1px;
+    border: none;
+    margin: 0px 0px;
     padding: 9px;
     transition: all 0.3s ease-in-out;
 }
@@ -289,9 +290,10 @@ slider {
 }
 
 .bar-bat-icn {
-    margin-left: 10px;
+    margin: 0px 0px 0px 7px;
+    color: $fg-wht;
     label {
-        color: $fg-blk;
+        color: $fg-wht;
     }
 }
 
@@ -336,6 +338,7 @@ slider {
         
 .bar-net {
     background: $color8;
+    padding: 0px 7px;
     min-width: 35px;
     label {
         color: $fg-wht;
@@ -356,4 +359,8 @@ slider {
 .tst-sys-icn {
     padding: 0px 10px;
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//    POWER PROFILES
+////////////////////////////////////////////////////////////////////////////// 
 

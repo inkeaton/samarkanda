@@ -13,5 +13,7 @@
         logind.lidSwitch = "suspend";
     # Battery service
         upower.enable = true;
+    # Power profiles services
+        power-profiles-daemon.enable = true;
     };
 }

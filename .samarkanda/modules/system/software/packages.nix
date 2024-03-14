@@ -19,6 +19,7 @@
 ####################################################
 
 let
+    system = "x86_64-linux";
     # python and its packages
     python3-with-my-packages =
         pkgs.python3.withPackages (python-packages: with python-packages; [
@@ -57,9 +58,12 @@ in
         libsForQt5.sddm              # display manager
         where-is-my-sddm-theme       # display manager theme
         polkit_gnome                 # polkit 
-        gtk4                         # gtk
+        gtk3                         # gtk3
+        gtk4                         # gtk4
         adw-gtk3                     # adwaita theme
+        gradience                    # customize adwaita     (temporary)
         alsa-firmware                # for microphone        (temporary)
+        home-manager                 # dotfiles manager
 
     # SHELL ################################[
 
@@ -94,6 +98,7 @@ in
         obsidian                     # notes taking app
         webcord-vencord              # discord
         krita                        # drawing app
+        inkscape-with-extensions     # vector drawing app
         godot_4                      # game engine
         prismlauncher                # minecraft launcher
         mpv                          # video player
@@ -107,7 +112,9 @@ in
 
     # UTILITIES ############################[
 
-        mako                         # notification deamon   (temporary)
+        man                          # system manual
+        power-profiles-daemon        # power-profiles daemon
+        # mako                         # notification deamon   (temporary)
         poppler_utils                # For pdf preview
         zip                          # archive managers 
         unzip                        #
@@ -135,9 +142,12 @@ in
         libnotify                    # provides notify-send
         imv                          # image viewer
         mupdf                        # pdf viewer
+        inputs.matugen.packages.${system}.default # material palette generator
 
     # CODING ##########################[
-
+        
+        gcc                          # C compiler
+        gnumake                      # make command
         python3-with-my-packages     # python3
         latex-with-my-packages       # latex
 

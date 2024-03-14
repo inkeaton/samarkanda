@@ -25,6 +25,11 @@
         # ags module
         ags.url = "github:Aylur/ags";
 
+        # matugen module
+        matugen = {
+            url = "github:/InioX/Matugen";
+        };
+
         # Hyprland module
         hyprland.url = "github:hyprwm/Hyprland";
     };
@@ -33,7 +38,7 @@
     outputs = { self, home-manager, nixpkgs, ... }@inputs:
         let
             system = "x86_64-linux";
-            pkgs = nixpkgs.legacyPackages.${system};
+            pkgs = import nixpkgs { inherit system; };
 
         in 
             {

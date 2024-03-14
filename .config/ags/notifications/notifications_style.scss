@@ -1,0 +1,87 @@
+@import "../colors/group_photo.scss";
+
+window#notifications {
+    all: unset;
+}
+
+window#notifications box.notifications {
+    padding: .5em;
+}
+
+.notifications {
+    padding: 20px 20px;
+}
+
+.ntf-ctr {
+    padding: 5px 5px;
+    border-radius: 35px;
+    background-color: $bg-bar;
+}
+
+.ntf-low, .ntf-normal , .ntf-critical {
+    min-width: 350px;
+    border-radius: 30px;
+    padding: 1em;
+    margin: .5em;
+    border: none;
+    background: $color5;
+}
+
+.ntf-critical {
+    background-color: $color011;
+}
+
+.ntf-ttl {
+    color: $color3;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.ntf-bdy {
+    color: $fg-wht;
+}
+
+.ntf-act .ntf-btn {
+    margin: 0 .4em;
+    margin-top: .8em;
+
+    border: none;
+    border-radius: 15px;
+    padding: 0px 0px;
+    background: $color3;
+
+    label {
+        color: $color6;
+        padding: 0px 10px;
+    }
+}
+
+.ntf-act .ntf-btn:first-child {
+    margin-left: 0;
+}
+
+.ntf-act .ntf-btn:last-child {
+    margin-right: 0;
+}
+
+// TO BE DONE
+//  + Style icons when they correctly work
+
+// .icon {
+//     min-width: 68px;
+//     min-height: 68px;
+//     margin-right: 1em;
+// }
+
+// .icon image {
+//     font-size: 58px;
+//     /* to center the icon */
+//     margin: 5px;
+//     color: $fg-blk;
+// }
+
+// .icon box {
+//     min-width: 68px;
+//     min-height: 68px;
+//     border-radius: 7px;
+//}

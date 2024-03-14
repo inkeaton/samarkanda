@@ -1,0 +1,44 @@
+@import "../colors/group_photo.scss";
+
+.rad-win {
+    border-radius: 4em;
+    background:    $bg-bar;
+}
+
+.rad-ctr {
+    border-radius: 3em;
+    margin: 2em;
+    background: $color5;
+    padding: 2em 2em;
+}
+
+.rad-lbl {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.rad-icn {
+    font-size: 7em;
+}
+
+.rad-opt {
+    border-radius: 2.5em;
+    padding: 0.7em 0.7em;
+    min-width:     15em;
+    min-height:    20.7em;
+}
+
+.rad-btn {
+    background: none;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 0.7em 0.7em;
+}
+
+.rad-btn:focus {
+    border-radius: 2.5em;
+    background: $color3;
+    color: #AF4043;
+
+}
+

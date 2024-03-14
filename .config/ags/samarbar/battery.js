@@ -40,34 +40,43 @@ export function battery() {
 
                 Widget.Box({
                     class_name: class_state,
-                    child:
-                        Widget.Label({
-                            label: Utils.merge([BATTERY.bind('charging'), BATTERY.bind('percent')], (ischarging, percent) => {
-                                let icon = ' ';
+                    children: [
+                        Widget.Icon({
+                            class_name: "bar-bat-icn",
+                            size: 25,
+                            icon: Utils.merge([BATTERY.bind('charging'), BATTERY.bind('percent')], (ischarging, percent) => {
+                                if(!ischarging && percent < 16) 
+                                    Utils.notify('Batteria quasi scarica!', 'Collegare il caricabatterie');
+                                let icon ="/home/inkeaton/.config/ags/icons/bat/batteria-";
                                 if(!ischarging) switch(Math.floor(percent / 20)) {
                                     case 5:
-                                        icon = ' ';
+                                        icon += "100.svg";
                                         break;
                                     case 4:
-                                        icon = ' ';
+                                        icon += "100.svg";
                                         break;
                                     case 3:
-                                        icon = ' ';
+                                        icon += "75.svg";
                                         break;
                                     case 2:
-                                        icon = ' ';
+                                        icon += "50.svg";
                                         break;
                                     case 1:
-                                        icon = ' ';
+                                        icon += "25.svg";
                                         break;
                                     case 0:
-                                        icon = ' ';
+                                        icon += "0.svg";
                                         break;                        
-                                };
-                                return `${icon} ${percent}%`;
                                 }
-                            )
+                                else    icon += "charge.svg";
+                                
+                                return icon;
+                            })
+                        }),
+                        Widget.Label({
+                            label: BATTERY.bind('percent').as(percent => `${percent}%`)
                         })
+                    ]
                 })
             ]
         })

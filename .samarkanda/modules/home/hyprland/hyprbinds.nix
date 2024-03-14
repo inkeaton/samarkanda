@@ -34,11 +34,17 @@
                 "$mainMod, Return,          exec, kitty"
                 "$mainMod, E,               exec, kitty ranger"
                 "$mainMod, H,               exec, kitty btop"
-                "$mainMod, R,               exec, rofi -show drun"
+                "$mainMod, R,               exec, ags -t samarrun"
+                # TEMPORARY
+                "$mainMod SHIFT, R,         exec, rofi -show drun"
                 "$mainMod, W,               exec, ~/.local/bin/rofi-wifi-menu"
-                "$mainMod, A,               exec, ~/.local/bin/rofi-radio-menu"
+                "$mainMod, A,               exec, ags -t samarradio"
+                # TEMPORARY
+                "$mainMod SHIFT, A,         exec, ~/.local/bin/rofi-radio-menu"
+                "$mainMod, P,               exec, ags -t samaroff"
                 # Requires rofi-power-menu (AUR)
-                "$mainMod, P,               exec, rofi -show p -modi p:rofi-power-menu"
+                # TEMPORARY
+                "$mainMod SHIFT, P,         exec, rofi -show p -modi p:rofi-power-menu"
 
                 # Screenshots
                 ", Print,                   exec, ~/.config/nixos/scripts/screenshot.sh sc"

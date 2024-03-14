@@ -1,0 +1,54 @@
+@import "../colors/group_photo.scss";
+
+.run-win {
+    border-radius: 4em;
+    background: $bg-bar;
+}
+
+.run-ctr {
+    border-radius: 3em;
+    background: $color5;
+    padding: 2em 2em;
+}
+
+.run-lbl {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.run-etr {
+    border-radius: 5em;
+    border: none;
+    font-size: 1.5em;
+    background: $color3;
+    color: $fg-blk;
+    padding: 0.7em 2em;
+}
+
+.run-etr:focus {
+    box-shadow: none;
+}
+
+.run-btn {
+    border-radius: 5em;
+    background: none;
+    font-size: 1.3em;
+    padding: 0.7em 0.7em;
+}
+
+.run-btn:focus {
+    background: $color3;
+    color: #AF4043;
+
+}
+
+.run-icn {
+    border-radius: 3em;
+    padding: 0.7em;
+    background: $color6;
+}
+
+.run-btn-dsc {
+    margin-left: 1em;
+    font-weight: bold;
+}

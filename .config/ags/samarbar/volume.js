@@ -9,8 +9,6 @@ const AUDIO = await Service.import('audio')
         + value where to use hooks instead of binds
 ////////////////////////////////////////////////////////////////////////////*/ 
 
-const is_audio_bar_shown = Variable(Boolean(false));
-
 export function volume() { 
     const is_audio_bar_shown = Variable(false);
 
@@ -40,29 +38,42 @@ export function volume() {
                 Widget.Box({
                     // @ts-ignore
                     class_name: AUDIO['speaker'].bind('is_muted').as(is_muted => AUDIO.speaker.stream.isMuted ? 'bar-aud-mut' : 'bar-aud'),
-                    child: 
-                        Widget.Label({
-                            label: AUDIO['speaker'].bind('volume').as( volume => {
+                    children: [
+                        Widget.Icon({
+                            class_name: "bar-bat-icn",
+                            size: 20,
+                            icon: AUDIO['speaker'].bind('volume').as( volume => {
                                 volume = Math.round(volume*100);
-                                let icon = '';
+                                let icon ="/home/inkeaton/.config/ags/icons/vol/volume-";
                                 // @ts-ignore
-                                if(!AUDIO.speaker.stream.isMuted) switch(Math.floor(volume / 33)) {
+                                if(!AUDIO.speaker.stream.isMuted) switch(Math.floor(volume / 20)) {
+                                    case 5:
+                                        icon += "100.svg";
+                                        break;
+                                    case 4:
+                                        icon += "100.svg";
+                                        break;
                                     case 3:
-                                        icon = ' ';
+                                        icon += "75.svg";
                                         break;
                                     case 2:
-                                        icon = ' ';
+                                        icon += "50.svg";
                                         break;
                                     case 1:
-                                        icon = ' ';
+                                        icon += "25.svg";
                                         break;
                                     case 0:
-                                        icon = '  ';
+                                        icon += "0.svg";
                                         break;
-                                };
-                                return `${icon}  ${volume}%`;
+                                } else  icon += "mute.svg";
+                                
+                                return icon;
                             }),
+                        }),
+                        Widget.Label({
+                            label: AUDIO['speaker'].bind('volume').as( volume => `${Math.round(volume*100)}%`),
                         })
+                    ]
                 }),
                 
             ]

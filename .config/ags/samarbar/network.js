@@ -9,7 +9,32 @@ const NET = await Service.import('network')
 
 const wifiIndicator = () => Widget.Icon({
     className: 'bar-net',
-    icon: NET.wifi.bind('icon_name'),
+    size: 25,
+    icon: NET.wifi.bind("strength").as( strength => {
+        let icon ="/home/inkeaton/.config/ags/icons/net/network-";
+        switch(Math.floor(strength / 20)) {
+            case 5:
+                icon += "100.svg";
+                break;
+            case 4:
+                icon += "100.svg";
+                break;
+            case 3:
+                icon += "75.svg";
+                break;
+            case 2:
+                icon += "50.svg";
+                break;
+            case 1:
+                icon += "25.svg";
+                break;
+            case 0:
+                icon += "0.svg";
+                break;
+        }
+                                
+        return icon;
+    }),
 })
 
 const wiredIndicator = () => Widget.Icon({

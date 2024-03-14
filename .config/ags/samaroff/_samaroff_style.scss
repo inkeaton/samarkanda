@@ -1,0 +1,43 @@
+@import "../colors/group_photo.scss";
+
+.pow-win {
+    border-radius: 4em;
+    background:    $bg-bar;
+}
+
+.pow-ctr {
+    border-radius: 3em;
+    margin: 2em;
+    background: $color5;
+    padding: 2em 2em;
+    min-width:     250px;
+    //min-height:    243px;
+}
+
+.pow-lbl {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.pow-icn {
+    font-size: 7em;
+}
+
+.pow-opt {
+    border-radius: 2.5em;
+    padding: 0.7em 0.7em;
+}
+
+.pow-btn {
+    background: none;
+    font-size: 1.3em;
+    padding: 0.7em 0.7em;
+}
+
+.pow-btn:focus {
+    border-radius: 2.5em;
+    background: $color6;
+    color: #AF4043;
+
+}
+

@@ -30,47 +30,44 @@ export function luminosity(){
                         on_change: ({ value }) => BRIGHTNESS.screen_value = value,
                     })
                 }),
-
-                Widget.Label({
+                Widget.Box({
                     class_name: 'bar-lum',
-                    label: BRIGHTNESS.bind('screen_value').as( percent => {
-                        percent = Math.round(percent*100);
-                        let icon = '';
-                        switch(Math.floor(percent / 11)) {
-                            case 9:
-                                icon = '';
-                                break;
-                            case 8:
-                                icon = '';
-                                break;
-                            case 7:
-                                icon = '';
-                                break;
-                            case 6:
-                                icon = '';
-                                break;
-                            case 5:
-                                icon = '';
-                                break;
-                            case 4:
-                                icon = '';
-                                break;
-                            case 3:
-                                icon = '';
-                                break;
-                            case 2:
-                                icon = '';
-                                break;
-                            case 1:
-                                icon = '';
-                                break;
-                            case 0:
-                                icon = '';
-                                break;
-                        };
-                        return `${icon}   ${percent}%`;
-                    }),
-                }),
+                    children: [
+                        Widget.Icon({
+                            class_name: "bar-bat-icn",
+                            size: 17,
+                            icon: BRIGHTNESS.bind('screen_value').as( percent => {
+                                percent = Math.round(percent*100);
+                                let icon ="/home/inkeaton/.config/ags/icons/lum/luminosità-";
+                                switch(Math.floor(percent / 20)) {
+                                    case 5:
+                                        icon += "100.svg";
+                                        break;
+                                    case 4:
+                                        icon += "100.svg";
+                                        break;
+                                    case 3:
+                                        icon += "75.svg";
+                                        break;
+                                    case 2:
+                                        icon += "50.svg";
+                                        break;
+                                    case 1:
+                                        icon += "25.svg";
+                                        break;
+                                    case 0:
+                                        icon += "0.svg";
+                                        break;
+                                }
+                                
+                                return icon;
+                            }),
+                        }),
+                        Widget.Label({
+                            label: BRIGHTNESS.bind('screen_value').as( percent => `${Math.round(percent*100)}%`),
+                        }),
+                    ]
+                })
             ]
         })
     })

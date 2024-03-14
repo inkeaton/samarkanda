@@ -21,13 +21,15 @@
         ./themes/qt.nix
         # Aylur's GTK Shell (AGS)
         inputs.ags.homeManagerModules.default 
+        # Matugen Palette Generator
+        inputs.matugen.nixosModules.default
     ];
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
     # Set wallpaper
-    # wallpaper = "~/Immagini/Sfondi/EVA.png";
+    wallpaper = "~/Immagini/Sfondi/Splatoon\\\ Artworks/Group\\\ Photo.png";
 
     home = {
         username = "inkeaton";

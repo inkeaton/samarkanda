@@ -1,7 +1,9 @@
 import { samarbar }   from './samarbar/_samarbar.js';
-// import { samarrun }   from './samarrun/_samarrun.js';
-// import { samarpower } from './samarpower/_samarpower.js';
+import { samarrun }   from './samarrun/_samarrun.js';
+import { samaroff }   from './samaroff/_samaroff.js';
+import { samarradio } from './samarradio/_samarradio.js';
 // import { samarboard } from './samarboard/_samarboard.js';
+import { notificationPopup } from './notifications/notifications.js';
 
 /*////////////////////////////////////////////////////////////////////////////
     FINAL
@@ -19,5 +21,9 @@ App.config({
     style: css,
     windows: [
         samarbar(),
+        samarrun,
+        samaroff,
+        samarradio,
+        notificationPopup,
     ],
 });

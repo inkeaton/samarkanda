@@ -45,7 +45,7 @@
                     # set wallpaper daemon
                     "sleep 0.5 && swww init"
                     # start notification daemon (temporary)
-                    "mako"
+                    # "mako"
 
                 ];
 

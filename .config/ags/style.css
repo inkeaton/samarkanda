@@ -1,4 +1,5 @@
 button {
+  all: unset;
   background-image: none; }
 
 slider {
@@ -53,7 +54,7 @@ slider {
     padding: 0px 10px; }
 
 .bar-clk {
-  background: #6f9c5b;
+  background: linear-gradient(144deg, #6f9c5b 0%, #517b3f 73%);
   border: none;
   border-radius: 15px;
   margin: 0px;
@@ -99,9 +100,9 @@ slider {
 
 .bar-wsp-pll {
   border-radius: 15px;
-  background: #AF4043;
-  border-color: #AF4043;
-  margin: 0px -1px;
+  background: linear-gradient(144deg, #AF4043 0%, #953e41 73%);
+  border: none;
+  margin: 0px 0px;
   padding: 9px;
   transition: all 0.3s ease-in-out; }
 
@@ -137,18 +138,18 @@ slider {
     color: #FFFFFF; }
 
 .bar-lum {
-  background: #662545; }
+  background: #7d2953; }
   .bar-lum label {
     color: #FFFFFF; }
 
 .bar-lum-pll scale trough {
-  background-color: #662545; }
+  background-color: #7d2953; }
 
 .bar-lum-pll scale trough highlight {
   background-color: #fcd09b; }
 
 .bar-aud-pll {
-  background: #6f9c5b; }
+  background: linear-gradient(144deg, #6f9c5b 0%, #517b3f 73%); }
 
 .bar-aud {
   background: #e7d5c7; }
@@ -167,7 +168,7 @@ slider {
   background-color: #fcd09b; }
 
 .bar-bat-pll {
-  background: #6f9c5b; }
+  background: linear-gradient(144deg, #6f9c5b 0%, #517b3f 73%); }
 
 .bar-bat-rev {
   color: #FFFFFF;
@@ -178,9 +179,10 @@ slider {
   background: #254D4C; }
 
 .bar-bat-icn {
-  margin-left: 10px; }
+  margin: 0px 0px 0px 7px;
+  color: #FFFFFF; }
   .bar-bat-icn label {
-    color: #000000; }
+    color: #FFFFFF; }
 
 .bar-bat-chg {
   background: #66CC99; }
@@ -193,7 +195,7 @@ slider {
     border-color: #FFFFFF; } }
 
 .bar-bat-low {
-  background: #FE021A;
+  background: #df2012;
   border: none;
   animation-name: blink;
   animation-duration: 2s;
@@ -210,15 +212,175 @@ slider {
 
 .bar-net {
   background: #282341;
+  padding: 0px 7px;
   min-width: 35px; }
   .bar-net label {
     color: #FFFFFF; }
 
 .bar-sys {
-  background: #AF4043;
+  background: linear-gradient(144deg, #AF4043 0%, #953e41 73%);
   border: none;
   border-radius: 15px;
   margin: 6px 6px; }
 
 .tst-sys-icn {
   padding: 0px 10px; }
+
+.run-win {
+  border-radius: 4em;
+  background: rgba(14, 32, 37, 0.7); }
+
+.run-ctr {
+  border-radius: 3em;
+  background: linear-gradient(144deg, #AF4043 0%, #953e41 73%);
+  padding: 2em 2em; }
+
+.run-lbl {
+  font-size: 3em;
+  font-weight: bold; }
+
+.run-etr {
+  border-radius: 5em;
+  border: none;
+  font-size: 1.5em;
+  background: #fcd09b;
+  color: #000000;
+  padding: 0.7em 2em; }
+
+.run-etr:focus {
+  box-shadow: none; }
+
+.run-btn {
+  border-radius: 5em;
+  background: none;
+  font-size: 1.3em;
+  padding: 0.7em 0.7em; }
+
+.run-btn:focus {
+  background: #fcd09b;
+  color: #AF4043; }
+
+.run-icn {
+  border-radius: 3em;
+  padding: 0.7em;
+  background: #4F2C28; }
+
+.run-btn-dsc {
+  margin-left: 1em;
+  font-weight: bold; }
+
+.pow-win {
+  border-radius: 4em;
+  background: rgba(14, 32, 37, 0.7); }
+
+.pow-ctr {
+  border-radius: 3em;
+  margin: 2em;
+  background: linear-gradient(144deg, #AF4043 0%, #953e41 73%);
+  padding: 2em 2em;
+  min-width: 250px; }
+
+.pow-lbl {
+  font-size: 3em;
+  font-weight: bold; }
+
+.pow-icn {
+  font-size: 7em; }
+
+.pow-opt {
+  border-radius: 2.5em;
+  padding: 0.7em 0.7em; }
+
+.pow-btn {
+  background: none;
+  font-size: 1.3em;
+  padding: 0.7em 0.7em; }
+
+.pow-btn:focus {
+  border-radius: 2.5em;
+  background: #4F2C28;
+  color: #AF4043; }
+
+.rad-win {
+  border-radius: 4em;
+  background: rgba(14, 32, 37, 0.7); }
+
+.rad-ctr {
+  border-radius: 3em;
+  margin: 2em;
+  background: linear-gradient(144deg, #AF4043 0%, #953e41 73%);
+  padding: 2em 2em; }
+
+.rad-lbl {
+  font-size: 3em;
+  font-weight: bold; }
+
+.rad-icn {
+  font-size: 7em; }
+
+.rad-opt {
+  border-radius: 2.5em;
+  padding: 0.7em 0.7em;
+  min-width: 15em;
+  min-height: 20.7em; }
+
+.rad-btn {
+  background: none;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 0.7em 0.7em; }
+
+.rad-btn:focus {
+  border-radius: 2.5em;
+  background: #fcd09b;
+  color: #AF4043; }
+
+window#notifications {
+  all: unset; }
+
+window#notifications box.notifications {
+  padding: .5em; }
+
+.notifications {
+  padding: 20px 20px; }
+
+.ntf-ctr {
+  padding: 5px 5px;
+  border-radius: 35px;
+  background-color: rgba(14, 32, 37, 0.7); }
+
+.ntf-low, .ntf-normal, .ntf-critical {
+  min-width: 350px;
+  border-radius: 30px;
+  padding: 1em;
+  margin: .5em;
+  border: none;
+  background: linear-gradient(144deg, #AF4043 0%, #953e41 73%); }
+
+.ntf-critical {
+  background-color: #df2012; }
+
+.ntf-ttl {
+  color: #fcd09b;
+  font-size: 1.4em;
+  font-weight: bold; }
+
+.ntf-bdy {
+  color: #FFFFFF; }
+
+.ntf-act .ntf-btn {
+  margin: 0 .4em;
+  margin-top: .8em;
+  border: none;
+  border-radius: 15px;
+  padding: 0px 0px;
+  background: #fcd09b; }
+  .ntf-act .ntf-btn label {
+    color: #4F2C28;
+    padding: 0px 10px; }
+
+.ntf-act .ntf-btn:first-child {
+  margin-left: 0; }
+
+.ntf-act .ntf-btn:last-child {
+  margin-right: 0; }
