@@ -1,3 +1,4 @@
+
 # 888b    888 d8b           .d88888b.   .d8888b.  
 # 8888b   888 Y8P          d88P" "Y88b d88P  Y88b 
 # 88888b  888              888     888 Y88b.      
@@ -5,62 +6,68 @@
 # 888 Y88b888 888 `Y8bd8P' 888     888     "Y88b. 
 # 888  Y88888 888   X88K   888     888       "888 
 # 888   Y8888 888 .d8""8b. Y88b. .d88P Y88b  d88P 
-# 888    Y888 888 888  888  "Y88888P"   "Y8888P"                                                
+# 888    Y888 888 888  888  "Y88888P"   "Y8888P"  
+
+                                                
+{ config, lib, pkgs, inputs, ... }:
 
 {
-# Description
-    description = "Nixos config flake";
 
-# Input sources
-    inputs = {
-        # packages channel
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+####################################################
+# TO-DO ############################################
+####################################################
+#   [ ] Use Grub or ReFIND instead of systemd-boot #
+#   [x] use SDDM and theme it                      #
+#       [ ] fix SDDM delay                         #
+#   [x] Reorganize file structure                  #
+#   [ ] Unite dotfiles with nixOS home manager     #
+#   [ ] Move everything in ~/.samarkanda/          #
+####################################################
 
-        # home manager module
-        home-manager = {
-           url = "github:nix-community/home-manager/release-23.11";
-           inputs.nixpkgs.follows = "nixpkgs";
+################################
+# SYSTEM BASICS ##########################
+################################
+    
+    # Hardware scan 
+    imports = [
+        ./hardware/hardware-configuration.nix
+        ./software/os.nix
+        ./hardware/video.nix
+        ./hardware/audio.nix
+        ./hardware/network.nix
+        ./software/services.nix
+        ./software/user.nix
+        ./software/enviroment.nix
+        ./software/packages.nix
+        inputs.home-manager.nixosModules.default
+    ];
+
+    # Use Home Manager
+    home-manager = {
+        # also pass inputs to home-manager modules
+        extraSpecialArgs = {inherit inputs;};
+        users = {
+            "inkeaton" = import ./../home/home.nix;
         };
-
-        # ags module
-        ags.url = "github:Aylur/ags";
-
-        # matugen module
-        matugen = {
-            url = "github:/InioX/Matugen";
-        };
-
-        # Hyprland module
-        hyprland.url = "github:hyprwm/Hyprland";
     };
 
-# Output code
-    outputs = { self, home-manager, nixpkgs, ... }@inputs:
-        let
-            system = "x86_64-linux";
-            pkgs = import nixpkgs { inherit system; };
+    # Original system Version
+    system.stateVersion = "23.11";  
 
-        in {
-            
-            nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-                specialArgs = {inherit inputs;};
-                modules = [ 
-                    ./modules/system/main.nix
-                    inputs.home-manager.nixosModules.default
-                ];
-            };
+################################
+# SERVICES ###############################
+################################
 
-            homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-
-                # Specify your home configuration modules here, for example,
-                # the path to your home.nix.
-                modules = [ ./modules/home/home.nix ];
-
-                # Optionally use extraSpecialArgs
-                # to pass through arguments to home.nix
-            };
-        };
+    services = {
+    # Automount drives
+        devmon.enable = true;
+        udisks2.enable = true;
+        gvfs.enable = true;
+    # Suspend when lid is closed (laptop)
+        logind.lidSwitch = "suspend";
+    # Battery service
+        upower.enable = true;
+    };
 }
 
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -79,4 +86,4 @@
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤⣤⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡿⠁⠀⠀⠀⠀
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀  inkeaton
 #⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡿⠿⠿⠛⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-#⠀⠀⠀⠀
+#⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
