@@ -1,8 +1,0 @@
-2024-02-27 17:25:31.855 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-python.python' wants API proposal 'registerIssueDataProvider' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2024-02-27 17:25:32.176 [info] Started local extension host with pid 1913.
-2024-02-27 17:25:35.446 [info] [perf] Render performance baseline is 24ms
-2024-02-27 17:25:40.561 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-python.python' wants API proposal 'registerIssueDataProvider' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2024-02-27 17:25:40.841 [info] Started local extension host with pid 2339.
-2024-02-27 17:25:42.273 [error] [File Watcher (parcel)] Unexpected error: inotify_add_watch on '/home/inkeaton/.config/VSCodium/logs/20240219T142520/window1' failed: No such file or directory (EUNKNOWN) (path: /home/inkeaton/.config)
-2024-02-27 17:25:42.273 [error] [File Watcher (universal)] restarting watcher after error: inotify_add_watch on '/home/inkeaton/.config/VSCodium/logs/20240219T142520/window1' failed: No such file or directory
-2024-02-27 17:25:43.453 [info] [perf] Render performance baseline is 20ms

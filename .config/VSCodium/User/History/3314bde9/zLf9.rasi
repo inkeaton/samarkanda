@@ -1,6 +1,0 @@
-configuration {
-  display-drun: "Applicazioni:";
-  font: "SauceCodePro Nerd Font 12";
-}
-
-@theme "rounded/rounded-orange.rasi"

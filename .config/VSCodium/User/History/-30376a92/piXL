@@ -1,3 +1,0 @@
-[Default]
-save_dir=$(xdg-user-dir PICTURES)
-save_filename_format=$(date +%Y-%m-%d_%H-%M-%S).png

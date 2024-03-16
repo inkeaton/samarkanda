@@ -1,8 +1,0 @@
-2024-02-27 18:02:10.702 [info] update#setState disabled
-2024-02-27 18:02:10.704 [info] update#ctor - updates are disabled as there is no update URL
-2024-02-27 18:10:28.920 [info] Extension host with pid 4045 exited with code: 0, signal: unknown.
-2024-02-27 18:14:34.669 [info] Extension host with pid 11009 exited with code: 0, signal: unknown.
-2024-02-27 18:14:34.689 [error] [UtilityProcess id: 2, type: fileWatcher, pid: 10996]: crashed with code 15 and reason 'killed'
-2024-02-27 18:20:32.319 [info] Extension host with pid 22685 exited with code: 0, signal: unknown.
-2024-02-27 18:32:23.904 [info] Extension host with pid 22733 exited with code: 0, signal: unknown.
-2024-02-27 18:32:23.922 [error] Blocked vscode-file request vscode-file://vscode-app/nix/store/i60j6j7fiyilc82n9a9ms4s9d6ymdnws-vscodium-1.85.2.24019/lib/vscode/resources/app/out/vs/base/worker/workerMain.js#editorWorkerService
