@@ -1,3 +1,0 @@
-[Default]
-save_dir=${XDG_SCREENSHOTS_DIR}
-save_filename_format=%Y-%m-%d_%H-%M-%S.png
