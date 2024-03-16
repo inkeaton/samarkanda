@@ -1,3 +1,4 @@
+// @ts-nocheck
 const BATTERY = await Service.import('battery')
 
 /*////////////////////////////////////////////////////////////////////////////
@@ -30,17 +31,23 @@ export function battery() {
                     transition: 'slide_left',
                     transitionDuration: 600,
                     revealChild: is_time_shown.bind(),
-                    
                     child: 
-                        Widget.Label({
-                            className: "bar-bat-rev",
-                            label: time_remaining,
-                        }),
+                        Widget.Box({
+                            children: [
+                                Widget.Label({
+                                    className: "bar-bat-rev",
+                                    label: time_remaining,
+                                }),
+                                Widget.Label({
+                                    label: BATTERY.bind('percent').as(percent => `${percent}%`)
+                                }),
+                            ]
+                        })
                 }),
 
                 Widget.Box({
                     class_name: class_state,
-                    children: [
+                    child: 
                         Widget.Icon({
                             class_name: "bar-bat-icn",
                             size: 25,
@@ -73,11 +80,7 @@ export function battery() {
                                 return icon;
                             })
                         }),
-                        Widget.Label({
-                            label: BATTERY.bind('percent').as(percent => `${percent}%`)
-                        })
-                    ]
-                })
+                }),
             ]
         })
     })

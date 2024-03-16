@@ -9,7 +9,7 @@ import { volume }      from './volume.js';
 import { battery }     from './battery.js';
 import { network }     from './network.js';
 
-import { power_profiles }     from './power_profiles.js';
+//import { power_profiles }     from './power_profiles.js';
 
 
 /*////////////////////////////////////////////////////////////////////////////
@@ -41,7 +41,6 @@ function right() {
         hpack: 'end',
         children: [
             systray(),
-            power_profiles,
             luminosity(),
             volume(),
             battery(),

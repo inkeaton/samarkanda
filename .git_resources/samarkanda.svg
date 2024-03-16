@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="280mm"
+   height="66.5mm"
+   viewBox="0 0 280 66.5"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="samarkanda.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.59468254"
+     inkscape:cx="519.60496"
+     inkscape:cy="72.307487"
+     inkscape:window-width="1440"
+     inkscape:window-height="862"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="228.61328"
+       y="279.2222"
+       width="680.79486"
+       height="222.73979"
+       id="rect2" />
+    <rect
+       x="91.065575"
+       y="125.99277"
+       width="797.92572"
+       height="523.86188"
+       id="rect5" />
+    <rect
+       x="387.55585"
+       y="420.2233"
+       width="370.85098"
+       height="272.65808"
+       id="rect4" />
+    <rect
+       x="167.34863"
+       y="277.37845"
+       width="134.43073"
+       height="35.836452"
+       id="rect1" />
+  </defs>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#bddac0;fill-opacity:1;stroke:none;stroke-width:2.02794"
+       id="rect3"
+       width="280"
+       height="66.5"
+       x="0"
+       y="0"
+       ry="25.504009" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.46732585,0,0,0.47470118,-125.59212,-155.15073)"
+       id="text1"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:85.3333px;font-family:'SF Pro Rounded';-inkscape-font-specification:'SF Pro Rounded Bold';text-align:center;letter-spacing:5px;white-space:pre;shape-inside:url(#rect2);shape-padding:63.0983;fill:#0d1117;fill-opacity:1;stroke:#000000;stroke-width:4.39181"
+       x="238.20825"
+       y="0"><tspan
+         x="305.90668"
+         y="421.07205"
+         id="tspan1">samarkanda</tspan></text>
+  </g>
+</svg>

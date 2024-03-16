@@ -22,7 +22,8 @@ class BrightnessService extends Service {
     }
 
     // this Service assumes only one device with backlight
-    #interface = Utils.exec("sh -c 'ls -w1 /sys/class/backlight | head -1'");
+    #interface = Utils.exec("zsh -c 'for dir in /sys/class/backlight/*; do basename \'$dir\'; done'");
+    
 
     // # prefix means private in JS
     #screenValue = 0;

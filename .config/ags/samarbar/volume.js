@@ -26,19 +26,15 @@ export function volume() {
                     transition: 'slide_left',
                     revealChild: is_audio_bar_shown.bind(),
 
-                    child: 
-                        Widget.Slider({
-                            className: 'bar-aud-sld',
-                            value: AUDIO['speaker'].bind('volume'),
-                            drawValue: false,
-                            on_change: ({ value }) => AUDIO['speaker'].volume = value,
-                        })
+                    child: Widget.Label({
+                        label: AUDIO['speaker'].bind('volume').as( volume => `${Math.round(volume*100)}%`),
+                    })
                 }),
 
                 Widget.Box({
                     // @ts-ignore
                     class_name: AUDIO['speaker'].bind('is_muted').as(is_muted => AUDIO.speaker.stream.isMuted ? 'bar-aud-mut' : 'bar-aud'),
-                    children: [
+                    child:
                         Widget.Icon({
                             class_name: "bar-bat-icn",
                             size: 20,
@@ -70,10 +66,6 @@ export function volume() {
                                 return icon;
                             }),
                         }),
-                        Widget.Label({
-                            label: AUDIO['speaker'].bind('volume').as( volume => `${Math.round(volume*100)}%`),
-                        })
-                    ]
                 }),
                 
             ]

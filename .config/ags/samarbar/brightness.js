@@ -23,16 +23,14 @@ export function luminosity(){
                     transition: 'slide_left',
                     transitionDuration: 600,
                     
-                    child: Widget.Slider({
-                        class_name: 'bar-lum-sld',
-                        value: BRIGHTNESS.bind('screen_value'),
-                        drawValue: false,
-                        on_change: ({ value }) => BRIGHTNESS.screen_value = value,
-                    })
+                    child: Widget.Label({
+                        label: BRIGHTNESS.bind('screen_value').as( percent => `${Math.round(percent*100)}%`),
+                    }),
                 }),
+                
                 Widget.Box({
                     class_name: 'bar-lum',
-                    children: [
+                    child: 
                         Widget.Icon({
                             class_name: "bar-bat-icn",
                             size: 17,
@@ -59,14 +57,9 @@ export function luminosity(){
                                         icon += "0.svg";
                                         break;
                                 }
-                                
                                 return icon;
                             }),
                         }),
-                        Widget.Label({
-                            label: BRIGHTNESS.bind('screen_value').as( percent => `${Math.round(percent*100)}%`),
-                        }),
-                    ]
                 })
             ]
         })

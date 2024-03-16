@@ -1,8 +1,8 @@
 
 const WINDOW_NAME = 'samaroff';
 
-const OPTIONS = [{command: "poweroff", icon: "accensione"}, 
-                 {command: "reboot",   icon: "riavvio"   }];
+const OPTIONS = [{command: "shutdown    now", icon: "accensione"}, 
+                 {command: "shutdown -r now",   icon: "riavvio"   }];
 
 /*////////////////////////////////////////////////////////////////////////////
     POWER MENU

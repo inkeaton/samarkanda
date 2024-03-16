@@ -114,11 +114,11 @@ in
     # UTILITIES ############################[
 
         #xwaylandvideobridge          # screen sharing on wayland
+        steam-run                    # run normal executables
         xdg-desktop-portal-hyprland  # hyprland desktop portal
         xdg-desktop-portal-gtk       # gtk desktop portal
         mandoc                       # system manual
         power-profiles-daemon        # power-profiles daemon
-        # mako                         # notification deamon   (temporary)
         poppler_utils                # For pdf preview
         zip                          # archive managers 
         unzip                        #
