@@ -116,7 +116,7 @@ in
         #xwaylandvideobridge          # screen sharing on wayland
         xdg-desktop-portal-hyprland  # hyprland desktop portal
         xdg-desktop-portal-gtk       # gtk desktop portal
-        man                          # system manual
+        mandoc                       # system manual
         power-profiles-daemon        # power-profiles daemon
         # mako                         # notification deamon   (temporary)
         poppler_utils                # For pdf preview
@@ -158,6 +158,8 @@ in
     ];
 
     # Zsh configuration
+    # TO BE IMPROVED: 
+    #   + do only in home manager module
     programs.zsh = {
         enable = true;
         ohMyZsh.enable = true;

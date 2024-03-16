@@ -28,7 +28,10 @@
 # SYSTEM BASICS ##########################
 ################################
     
-    # Hardware scan 
+    # Original system Version
+    system.stateVersion = "23.11";  
+
+    # Modules
     imports = [
         ./hardware/hardware-configuration.nix
         ./software/os.nix
@@ -41,7 +44,7 @@
         ./software/packages.nix
         inputs.home-manager.nixosModules.default
     ];
-
+    
     # Use Home Manager
     home-manager = {
         # also pass inputs to home-manager modules
@@ -49,24 +52,6 @@
         users = {
             "inkeaton" = import ./../home/home.nix;
         };
-    };
-
-    # Original system Version
-    system.stateVersion = "23.11";  
-
-################################
-# SERVICES ###############################
-################################
-
-    services = {
-    # Automount drives
-        devmon.enable = true;
-        udisks2.enable = true;
-        gvfs.enable = true;
-    # Suspend when lid is closed (laptop)
-        logind.lidSwitch = "suspend";
-    # Battery service
-        upower.enable = true;
     };
 }
 

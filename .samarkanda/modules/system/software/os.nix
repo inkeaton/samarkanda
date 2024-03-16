@@ -1,8 +1,8 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-    #TMP, to fix microphone support
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    #TMP 
+    boot.kernelPackages = pkgs.linuxPackages;
     #Bootloader 
     boot.loader = {
         systemd-boot.enable       = true;

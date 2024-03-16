@@ -1,0 +1,12 @@
+/* Webfont: Nicolatte-Regular */@font-face {
+    font-family: 'Nicolatte';
+    src: url('NICOLATTE.eot'); /* IE9 Compat Modes */
+    src: url('NICOLATTE.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('NICOLATTE.woff') format('woff'), /* Modern Browsers */
+         url('NICOLATTE.woff2') format('woff2'), /* Modern Browsers */
+         url('NICOLATTE.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

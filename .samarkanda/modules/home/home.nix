@@ -21,12 +21,15 @@
         # Matugen Palette Generator
         inputs.matugen.nixosModules.default
         # Hyprland config
-        ./hyprland/hyprmain.nix
+        ./apps/hyprland/hyprmain.nix
         # Themes
         ./themes/gtk.nix
         ./themes/qt.nix
         # App dotfiles
-        # ./apps/ranger/ranger.nix
+        ./apps/ranger/ranger.nix
+        ./apps/zsh.nix
+        ./apps/kitty/kitty.nix
+        ./apps/swappy/swappy.nix
         
     ];
 
@@ -47,16 +50,19 @@
     
         # You can also create simple shell scripts directly inside your configuration.
         packages = [
-            # example
-            (pkgs.writeShellScriptBin "my-hello" ''
-                echo "Hello, ${config.home.username}!"
-            '')
+            # (pkgs.writeShellScriptBin "cat"  ''bat'')
+            # (pkgs.writeShellScriptBin "icat" ''kitten icat'')
+
+            (pkgs.writeShellScriptBin "l" ''exa --icons'')
+            (pkgs.writeShellScriptBin "la" ''exa --icons'')
+            (pkgs.writeShellScriptBin "ll" ''exa -lah --icons'')
+            (pkgs.writeShellScriptBin "ls" ''exa -lh --color=auto --icons'')
+
+            (pkgs.writeShellScriptBin "os-update"  ''nix flake update --flake ${config.home.homeDirectory}/.samarkanda/#default'')
+            (pkgs.writeShellScriptBin "os-rebuild" ''sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/.samarkanda/#default'')
+            (pkgs.writeShellScriptBin "os-list"    ''sudo nix-env --list-generations --profile /nix/var/nix/profiles/system'')
+            (pkgs.writeShellScriptBin "os-clean"   ''nix-collect-garbage -d'')
         ];
-
-        # Home Manager is pretty good at managing dotfiles. The primary way to manage
-        # plain files is through 'home.file'.
-        file = {};
-
         # Configure Cursor
         pointerCursor = {
             gtk.enable = true;

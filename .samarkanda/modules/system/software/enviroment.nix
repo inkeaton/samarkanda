@@ -15,6 +15,7 @@
         EDITOR               ="nano";
         VISUAL               ="codium";
         BROWSER              ="firefox";
+        PAGER                ="most";
         # Directories
         XDG_DESKTOP_DIR      ="$HOME/";
         XDG_DOCUMENTS_DIR    ="$HOME/Documenti";

@@ -38,6 +38,7 @@
             nvidiaSettings = true;
 
             # Optionally, you may need to select the appropriate driver version for your specific GPU.
+            # TMP, nvidia fix
             package = config.boot.kernelPackages.nvidiaPackages.stable;
 
             # To use secondary GPU offloading (NVIDIA Prime)
