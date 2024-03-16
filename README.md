@@ -1,6 +1,6 @@
 <div align = center>
 
-<img src="./git_resources/samarkanda.svg" width="750" height="300" alt="banner">
+<img src="git_resources/samarkanda.svg" width="750" height="300" alt="banner">
 
 <br>
 
