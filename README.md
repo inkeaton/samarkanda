@@ -7,7 +7,6 @@
 ## Nixos config for a light OS, configured to my needs
 
 </div>
----
 
 ## TO DO:
 
