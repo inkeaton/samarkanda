@@ -19,4 +19,4 @@
 	+ [x] rofi
 	+ [x] swappy
 	+ [x] zsh
-+ [ ] Swap `mako` and `rofi` for ags widgets 
++ [x] Swap `mako` and `rofi` for ags widgets 
