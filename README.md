@@ -10,7 +10,7 @@
 
 ## TO DO:
 
-+ [ ] Reorganize the following settings into `.samarakanda`:
++ [ ] Reorganize the following settings into `.samarkanda`:
 	+ [ ] ags
 	+ [x] kitty
 	+ [x] mako
