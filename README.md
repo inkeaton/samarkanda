@@ -10,13 +10,13 @@
 
 ## TO DO:
 
-+ Reorganize the following settings into `.samarakanda`:
-	+ ags
-	+ kitty
-	+ mako
-	+ qbittorrent (theme)
-	+ ranger
-	+ rofi
-	+ swappy
-	+ zsh
-+ Swap `mako` and `rofi` for ags widgets 
++ [ ] Reorganize the following settings into `.samarakanda`:
+	+ [ ] ags
+	+ [x] kitty
+	+ [x] mako
+	+ [ ] qbittorrent (theme)
+	+ [x] ranger
+	+ [x] rofi
+	+ [x] swappy
+	+ [x] zsh
++ [ ] Swap `mako` and `rofi` for ags widgets 
